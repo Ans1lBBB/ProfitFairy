@@ -43,11 +43,13 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
         }
         .content h2 {
             color: #ff66b2;
             font-size: 2.5em;
             margin-bottom: 20px;
+            font-weight: bold;
         }
         .content p {
             font-size: 1.1em;
@@ -61,16 +63,21 @@
             gap: 40px;
         }
         .feature-item, .use-case-item {
-            background-color: #fff;
-            padding: 20px;
+            background-color: #ffffff;
+            padding: 25px;
             width: 250px;
             text-align: center;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature-item:hover, .use-case-item:hover {
+            transform: translateY(-10px);
         }
         .feature-item i, .use-case-item i {
-            font-size: 3em;
+            font-size: 3.5em;
             color: #ff66b2;
+            margin-bottom: 15px;
         }
         footer {
             background-color: #333;
@@ -89,6 +96,20 @@
         a:hover {
             text-decoration: underline;
         }
+        .contact-info a {
+            font-size: 1.1em;
+            display: inline-block;
+            margin-top: 15px;
+            color: #ff66b2;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .policy-info {
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
     </style>
 </head>
 <body>
@@ -99,11 +120,13 @@
 </header>
 
 <div class="container">
+    <!-- App Description -->
     <div class="content">
         <h2>App Description</h2>
         <p>Whether you're an entrepreneur, e-commerce seller, business analyst, or financial professional, ProfitFairy helps you quickly calculate profit margin, price, and profit, accurately considering platform fees and tax rates to help you make informed business decisions.</p>
     </div>
 
+    <!-- Key Features -->
     <div class="content">
         <h2>Key Features</h2>
         <div class="feature-list">
@@ -125,13 +148,15 @@
         </div>
     </div>
 
+    <!-- Additional Features -->
     <div class="content">
         <h2>Additional Features</h2>
-        <p><strong>Smart Calculations:</strong> The system automatically takes platform fees and tax rates into account, providing accurate data to help you make data-driven business decisions.</p>
-        <p><strong>Customizable Interface:</strong> Adjust the app's style to your preferences, whether you want a playful or professional look.</p>
-        <p><strong>Interactive User Experience:</strong> Each step is simple and intuitive, with clear prompts to avoid errors and ensure data accuracy.</p>
+        <p><strong>Smart Calculations:</strong> Automatically considers platform fees and tax rates to provide accurate results.</p>
+        <p><strong>Customizable Interface:</strong> Adjust the app's look and feel to suit your style, whether playful or professional.</p>
+        <p><strong>Interactive User Experience:</strong> Simple, intuitive steps with clear prompts to avoid errors and ensure accurate data.</p>
     </div>
 
+    <!-- Use Cases -->
     <div class="content">
         <h2>Use Cases</h2>
         <div class="use-cases-list">
@@ -153,6 +178,7 @@
         </div>
     </div>
 
+    <!-- Why Choose Us -->
     <div class="content">
         <h2>Why Choose Us?</h2>
         <ul>
@@ -160,6 +186,18 @@
             <li>Flexible Customization: Tailor calculation options and interface styles to your specific needs.</li>
             <li>Professional and Reliable: Suitable for entrepreneurs, e-commerce, finance, and more industries.</li>
         </ul>
+    </div>
+
+    <!-- Contact Information & Privacy Policy -->
+    <div class="content contact-info">
+        <h2>Contact Information</h2>
+        <p>If you have any questions or suggestions, feel free to reach out via email:</p>
+        <a href="mailto:ans1l@icloud.com">ans1l@icloud.com</a>
+
+        <div class="policy-info">
+            <h3>Privacy Policy</h3>
+            <p>We value your privacy. Please refer to our <a href="https://ans1lbbb.github.io/profitfairy-privacy-policy/" target="_blank">Privacy Policy</a> for more details.</p>
+        </div>
     </div>
 </div>
 
