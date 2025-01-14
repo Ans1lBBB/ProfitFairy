@@ -1,148 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Page</title>
+    <meta name="description" content="ProfitFairy – A Simple and Powerful Business Tool">
+    <title>ProfitFairy | </title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
             background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #ffffff;
+        header {
+            background-color: #007bff;
+            color: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
             text-align: center;
         }
-        select {
-            padding: 10px;
-            margin: 20px 0;
-            width: 100%;
-            font-size: 16px;
+        h1 {
+            margin: 0;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
         }
         .content {
-            font-size: 18px;
+            margin: 20px 0;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
+<header>
+    <h1>ProfitFairy</h1>
+    <p>A Simple and Powerful Business Tool</p>
+</header>
+
 <div class="container">
-    <h1>Support Page</h1>
+    <div class="content">
+        <h2>Brief introduction</h2>
+        <p>ProfitFairy: Instantly calculate profits, margins, and prices! Clear charts and quick decisions. The must-have financial tool! Download now!。</p>
+    </div>
 
-    <!-- Language Selection -->
-    <label for="language-selector">Select Language:</label>
-    <select id="language-selector">
-        <option value="en">English</option>
-        <option value="zh-tw">繁體中文</option>
-        <option value="zh-cn">简体中文</option>
-        <option value="ja">日本語</option>
-        <option value="ko">한국어</option>
-        <option value="ar">العربية</option>
-        <option value="th">ภาษาไทย</option>
-        <option value="id">Bahasa Indonesia</option>
-        <option value="vi">Tiếng Việt</option>
-        <option value="ru">Русский</option>
-        <option value="de">Deutsch</option>
-        <option value="fr">Français</option>
-        <option value="es">Español</option>
-        <option value="pt">Português</option>
-        <option value="it">Italiano</option>
-    </select>
+    <div class="content">
+        <h2>Privacy Policy</h2>
+        <p>We value your privacy, please refer to our <a href="https://ans1lbbb.github.io/profitfairy-privacy-policy/" target="_blank">Privacy Policy</a>Learn more</p>
+    </div>
 
-    <!-- Content Section -->
-    <div class="content" id="content">
-        <!-- Default Content in English -->
-        <h2>Welcome to the Support Page</h2>
-        <p>This is a simple template to show the language switching functionality.</p>
+    <div class="content">
+        <h2>Contact information</h2>
+        <p>If you have any questions or suggestions, please contact us:<br>
+        <a href="mailto:ans1l@icloud.com">ans1l@icloud.com</a></p>
     </div>
 </div>
 
-<script>
-    // Language content data
-    const translations = {
-        en: {
-            title: "Welcome to the Support Page",
-            text: "This is a simple template to show the language switching functionality."
-        },
-        "zh-tw": {
-            title: "歡迎來到支援頁面",
-            text: "這是一個簡單的範本，展示語言切換功能。"
-        },
-        "zh-cn": {
-            title: "欢迎来到支持页面",
-            text: "这是一个简单的模板，展示语言切换功能。"
-        },
-        ja: {
-            title: "サポートページへようこそ",
-            text: "これは、言語切り替え機能を示すシンプルなテンプレートです。"
-        },
-        ko: {
-            title: "지원 페이지에 오신 것을 환영합니다",
-            text: "언어 전환 기능을 보여주는 간단한 템플릿입니다."
-        },
-        ar: {
-            title: "مرحبًا بكم في صفحة الدعم",
-            text: "هذا نموذج بسيط لعرض وظيفة التبديل بين اللغات."
-        },
-        th: {
-            title: "ยินดีต้อนรับสู่หน้าสนับสนุน",
-            text: "นี่คือตัวอย่างง่ายๆ เพื่อแสดงฟังก์ชันการเปลี่ยนภาษา"
-        },
-        id: {
-            title: "Selamat datang di Halaman Dukungan",
-            text: "Ini adalah template sederhana untuk menunjukkan fungsionalitas pengalihan bahasa."
-        },
-        vi: {
-            title: "Chào mừng bạn đến với Trang Hỗ trợ",
-            text: "Đây là một mẫu đơn giản để hiển thị tính năng chuyển đổi ngôn ngữ."
-        },
-        ru: {
-            title: "Добро пожаловать на страницу поддержки",
-            text: "Это простой шаблон, демонстрирующий функцию переключения языков."
-        },
-        de: {
-            title: "Willkommen auf der Support-Seite",
-            text: "Dies ist eine einfache Vorlage, um die Sprachumschaltfunktion zu zeigen."
-        },
-        fr: {
-            title: "Bienvenue sur la page d'assistance",
-            text: "Ceci est un modèle simple pour afficher la fonction de changement de langue."
-        },
-        es: {
-            title: "Bienvenido a la página de soporte",
-            text: "Este es un modelo simple para mostrar la funcionalidad de cambio de idioma."
-        },
-        pt: {
-            title: "Bem-vindo à página de suporte",
-            text: "Este é um modelo simples para mostrar a funcionalidade de troca de idioma."
-        },
-        it: {
-            title: "Benvenuto nella pagina di supporto",
-            text: "Questo è un modello semplice per mostrare la funzionalità di cambio lingua."
-        }
-    };
-
-    // Event listener for language change
-    document.getElementById('language-selector').addEventListener('change', function() {
-        const selectedLanguage = this.value;
-        const content = translations[selectedLanguage] || translations['en'];  // Fallback to English
-
-        // Update content based on selected language
-        document.getElementById('content').innerHTML = `
-            <h2>${content.title}</h2>
-            <p>${content.text}</p>
-        `;
-    });
-</script>
+<footer>
+    <p>© 2025 ProfitFairy | All Rights Reserved</p>
+</footer>
 
 </body>
 </html>
