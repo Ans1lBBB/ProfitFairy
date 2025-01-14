@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="ProfitFairy – A Simple and Powerful Business Tool">
     <title>ProfitFairy | Your Business Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome icons -->
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f8f8f8;
+            background-color: #f4f4f9;
             color: #333;
             margin: 0;
             padding: 0;
@@ -16,57 +17,77 @@
         header {
             background-color: #ff66b2; /* 粉色背景 */
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
-            border-bottom: 5px solid #ff3385; /* 深粉色邊框 */
+            border-bottom: 6px solid #ff3385;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         header h1 {
-            font-size: 3em;
+            font-size: 3.5em;
             margin: 0;
+            font-weight: bold;
         }
         header p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             margin: 10px 0;
         }
         .container {
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         .content {
-            margin: 20px 0;
-            padding: 20px;
+            margin: 30px 0;
+            padding: 30px;
             background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
         .content h2 {
-            color: #ff66b2; /* 粉色標題 */
-            font-size: 2em;
+            color: #ff66b2;
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
         .content p {
             font-size: 1.1em;
-            line-height: 1.6;
+            line-height: 1.8;
+            color: #555;
         }
-        a {
-            color: #ff66b2; /* 粉色鏈接 */
-            text-decoration: none;
+        .feature-list, .use-cases-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
         }
-        a:hover {
-            text-decoration: underline;
+        .feature-item, .use-case-item {
+            background-color: #fff;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .feature-item i, .use-case-item i {
+            font-size: 3em;
+            color: #ff66b2;
         }
         footer {
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 15px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            padding: 20px;
+            margin-top: 40px;
         }
         footer p {
             margin: 0;
+        }
+        a {
+            color: #ff66b2;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -79,19 +100,66 @@
 
 <div class="container">
     <div class="content">
-        <h2>Brief Introduction</h2>
-        <p>ProfitFairy helps you instantly calculate profits, margins, and prices. With clear charts and quick decision-making, it's the must-have financial tool for your business! Download now and get started!</p>
+        <h2>App Description</h2>
+        <p>Whether you're an entrepreneur, e-commerce seller, business analyst, or financial professional, ProfitFairy helps you quickly calculate profit margin, price, and profit, accurately considering platform fees and tax rates to help you make informed business decisions.</p>
     </div>
 
     <div class="content">
-        <h2>Privacy Policy</h2>
-        <p>We value your privacy. Please refer to our <a href="https://ans1lbbb.github.io/profitfairy-privacy-policy/" target="_blank">Privacy Policy</a> to learn more.</p>
+        <h2>Key Features</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <i class="fas fa-calculator"></i>
+                <h3>Instant Profit Margin Calculation</h3>
+                <p>Simply input cost, price, or profit margin, and the app instantly shows profit amount, profit margin, and profit.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-cogs"></i>
+                <h3>Flexible Options Support</h3>
+                <p>Include platform fees and tax rates to adapt to various business needs.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-ban"></i>
+                <h3>Ad-Free Experience</h3>
+                <p>In-app purchases allow you to remove ads and focus on calculations without distractions.</p>
+            </div>
+        </div>
     </div>
 
     <div class="content">
-        <h2>Contact Information</h2>
-        <p>If you have any questions or suggestions, please contact us via email:<br>
-        <a href="mailto:ans1l@icloud.com">ans1l@icloud.com</a></p>
+        <h2>Additional Features</h2>
+        <p><strong>Smart Calculations:</strong> The system automatically takes platform fees and tax rates into account, providing accurate data to help you make data-driven business decisions.</p>
+        <p><strong>Customizable Interface:</strong> Adjust the app's style to your preferences, whether you want a playful or professional look.</p>
+        <p><strong>Interactive User Experience:</strong> Each step is simple and intuitive, with clear prompts to avoid errors and ensure data accuracy.</p>
+    </div>
+
+    <div class="content">
+        <h2>Use Cases</h2>
+        <div class="use-cases-list">
+            <div class="use-case-item">
+                <i class="fas fa-briefcase"></i>
+                <h3>Entrepreneurs & E-commerce Sellers</h3>
+                <p>Quickly calculate price, profit margin, and profit to make smart pricing and sales decisions.</p>
+            </div>
+            <div class="use-case-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Business Analysts & Accountants</h3>
+                <p>Perform financial analysis with accurate data to support business decisions.</p>
+            </div>
+            <div class="use-case-item">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Students & Learners</h3>
+                <p>Learn basic business calculations and practice pricing strategies to build a strong foundation.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li>Efficient and Convenient: Get accurate results without the need for complicated calculations.</li>
+            <li>Flexible Customization: Tailor calculation options and interface styles to your specific needs.</li>
+            <li>Professional and Reliable: Suitable for entrepreneurs, e-commerce, finance, and more industries.</li>
+        </ul>
     </div>
 </div>
 
