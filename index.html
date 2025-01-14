@@ -15,7 +15,7 @@
             padding: 0;
         }
         header {
-            background-color: #ff66b2; /* 粉色背景 */
+            background-color: #ff66b2;
             color: white;
             padding: 60px 20px;
             text-align: center;
@@ -56,13 +56,13 @@
             line-height: 1.8;
             color: #555;
         }
-        .feature-list, .use-cases-list {
+        .feature-list, .use-cases-list, .additional-features-list, .why-choose-us-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 40px;
         }
-        .feature-item, .use-case-item {
+        .feature-item, .use-case-item, .additional-feature-item, .why-choose-item {
             background-color: #ffffff;
             padding: 25px;
             width: 250px;
@@ -71,10 +71,10 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-        .feature-item:hover, .use-case-item:hover {
+        .feature-item:hover, .use-case-item:hover, .additional-feature-item:hover, .why-choose-item:hover {
             transform: translateY(-10px);
         }
-        .feature-item i, .use-case-item i {
+        .feature-item i, .use-case-item i, .additional-feature-item i, .why-choose-item i {
             font-size: 3.5em;
             color: #ff66b2;
             margin-bottom: 15px;
@@ -109,6 +109,13 @@
         .policy-info {
             margin-top: 20px;
             font-size: 1.1em;
+        }
+        .contact-info, .policy-info {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -151,29 +158,21 @@
     <!-- Additional Features -->
     <div class="content">
         <h2>Additional Features</h2>
-        <p><strong>Smart Calculations:</strong> Automatically considers platform fees and tax rates to provide accurate results.</p>
-        <p><strong>Customizable Interface:</strong> Adjust the app's look and feel to suit your style, whether playful or professional.</p>
-        <p><strong>Interactive User Experience:</strong> Simple, intuitive steps with clear prompts to avoid errors and ensure accurate data.</p>
-    </div>
-
-    <!-- Use Cases -->
-    <div class="content">
-        <h2>Use Cases</h2>
-        <div class="use-cases-list">
-            <div class="use-case-item">
-                <i class="fas fa-briefcase"></i>
-                <h3>Entrepreneurs & E-commerce Sellers</h3>
-                <p>Quickly calculate price, profit margin, and profit to make smart pricing and sales decisions.</p>
+        <div class="additional-features-list">
+            <div class="additional-feature-item">
+                <i class="fas fa-check-circle"></i>
+                <h3>Smart Calculations</h3>
+                <p>Automatically considers platform fees and tax rates to provide accurate results.</p>
             </div>
-            <div class="use-case-item">
-                <i class="fas fa-chart-line"></i>
-                <h3>Business Analysts & Accountants</h3>
-                <p>Perform financial analysis with accurate data to support business decisions.</p>
+            <div class="additional-feature-item">
+                <i class="fas fa-sliders-h"></i>
+                <h3>Customizable Interface</h3>
+                <p>Adjust the app's look and feel to suit your style, whether playful or professional.</p>
             </div>
-            <div class="use-case-item">
-                <i class="fas fa-graduation-cap"></i>
-                <h3>Students & Learners</h3>
-                <p>Learn basic business calculations and practice pricing strategies to build a strong foundation.</p>
+            <div class="additional-feature-item">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Interactive User Experience</h3>
+                <p>Simple, intuitive steps with clear prompts to avoid errors and ensure accurate data.</p>
             </div>
         </div>
     </div>
@@ -181,24 +180,37 @@
     <!-- Why Choose Us -->
     <div class="content">
         <h2>Why Choose Us?</h2>
-        <ul>
-            <li>Efficient and Convenient: Get accurate results without the need for complicated calculations.</li>
-            <li>Flexible Customization: Tailor calculation options and interface styles to your specific needs.</li>
-            <li>Professional and Reliable: Suitable for entrepreneurs, e-commerce, finance, and more industries.</li>
-        </ul>
+        <div class="why-choose-us-list">
+            <div class="why-choose-item">
+                <i class="fas fa-clock"></i>
+                <h3>Efficient and Convenient</h3>
+                <p>Get accurate results without the need for complicated calculations.</p>
+            </div>
+            <div class="why-choose-item">
+                <i class="fas fa-cogs"></i>
+                <h3>Flexible Customization</h3>
+                <p>Tailor calculation options and interface styles to your specific needs.</p>
+            </div>
+            <div class="why-choose-item">
+                <i class="fas fa-thumbs-up"></i>
+                <h3>Professional and Reliable</h3>
+                <p>Suitable for entrepreneurs, e-commerce, finance, and more industries.</p>
+            </div>
+        </div>
     </div>
 
     <!-- Contact Information & Privacy Policy -->
-    <div class="content contact-info">
+    <div class="contact-info">
         <h2>Contact Information</h2>
         <p>If you have any questions or suggestions, feel free to reach out via email:</p>
         <a href="mailto:ans1l@icloud.com">ans1l@icloud.com</a>
-
-        <div class="policy-info">
-            <h3>Privacy Policy</h3>
-            <p>We value your privacy. Please refer to our <a href="https://ans1lbbb.github.io/profitfairy-privacy-policy/" target="_blank">Privacy Policy</a> for more details.</p>
-        </div>
     </div>
+
+    <div class="policy-info">
+        <h2>Privacy Policy</h2>
+        <p>We value your privacy. Please refer to our <a href="https://ans1lbbb.github.io/profitfairy-privacy-policy/" target="_blank">Privacy Policy</a> for more details.</p>
+    </div>
+
 </div>
 
 <footer>
