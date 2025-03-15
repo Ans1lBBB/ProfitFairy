@@ -1,225 +1,258 @@
 <!DOCTYPE html>
-<html lang="multilingual">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProfitFairy Privacy Policy</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>ProfitFairy隐私守护手册</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Nunito&display=swap');
+
         :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --bg: #f8fafc;
-            --text: #1e293b;
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* 深色模式 */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #0f172a;
-                --text: #f8fafc;
-                --card-bg: rgba(30, 41, 59, 0.9);
-            }
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+            --primary: #FF9F9F;
+            --secondary: #A8D8EA;
+            --accent: #FFD6A5;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Nunito', sans-serif;
             line-height: 1.6;
-            color: var(--text);
-            background: linear-gradient(135deg, var(--bg) 0%, var(--bg) 100%);
-            min-height: 100vh;
-            padding: 2rem;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #FFF5E4 0%, #FFE3E1 100%);
+            position: relative;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
+        .header {
+            text-align: center;
+            padding: 30px 0 50px;
+            position: relative;
+        }
+
+        .fairy-icon {
+            width: 130px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 5px 3px rgba(0,0,0,0.1));
+        }
+
+        h1 {
+            font-family: 'Comic Neue', cursive;
+            color: #FF6B6B;
+            font-size: 2.8rem;
+            margin: 20px 0;
+            text-shadow: 2px 2px 0px white;
+        }
+
+        .policy-container {
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        /* 語言切換導航 */
-        .lang-nav {
-            position: sticky;
-            top: 0;
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            box-shadow: var(--shadow);
-            border-radius: 1rem;
-            margin-bottom: 2rem;
-            padding: 1rem;
-        }
-
-        .lang-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .lang-btn {
-            padding: 0.5rem 1.5rem;
-            border-radius: 2rem;
-            background: var(--card-bg);
-            border: 2px solid var(--primary);
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .lang-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        /* 政策內容樣式 */
         .policy-section {
-            background: var(--card-bg);
-            border-radius: 1.5rem;
-            padding: 3rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px 25px;
+            margin: 30px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border: 3px solid var(--primary);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .policy-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-icon {
+            width: 70px;
+            position: absolute;
+            top: -35px;
+            left: 20px;
+            background: white;
+            border-radius: 50%;
+            padding: 8px;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #6C5B7B;
+            font-family: 'Comic Neue', cursive;
+            margin: 15px 0 20px;
+            font-size: 1.8rem;
+            padding-left: 45px;
+        }
+
+        .policy-section p {
+            color: #666;
+            margin: 15px 0;
+            padding: 0 10px;
+        }
+
+        .highlight {
+            color: #FF6B6B;
+            font-weight: bold;
+        }
+
+        .contact-box {
+            text-align: center;
+            padding: 30px;
+            background: #FFF;
+            border-radius: 25px;
+            margin: 50px 0 30px;
+            border: 3px dashed var(--accent);
             position: relative;
             overflow: hidden;
         }
 
-        .policy-section::before {
-            content: '';
+        .contact-box::before {
+            content: '✨';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(var(--primary), var(--secondary));
+            font-size: 50px;
+            opacity: 0.2;
+            transform: rotate(-30deg);
+            left: -20px;
+            top: -10px;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            display: flex;
+        .email-btn {
+            display: inline-flex;
             align-items: center;
-            gap: 1rem;
+            background: linear-gradient(45deg, #FF9F9F, #FF6B6B);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+            transition: all 0.3s;
         }
 
-        h1 i {
-            color: var(--accent);
+        .email-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255,107,107,0.4);
         }
 
-        h2 {
-            color: var(--secondary);
-            margin: 2rem 0 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .email-btn::before {
+            content: '✉️';
+            margin-right: 12px;
+            font-size: 1.3rem;
         }
 
-        h2 i {
-            color: var(--accent);
-            font-size: 1.2em;
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .deco-cloud {
+            position: absolute;
+            opacity: 0.15;
+            z-index: -1;
+            animation: cloudMove 20s linear infinite;
+        }
+
+        @keyframes cloudMove {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100vw); }
         }
 
         .effective-date {
-            background: var(--bg);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin: 1rem 0;
-            display: inline-block;
-            font-weight: bold;
-        }
-
-        /* 互動元素 */
-        .contact-card {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 2rem;
-            border-radius: 1rem;
             text-align: center;
-            margin-top: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-        }
-
-        /* 響應式設計 */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .policy-section {
-                padding: 1.5rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
+            color: #888;
+            margin: -30px 0 40px;
+            font-style: italic;
         }
     </style>
 </head>
 <body>
-    <nav class="lang-nav">
-        <div class="lang-buttons">
-            <button class="lang-btn active" data-lang="en">English</button>
-            <button class="lang-btn" data-lang="es">Español</button>
-            <button class="lang-btn" data-lang="zh-tw">繁體中文</button>
-            <button class="lang-btn" data-lang="zh-cn">简体中文</button>
-            <button class="lang-btn" data-lang="ja">日本語</button>
-            <button class="lang-btn" data-lang="ko">한국어</button>
-            <!-- 其他語言按鈕... -->
-        </div>
-    </nav>
+    <!-- 背景装饰云 -->
+    <img src="https://cdn-icons-png.flaticon.com/512/1163/1163624.png" class="deco-cloud" style="top:10%; width:120px; animation-delay: 0s;">
+    <img src="https://cdn-icons-png.flaticon.com/512/590/5907054.png" class="deco-cloud" style="top:40%; width:150px; animation-delay: 5s;">
+    <img src="https://cdn-icons-png.flaticon.com/512/414/414927.png" class="deco-cloud" style="top:70%; width:100px; animation-delay: 10s;">
 
-    <div class="container">
-        <!-- 英文版本 -->
-        <div class="policy-section lang-section active" id="en">
-            <h1><i class="fas fa-shield-alt"></i>Privacy Policy</h1>
-            <div class="effective-date">
-                <i class="fas fa-calendar-check"></i> Effective Date: January 14, 2025
-            </div>
-
-            <h2><i class="fas fa-database"></i>1. Data Handling</h2>
-            <p>ProfitFairy is a business calculation tool designed for financial analysis...</p>
-
-            <h2><i class="fas fa-chart-line"></i>2. Anonymous Data Usage</h2>
-            <p>While we do not collect any personal data...</p>
-
-            <div class="contact-card">
-                <h3><i class="fas fa-envelope"></i> Contact Us</h3>
-                <p>Email: <a href="mailto:ans1l@icloud.com" style="color:white;text-decoration:underline">ans1l@icloud.com</a></p>
-            </div>
-        </div>
-
-        <!-- 其他語言版本... -->
+    <div class="header">
+        <img src="https://cdn-icons-png.flaticon.com/512/2598/2598706.png" class="fairy-icon" alt="守护小仙女">
+        <h1>ProfitFairy隐私守护手册</h1>
+        <p class="effective-date">生效日期：2025年1月14日</p>
     </div>
 
-    <script>
-        // 語言切換功能
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                // 切換激活狀態
-                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                
-                // 顯示對應語言內容
-                const lang = this.dataset.lang;
-                document.querySelectorAll('.lang-section').forEach(section => {
-                    section.classList.toggle('active', section.id === lang);
-                });
-            });
-        });
-    </script>
+    <div class="policy-container">
+        <!-- 数据守护 -->
+        <div class="policy-section">
+            <img src="https://cdn-icons-png.flaticon.com/512/1067/1067555.png" class="section-icon" alt="数据保护">
+            <h2>🔒 数据守护法则</h2>
+            <p>ProfitFairy是您贴心的商业计算小助手～<span class="highlight">我们承诺：</span></p>
+            <p>✨ 绝不收集任何个人信息<br>
+               ✨ 无需注册即可使用全部功能<br>
+               ✨ 所有数据只存在您的设备里</p>
+        </div>
+
+        <!-- 匿名数据 -->
+        <div class="policy-section">
+            <img src="https://cdn-icons-png.flaticon.com/512/1534/1534959.png" class="section-icon" alt="匿名数据">
+            <h2>🍪 匿名小饼干数据</h2>
+            <p>我们只会收集：<br>
+               🧮 功能点击次数统计<br>
+               📈 使用模式分析<br>
+               <span class="highlight">所有数据都已去除身份信息，就像小饼干一样安全可口～</span></p>
+        </div>
+
+        <!-- 广告服务 -->
+        <div class="policy-section">
+            <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" class="section-icon" alt="广告服务">
+            <h2>📢 广告小精灵说明</h2>
+            <p>应用中可能出现的广告：<br>
+               🎯 基于匿名数据推荐<br>
+               🔗 第三方广告服务商提供<br>
+               ⚠️ 点击广告将跳转到外部网站<br>
+               <span class="highlight">建议查看第三方隐私政策哦！</span></p>
+        </div>
+
+        <!-- 数据安全 -->
+        <div class="policy-section">
+            <img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" class="section-icon" alt="数据安全">
+            <h2>🛡️ 安全防护盾</h2>
+            <p>我们采用：<br>
+               🔐 AES-256加密技术<br>
+               🚧 防火墙双重防护<br>
+               💾 本地数据存储机制<br>
+               <span class="highlight">就像给小仙女加了魔法护盾一样安全！</span></p>
+        </div>
+
+        <!-- 儿童隐私 -->
+        <div class="policy-section">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" class="section-icon" alt="儿童保护">
+            <h2>👧👦 儿童守护计划</h2>
+            <p>特别为小朋友准备：<br>
+               🚫 不收集13岁以下儿童数据<br>
+               🧹 自动清理疑似儿童信息<br>
+               🎮 所有年龄段均可安全使用<br>
+               <span class="highlight">小仙女的魔法保护每个孩子！</span></p>
+        </div>
+
+        <!-- 政策更新 -->
+        <div class="policy-section">
+            <img src="https://cdn-icons-png.flaticon.com/512/3592/3592075.png" class="section-icon" alt="政策更新">
+            <h2>🔄 政策更新日志</h2>
+            <p>当政策更新时：<br>
+               📅 更新日期会醒目显示<br>
+               📢 重要变更特别标注<br>
+               💡 建议定期查看本页面<br>
+               <span class="highlight">小仙女会提前通知重要变更哦！</span></p>
+        </div>
+
+        <!-- 联系方式 -->
+        <div class="contact-box">
+            <h2>🧚♀️ 需要帮助？召唤小仙女！</h2>
+            <p>随时联系我们的精灵客服团队：</p>
+            <a href="mailto:ans1l@icloud.com" class="email-btn">
+                发送魔法邮件
+            </a>
+            <p style="margin-top:15px; color:#888; font-size:0.9em;">响应时间：24小时内回复</p>
+        </div>
+    </div>
 </body>
 </html>
