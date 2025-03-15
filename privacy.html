@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProfitFairy Privacy Policy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #6366f1;
@@ -12,6 +13,17 @@
             --accent: #ec4899;
             --bg: #f8fafc;
             --text: #1e293b;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 深色模式 */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f172a;
+                --text: #f8fafc;
+                --card-bg: rgba(30, 41, 59, 0.9);
+            }
         }
 
         * {
@@ -21,43 +33,47 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            background: linear-gradient(135deg, var(--bg) 0%, var(--bg) 100%);
+            min-height: 100vh;
+            padding: 2rem;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
         }
 
-        /* 语言切换导航 */
+        /* 語言切換導航 */
         .lang-nav {
             position: sticky;
             top: 0;
-            background: rgba(255,255,255,0.95);
+            background: var(--card-bg);
             backdrop-filter: blur(10px);
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
+            border-radius: 1rem;
             margin-bottom: 2rem;
+            padding: 1rem;
         }
 
         .lang-buttons {
             display: flex;
             gap: 1rem;
-            padding: 1rem;
-            overflow-x: auto;
+            flex-wrap: wrap;
         }
 
         .lang-btn {
             padding: 0.5rem 1.5rem;
             border-radius: 2rem;
-            background: white;
-            border: 2px solid #e2e8f0;
+            background: var(--card-bg);
+            border: 2px solid var(--primary);
+            color: var(--text);
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .lang-btn.active {
@@ -66,12 +82,12 @@
             border-color: var(--primary);
         }
 
-        /* 政策内容样式 */
+        /* 政策內容樣式 */
         .policy-section {
-            background: white;
+            background: var(--card-bg);
             border-radius: 1.5rem;
             padding: 3rem;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
             margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
@@ -122,7 +138,7 @@
             font-weight: bold;
         }
 
-        /* 互动元素 */
+        /* 互動元素 */
         .contact-card {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -137,7 +153,7 @@
             transform: translateY(-5px);
         }
 
-        /* 响应式设计 */
+        /* 響應式設計 */
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -156,11 +172,13 @@
 <body>
     <nav class="lang-nav">
         <div class="lang-buttons">
-            <!-- 添加语言切换按钮 -->
             <button class="lang-btn active" data-lang="en">English</button>
             <button class="lang-btn" data-lang="es">Español</button>
             <button class="lang-btn" data-lang="zh-tw">繁體中文</button>
-            <!-- 其他语言按钮... -->
+            <button class="lang-btn" data-lang="zh-cn">简体中文</button>
+            <button class="lang-btn" data-lang="ja">日本語</button>
+            <button class="lang-btn" data-lang="ko">한국어</button>
+            <!-- 其他語言按鈕... -->
         </div>
     </nav>
 
@@ -184,36 +202,21 @@
             </div>
         </div>
 
-        <!-- 西班牙语版本 -->
-        <div class="policy-section lang-section" id="es">
-            <!-- 类似结构... -->
-        </div>
-
-        <!-- 其他语言版本... -->
+        <!-- 其他語言版本... -->
     </div>
 
     <script>
-        // 语言切换功能
+        // 語言切換功能
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                // 切换激活状态
+                // 切換激活狀態
                 document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 
-                // 显示对应语言内容
+                // 顯示對應語言內容
                 const lang = this.dataset.lang;
                 document.querySelectorAll('.lang-section').forEach(section => {
                     section.classList.toggle('active', section.id === lang);
-                });
-            });
-        });
-
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
                 });
             });
         });
