@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="multilingual">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfitFairy Privacy Policy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --bg: #f8fafc;
+            --text: #1e293b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* 语言切换导航 */
+        .lang-nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .lang-buttons {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        .lang-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 2rem;
+            background: white;
+            border: 2px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* 政策内容样式 */
+        .policy-section {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .policy-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(var(--primary), var(--secondary));
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        h1 i {
+            color: var(--accent);
+        }
+
+        h2 {
+            color: var(--secondary);
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h2 i {
+            color: var(--accent);
+            font-size: 1.2em;
+        }
+
+        .effective-date {
+            background: var(--bg);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        /* 互动元素 */
+        .contact-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .policy-section {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="lang-nav">
+        <div class="lang-buttons">
+            <!-- 添加语言切换按钮 -->
+            <button class="lang-btn active" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="es">Español</button>
+            <button class="lang-btn" data-lang="zh-tw">繁體中文</button>
+            <!-- 其他语言按钮... -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- 英文版本 -->
+        <div class="policy-section lang-section active" id="en">
+            <h1><i class="fas fa-shield-alt"></i>Privacy Policy</h1>
+            <div class="effective-date">
+                <i class="fas fa-calendar-check"></i> Effective Date: January 14, 2025
+            </div>
+
+            <h2><i class="fas fa-database"></i>1. Data Handling</h2>
+            <p>ProfitFairy is a business calculation tool designed for financial analysis...</p>
+
+            <h2><i class="fas fa-chart-line"></i>2. Anonymous Data Usage</h2>
+            <p>While we do not collect any personal data...</p>
+
+            <div class="contact-card">
+                <h3><i class="fas fa-envelope"></i> Contact Us</h3>
+                <p>Email: <a href="mailto:ans1l@icloud.com" style="color:white;text-decoration:underline">ans1l@icloud.com</a></p>
+            </div>
+        </div>
+
+        <!-- 西班牙语版本 -->
+        <div class="policy-section lang-section" id="es">
+            <!-- 类似结构... -->
+        </div>
+
+        <!-- 其他语言版本... -->
+    </div>
+
+    <script>
+        // 语言切换功能
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 切换激活状态
+                document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // 显示对应语言内容
+                const lang = this.dataset.lang;
+                document.querySelectorAll('.lang-section').forEach(section => {
+                    section.classList.toggle('active', section.id === lang);
+                });
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
