@@ -6,209 +6,296 @@
     <meta name="description" content="ProfitFairy – A Simple and Powerful Business Tool">
     <title>ProfitFairy | Your Business Assistant</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Comic+Neue:wght@700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
     <style>
+        /* General Styles */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f9; /* Soft pink background */
+            color: #4a4a4a; /* Dark gray for text */
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
+
         header {
-            background-color: #ff66b2;
+            background-color: #ff66b2; /* Bright pink */
             color: white;
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 6px solid #ff3385;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        header h1 {
-            font-size: 3.5em;
-            margin: 0;
-            font-weight: bold;
-        }
-        header p {
-            font-size: 1.3em;
-            margin: 10px 0;
-        }
-        .container {
             padding: 40px 20px;
+            text-align: center;
+            border-bottom: 6px solid #ff3385; /* Darker pink */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .logo {
+            font-family: 'Comic Neue', cursive;
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .subtitle {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.2em;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .language-switcher button {
+            background-color: white;
+            color: #ff66b2;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-left: 5px;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-switcher button:hover {
+            background-color: #ff3385;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
             text-align: center;
             max-width: 1000px;
             margin: 0 auto;
         }
+
         .content {
-            margin: 30px 0;
-            padding: 30px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
+
         .content h2 {
             color: #ff66b2;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: 1.8em;
+            margin-bottom: 15px;
             font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
+
         .content p {
-            font-size: 1.1em;
-            line-height: 1.8;
+            font-size: 1em;
             color: #555;
         }
-        .feature-list, .use-cases-list, .additional-features-list, .why-choose-us-list {
+
+        .feature-list, .additional-features-list, .why-choose-us-list {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
+            flex-direction: column;
+            gap: 20px;
         }
-        .feature-item, .use-case-item, .additional-feature-item, .why-choose-item {
-            background-color: #ffffff;
-            padding: 25px;
-            width: 250px;
+
+        .feature-item, .additional-feature-item, .why-choose-item {
+            background-color: white;
+            padding: 20px;
             text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-        .feature-item:hover, .use-case-item:hover, .additional-feature-item:hover, .why-choose-item:hover {
-            transform: translateY(-10px);
+
+        .feature-item:hover, .additional-feature-item:hover, .why-choose-item:hover {
+            transform: translateY(-5px);
         }
-        .feature-item i, .use-case-item i, .additional-feature-item i, .why-choose-item i {
-            font-size: 3.5em;
+
+        .feature-item i, .additional-feature-item i, .why-choose-item i {
+            font-size: 2.5em;
             color: #ff66b2;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
+
+        .subscription-badge {
+            background-color: #ff66b2;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: inline-block;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
         footer {
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 40px;
+            padding: 15px;
+            margin-top: 30px;
         }
+
         footer p {
             margin: 0;
         }
+
         a {
             color: #ff66b2;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
-        .contact-info a {
-            font-size: 1.1em;
-            display: inline-block;
-            margin-top: 15px;
-            color: #ff66b2;
-            text-decoration: none;
-        }
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
+
         .policy-info {
-            margin-top: 20px;
-            font-size: 1.1em;
+            margin-top: 15px;
+            font-size: 1em;
         }
-        .contact-info, .policy-info {
-            background-color: #ffffff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
+
+        .policy-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        /* Magic-themed decorations */
+        .magic-icon {
+            font-size: 4em;
+            color: #ff66b2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .magic-text {
+            font-family: 'Comic Neue', cursive;
+            color: #ff66b2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .magic-button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .magic-button:hover {
+            background-color: #ff3385;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>ProfitFairy</h1>
-    <p>A Simple and Powerful Business Tool</p>
+    <div class="logo">ProfitFairy</div>
+    <p class="subtitle">Your Magical Business Assistant ✨</p>
+    <div class="language-switcher">
+        <button onclick="switchLanguage('en')">EN</button>
+        <button onclick="switchLanguage('zh')">简体中文</button>
+        <button onclick="switchLanguage('zh_tw')">繁體中文</button>
+        <button onclick="switchLanguage('ja')">日本語</button>
+        <button onclick="switchLanguage('ko')">한국어</button>
+    </div>
 </header>
 
 <div class="container">
     <!-- App Description -->
-    <div class="content">
-        <h2>App Description</h2>
-        <p>Whether you're an entrepreneur, e-commerce seller, business analyst, or financial professional, ProfitFairy helps you quickly calculate profit margin, price, and profit, accurately considering platform fees and tax rates to help you make informed business decisions.</p>
+    <div class="content" id="description">
+        <h2>Welcome to ProfitFairy!</h2>
+        <p>Whether you're an entrepreneur, e-commerce seller, or financial wizard, ProfitFairy helps you calculate profit margins, prices, and more with magical ease! ✨</p>
     </div>
 
     <!-- Key Features -->
-    <div class="content">
-        <h2>Key Features</h2>
+    <div class="content" id="features">
+        <h2>Magical Features</h2>
         <div class="feature-list">
             <div class="feature-item">
-                <i class="fas fa-calculator"></i>
-                <h3>Instant Profit Margin Calculation</h3>
-                <p>Simply input cost, price, or profit margin, and the app instantly shows profit amount, profit margin, and profit.</p>
+                <i class="fas fa-magic magic-icon"></i>
+                <h3>Instant Profit Calculations</h3>
+                <p>Input cost, price, or profit margin, and watch the magic happen! ✨</p>
             </div>
             <div class="feature-item">
                 <i class="fas fa-cogs"></i>
-                <h3>Flexible Options Support</h3>
-                <p>Include platform fees and tax rates to adapt to various business needs.</p>
+                <h3>Flexible Options</h3>
+                <p>Supports platform fees, tax rates, and more for all your business needs.</p>
             </div>
             <div class="feature-item">
                 <i class="fas fa-ban"></i>
                 <h3>Ad-Free Experience</h3>
-                <p>In-app purchases allow you to remove ads and focus on calculations without distractions.</p>
+                <p>Subscribe to remove ads and enjoy a distraction-free journey.</p>
+                <div class="subscription-badge">Subscription Required</div>
             </div>
         </div>
     </div>
 
-    <!-- Additional Features -->
-    <div class="content">
-        <h2>Additional Features</h2>
+    <!-- Advanced Features -->
+    <div class="content" id="advanced-features">
+        <h2>Advanced Magic ✨</h2>
         <div class="additional-features-list">
             <div class="additional-feature-item">
-                <i class="fas fa-check-circle"></i>
-                <h3>Smart Calculations</h3>
-                <p>Automatically considers platform fees and tax rates to provide accurate results.</p>
+                <i class="fas fa-star magic-icon"></i>
+                <h3>Smart Discounts</h3>
+                <p>Dual-direction discount/counter-discount design for flexible pricing.</p>
+                <div class="subscription-badge">Subscription Required</div>
             </div>
             <div class="additional-feature-item">
-                <i class="fas fa-sliders-h"></i>
-                <h3>Customizable Interface</h3>
-                <p>Adjust the app's look and feel to suit your style, whether playful or professional.</p>
+                <i class="fas fa-chart-line"></i>
+                <h3>Margin Analysis</h3>
+                <p>Track real-time gross margins for every transaction.</p>
+                <div class="subscription-badge">Subscription Required</div>
             </div>
             <div class="additional-feature-item">
-                <i class="fas fa-lightbulb"></i>
-                <h3>Interactive User Experience</h3>
-                <p>Simple, intuitive steps with clear prompts to avoid errors and ensure accurate data.</p>
+                <i class="fas fa-percent"></i>
+                <h3>Custom Fees & Tax Rates</h3>
+                <p>Flexible fee settings for buyers and sellers, with support for tax-inclusive/exclusive calculations.</p>
+                <div class="subscription-badge">Subscription Required</div>
+            </div>
+            <div class="additional-feature-item">
+                <i class="fas fa-lock"></i>
+                <h3>Data Privacy</h3>
+                <p>Local computation ensures your data stays safe and secure.</p>
             </div>
         </div>
     </div>
 
     <!-- Why Choose Us -->
-    <div class="content">
-        <h2>Why Choose Us?</h2>
+    <div class="content" id="why-choose-us">
+        <h2>Why Choose ProfitFairy?</h2>
         <div class="why-choose-us-list">
             <div class="why-choose-item">
-                <i class="fas fa-clock"></i>
-                <h3>Efficient and Convenient</h3>
-                <p>Get accurate results without the need for complicated calculations.</p>
+                <i class="fas fa-heart magic-icon"></i>
+                <h3>Simple & Fun</h3>
+                <p>Designed to make business calculations a magical experience!</p>
             </div>
             <div class="why-choose-item">
-                <i class="fas fa-cogs"></i>
-                <h3>Flexible Customization</h3>
-                <p>Tailor calculation options and interface styles to your specific needs.</p>
+                <i class="fas fa-crown"></i>
+                <h3>Powerful Tools</h3>
+                <p>All the features you need to succeed, wrapped in a cute package.</p>
             </div>
             <div class="why-choose-item">
-                <i class="fas fa-thumbs-up"></i>
-                <h3>Professional and Reliable</h3>
-                <p>Suitable for entrepreneurs, e-commerce, finance, and more industries.</p>
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure & Reliable</h3>
+                <p>Your data is always safe with us.</p>
             </div>
         </div>
     </div>
 
-    <!-- Contact Information & Privacy Policy -->
-    <div class="contact-info">
-        <h2>Contact Information</h2>
-        <p>If you have any questions or suggestions, feel free to reach out via email:</p>
-        <a href="mailto:ans1l@icloud.com">ans1l@icloud.com</a>
-    </div>
-
-    <div class="policy-info">
+    <!-- Privacy Policy -->
+    <div class="policy-info" id="privacy">
         <h2>Privacy Policy</h2>
-        <p>We value your privacy. Please refer to our <a href="https://ans1lbbb.github.io/profitfairy-privacy-policy/" target="_blank">Privacy Policy</a> for more details.</p>
+        <p>We value your privacy. Check out our <a href="https://ans1lbbb.github.io/ProfitFairy/privacy.html" target="_blank">Privacy Policy</a> for more details.</p>
     </div>
 
 </div>
@@ -216,6 +303,301 @@
 <footer>
     <p>© 2025 ProfitFairy | All Rights Reserved</p>
 </footer>
+
+<script>
+    // Language Data
+    const translations = {
+        en: {
+            description: {
+                title: "Welcome to ProfitFairy!",
+                text: "Whether you're an entrepreneur, e-commerce seller, or financial wizard, ProfitFairy helps you calculate profit margins, prices, and more with magical ease! ✨"
+            },
+            features: {
+                title: "Magical Features",
+                items: [
+                    {
+                        icon: "fas fa-magic",
+                        title: "Instant Profit Calculations",
+                        text: "Input cost, price, or profit margin, and watch the magic happen! ✨"
+                    },
+                    {
+                        icon: "fas fa-cogs",
+                        title: "Flexible Options",
+                        text: "Supports platform fees, tax rates, and more for all your business needs."
+                    },
+                    {
+                        icon: "fas fa-ban",
+                        title: "Ad-Free Experience",
+                        text: "Subscribe to remove ads and enjoy a distraction-free journey."
+                    }
+                ]
+            },
+            advancedFeatures: {
+                title: "Advanced Magic ✨",
+                items: [
+                    {
+                        icon: "fas fa-star",
+                        title: "Smart Discounts",
+                        text: "Dual-direction discount/counter-discount design for flexible pricing."
+                    },
+                    {
+                        icon: "fas fa-chart-line",
+                        title: "Margin Analysis",
+                        text: "Track real-time gross margins for every transaction."
+                    },
+                    {
+                        icon: "fas fa-percent",
+                        title: "Custom Fees & Tax Rates",
+                        text: "Flexible fee settings for buyers and sellers, with support for tax-inclusive/exclusive calculations."
+                    },
+                    {
+                        icon: "fas fa-lock",
+                        title: "Data Privacy",
+                        text: "Local computation ensures your data stays safe and secure."
+                    }
+                ]
+            },
+            whyChooseUs: {
+                title: "Why Choose ProfitFairy?",
+                items: [
+                    {
+                        icon: "fas fa-heart",
+                        title: "Simple & Fun",
+                        text: "Designed to make business calculations a magical experience!"
+                    },
+                    {
+                        icon: "fas fa-crown",
+                        title: "Powerful Tools",
+                        text: "All the features you need to succeed, wrapped in a cute package."
+                    },
+                    {
+                        icon: "fas fa-shield-alt",
+                        title: "Secure & Reliable",
+                        text: "Your data is always safe with us."
+                    }
+                ]
+            },
+            privacy: {
+                title: "Privacy Policy",
+                text: "We value your privacy. Check out our <a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>Privacy Policy</a> for more details."
+            }
+        },
+        zh: {
+            description: {
+                title: "欢迎来到 ProfitFairy！",
+                text: "无论您是企业家、电商卖家还是财务专家，ProfitFairy 都能帮助您轻松计算利润率、价格等，让您的业务决策更轻松！✨"
+            },
+            features: {
+                title: "神奇功能",
+                items: [
+                    {
+                        icon: "fas fa-magic",
+                        title: "即时利润计算",
+                        text: "输入成本、价格或利润率，立即查看利润金额和利润率！✨"
+                    },
+                    {
+                        icon: "fas fa-cogs",
+                        title: "灵活选项",
+                        text: "支持平台费用、税率等多种设置，满足您的业务需求。"
+                    },
+                    {
+                        icon: "fas fa-ban",
+                        title: "无广告体验",
+                        text: "订阅以移除广告，享受无干扰的计算体验。"
+                    }
+                ]
+            },
+            advancedFeatures: {
+                title: "高级魔法 ✨",
+                items: [
+                    {
+                        icon: "fas fa-star",
+                        title: "智能折扣",
+                        text: "双向折扣/反折扣设计，灵活定价策略。"
+                    },
+                    {
+                        icon: "fas fa-chart-line",
+                        title: "毛利分析",
+                        text: "实时跟踪每笔交易的毛利率。"
+                    },
+                    {
+                        icon: "fas fa-percent",
+                        title: "自定义手续费与税率",
+                        text: "买家和卖家的灵活手续费设置，支持含税/未税双向计算。"
+                    },
+                    {
+                        icon: "fas fa-lock",
+                        title: "数据隐私",
+                        text: "本地计算确保数据安全。"
+                    }
+                ]
+            },
+            whyChooseUs: {
+                title: "为什么选择 ProfitFairy？",
+                items: [
+                    {
+                        icon: "fas fa-heart",
+                        title: "简单有趣",
+                        text: "让业务计算变得像魔法一样简单有趣！"
+                    },
+                    {
+                        icon: "fas fa-crown",
+                        title: "强大工具",
+                        text: "所有功能一应俱全，包装在可爱的界面中。"
+                    },
+                    {
+                        icon: "fas fa-shield-alt",
+                        title: "安全可靠",
+                        text: "您的数据始终安全无忧。"
+                    }
+                ]
+            },
+            privacy: {
+                title: "隐私政策",
+                text: "我们重视您的隐私。请查看我们的<a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>隐私政策</a>了解更多详情。"
+            }
+        }
+    
+        zh: { /* 繁體中文翻譯 */ },
+    zh_tw: {
+        description: {
+            title: "歡迎來到 ProfitFairy！",
+            text: "無論您是企業家、電商賣家還是財務專家，ProfitFairy 都能幫助您輕鬆計算利潤率、價格等，讓您的業務決策更輕鬆！✨"
+        },
+        features: {
+            title: "神奇功能",
+            items: [
+                { icon: "fas fa-magic", title: "即時利潤計算", text: "輸入成本、價格或利潤率，立即查看利潤金額和利潤率！✨" },
+                { icon: "fas fa-cogs", title: "靈活選項", text: "支持平台費用、稅率等多種設置，滿足您的業務需求。" },
+                { icon: "fas fa-ban", title: "無廣告體驗", text: "訂閱以移除廣告，享受無干擾的計算體驗。" }
+            ]
+        },
+        advancedFeatures: {
+            title: "高級魔法 ✨",
+            items: [
+                { icon: "fas fa-star", title: "智能折扣", text: "雙向折扣/反折扣設計，靈活定價策略。" },
+                { icon: "fas fa-chart-line", title: "毛利分析", text: "實時跟踪每筆交易的毛利率。" },
+                { icon: "fas fa-percent", title: "自定義手續費與稅率", text: "買家和賣家的靈活手續費設置，支持含稅/未稅雙向計算。" },
+                { icon: "fas fa-lock", title: "數據隱私", text: "本地計算確保數據安全。" }
+            ]
+        },
+        whyChooseUs: {
+            title: "為什麼選擇 ProfitFairy？",
+            items: [
+                { icon: "fas fa-heart", title: "簡單有趣", text: "讓業務計算變得像魔法一樣簡單有趣！" },
+                { icon: "fas fa-crown", title: "強大工具", text: "所有功能一應俱全，包裝在可愛的界面中。" },
+                { icon: "fas fa-shield-alt", title: "安全可靠", text: "您的數據始終安全無憂。" }
+            ]
+        },
+        privacy: {
+            title: "隱私政策",
+            text: "我們重視您的隱私。請查看我們的<a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>隱私政策</a>了解更多詳情。"
+        }
+    },
+    ja: {
+        description: {
+            title: "ProfitFairyへようこそ！",
+            text: "起業家、eコマース販売者、または財務の専門家であっても、ProfitFairyは利益率、価格などを簡単に計算し、ビジネス意思決定を支援します！✨"
+        },
+        features: {
+            title: "魔法の機能",
+            items: [
+                { icon: "fas fa-magic", title: "即座の利益計算", text: "コスト、価格、または利益率を入力すると、魔法のように結果が表示されます！✨" },
+                { icon: "fas fa-cogs", title: "柔軟なオプション", text: "プラットフォーム手数料、税率などをサポートし、あらゆるビジネスニーズに対応します。" },
+                { icon: "fas fa-ban", title: "広告なしの体験", text: "購読して広告を削除し、集中できる環境を楽しんでください。" }
+            ]
+        },
+        advancedFeatures: {
+            title: "高度な魔法 ✨",
+            items: [
+                { icon: "fas fa-star", title: "スマート割引", text: "双方向割引/逆割引設計で柔軟な価格設定が可能です。" },
+                { icon: "fas fa-chart-line", title: "利益率分析", text: "すべての取引の実時間粗利益率を追跡します。" },
+                { icon: "fas fa-percent", title: "カスタム手数料と税率", text: "買い手と売り手のための柔軟な手数料設定、税込/税抜計算をサポートします。" },
+                { icon: "fas fa-lock", title: "データプライバシー", text: "ローカル計算によりデータの安全性を確保します。" }
+            ]
+        },
+        whyChooseUs: {
+            title: "なぜProfitFairyを選ぶのか？",
+            items: [
+                { icon: "fas fa-heart", title: "シンプルで楽しい", text: "ビジネス計算を魔法のように簡単で楽しくします！" },
+                { icon: "fas fa-crown", title: "強力なツール", text: "成功に必要なすべての機能が可愛いパッケージに詰まっています。" },
+                { icon: "fas fa-shield-alt", title: "安全で信頼性が高い", text: "あなたのデータは常に安全です。" }
+            ]
+        },
+        privacy: {
+            title: "プライバシーポリシー",
+            text: "私たちはあなたのプライバシーを大切にしています。詳細については<a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>プライバシーポリシー</a>をご覧ください。"
+        }
+    },
+    ko: {
+        description: {
+            title: "ProfitFairy에 오신 것을 환영합니다!",
+            text: "기업가, 전자상거래 판매자 또는 재무 전문가라면, ProfitFairy가 마법처럼 쉽게 이익률, 가격 등을 계산하여 비즈니스 결정을 도와드립니다! ✨"
+        },
+        features: {
+            title: "마법 같은 기능",
+            items: [
+                { icon: "fas fa-magic", title: "즉각적인 이익 계산", text: "비용, 가격 또는 이익률을 입력하면 마법처럼 결과가 나타납니다! ✨" },
+                { icon: "fas fa-cogs", title: "유연한 옵션", text: "플랫폼 수수료, 세율 등을 지원하여 모든 비즈니스 요구를 충족합니다." },
+                { icon: "fas fa-ban", title: "광고 없는 경험", text: "구독하여 광고를 제거하고 방해 없는 환경을 즐기세요." }
+            ]
+        },
+        advancedFeatures: {
+            title: "고급 마법 ✨",
+            items: [
+                { icon: "fas fa-star", title: "스마트 할인", text: "양방향 할인/역할인 설계로 유연한 가격 설정이 가능합니다." },
+                { icon: "fas fa-chart-line", title: "이익률 분석", text: "모든 거래의 실시간 이익률을 추적합니다." },
+                { icon: "fas fa-percent", title: "사용자 정의 수수료 및 세율", text: "구매자와 판매자를 위한 유연한 수수료 설정, 세금 포함/미포함 계산을 지원합니다." },
+                { icon: "fas fa-lock", title: "데이터 프라이버시", text: "로컬 계산으로 데이터 보안을 보장합니다." }
+            ]
+        },
+        whyChooseUs: {
+            title: "왜 ProfitFairy를 선택해야 할까요?",
+            items: [
+                { icon: "fas fa-heart", title: "간단하고 재미있음", text: "비즈니스 계산을 마법처럼 쉽고 재미있게 만듭니다!" },
+                { icon: "fas fa-crown", title: "강력한 도구", text: "성공에 필요한 모든 기능이 귀여운 패키지에 담겨 있습니다." },
+                { icon: "fas fa-shield-alt", title: "안전하고 신뢰할 수 있음", text: "귀하의 데이터는 항상 안전합니다." }
+            ]
+        },
+        privacy: {
+            title: "개인정보 보호정책",
+            text: "우리는 귀하의 개인정보를 소중히 여깁니다. 자세한 내용은 <a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>개인정보 보호정책</a>을 참조하십시오."
+        }
+    }
+        
+    };
+
+    // Language Switcher
+    function switchLanguage(lang) {
+        const data = translations[lang];
+        document.getElementById("description").querySelector("h2").textContent = data.description.title;
+        document.getElementById("description").querySelector("p").textContent = data.description.text;
+
+        const features = document.querySelectorAll("#features .feature-item");
+        features.forEach((item, index) => {
+            item.querySelector("h3").textContent = data.features.items[index].title;
+            item.querySelector("p").textContent = data.features.items[index].text;
+        });
+
+        const advancedFeatures = document.querySelectorAll("#advanced-features .additional-feature-item");
+        advancedFeatures.forEach((item, index) => {
+            item.querySelector("h3").textContent = data.advancedFeatures.items[index].title;
+            item.querySelector("p").textContent = data.advancedFeatures.items[index].text;
+        });
+
+        const whyChooseUs = document.querySelectorAll("#why-choose-us .why-choose-item");
+        whyChooseUs.forEach((item, index) => {
+            item.querySelector("h3").textContent = data.whyChooseUs.items[index].title;
+            item.querySelector("p").textContent = data.whyChooseUs.items[index].text;
+        });
+
+        document.getElementById("privacy").querySelector("h2").textContent = data.privacy.title;
+        document.getElementById("privacy").querySelector("p").innerHTML = data.privacy.text;
+    }
+
+    // Default to English
+    switchLanguage('en');
+</script>
 
 </body>
 </html>
