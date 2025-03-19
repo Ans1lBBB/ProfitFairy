@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProfitFairy Privacy Protection Handbook</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet"> <!-- 可愛字體 -->
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #FF9F9F;
@@ -34,10 +34,16 @@
             margin-bottom: 10px;
         }
 
+        .header-subtitle {
+            font-size: 1.2rem;
+            color: #6C5B7B;
+            margin-top: -5px;
+        }
+
         .effective-date {
             color: #888;
             font-size: 0.9rem;
-            margin-top: -10px;
+            margin-top: 5px;
         }
 
         .policy-container {
@@ -58,21 +64,15 @@
             transform: translateY(-3px);
         }
 
-        .section-icon {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 10px;
-        }
-
         h2 {
             color: #6C5B7B;
-            font-size: 1.2rem;
+            font-size: 1.4rem; /* 放大字級 */
             text-align: center;
             margin: 10px 0;
         }
 
         p {
-            font-size: 0.9rem;
+            font-size: 1rem; /* 放大字級 */
             color: #555;
             text-align: center;
         }
@@ -90,7 +90,7 @@
         }
 
         .language-toggle button {
-            padding: 8px 16px;
+            padding: 10px 20px;
             border: none;
             border-radius: 20px;
             background: var(--primary);
@@ -98,25 +98,25 @@
             font-weight: bold;
             cursor: pointer;
             margin: 5px;
+            transition: background 0.3s;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .language-toggle button:hover {
+            background: #FF6B6B;
         }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="logo-text">ProfitFairy</div>
+        <div class="header-subtitle">Your Privacy, Our Priority</div> <!-- 新增隱私相關標語 -->
         <p class="effective-date" id="effective-date">Effective Date: January 14, 2025</p>
     </div>
 
     <div class="language-toggle">
         <button onclick="switchLanguage('en')">English</button>
+        <button onclick="switchLanguage('zh_tw')">繁體中文</button> <!-- 調整順序 -->
         <button onclick="switchLanguage('zh')">简体中文</button>
-        <button onclick="switchLanguage('zh_tw')">繁體中文</button>
         <button onclick="switchLanguage('ja')">日本語</button>
         <button onclick="switchLanguage('ko')">한국어</button>
     </div>
@@ -402,7 +402,7 @@
         // Language Switcher
         function switchLanguage(lang) {
             const data = translations[lang];
-            document.getElementById("page-title").textContent = data.pageTitle;
+            document.title = data.pageTitle;
             document.getElementById("effective-date").textContent = data.effectiveDate;
 
             document.getElementById("data-protection-title").textContent = data.dataProtection.title;
