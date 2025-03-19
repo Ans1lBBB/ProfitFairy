@@ -60,19 +60,15 @@
             transition: transform 0.3s;
         }
 
-        .policy-section:hover {
-            transform: translateY(-3px);
-        }
-
         h2 {
             color: #6C5B7B;
-            font-size: 1.4rem; /* 放大字級 */
+            font-size: 1.4rem;
             text-align: center;
             margin: 10px 0;
         }
 
         p {
-            font-size: 1rem; /* 放大字級 */
+            font-size: 1rem;
             color: #555;
             text-align: center;
         }
@@ -104,18 +100,28 @@
         .language-toggle button:hover {
             background: #FF6B6B;
         }
+
+        .contact-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #FF6B6B;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <div class="logo-text">ProfitFairy</div>
-        <div class="header-subtitle">Your Privacy, Our Priority</div> <!-- 新增隱私相關標語 -->
+        <div class="header-subtitle" id="header-subtitle">Your Privacy, Our Priority</div>
         <p class="effective-date" id="effective-date">Effective Date: January 14, 2025</p>
     </div>
 
     <div class="language-toggle">
         <button onclick="switchLanguage('en')">English</button>
-        <button onclick="switchLanguage('zh_tw')">繁體中文</button> <!-- 調整順序 -->
+        <button onclick="switchLanguage('zh_tw')">繁體中文</button>
         <button onclick="switchLanguage('zh')">简体中文</button>
         <button onclick="switchLanguage('ja')">日本語</button>
         <button onclick="switchLanguage('ko')">한국어</button>
@@ -124,116 +130,91 @@
     <div class="policy-container">
         <!-- Data Protection -->
         <div class="policy-section">
-            <h2 id="data-protection-title">🔐 Data Protection Commitment</h2>
-            <p id="data-protection-text">ProfitFairy is your most reliable business calculation partner～<span class="highlight" id="data-protection-highlight">We promise:</span></p>
-            <p id="data-protection-list">
-                ✨ No collection of personal information<br>
-                ✨ No registration required<br>
-                ✨ All data stored locally
-            </p>
+            <h2 id="dataProtection-title">🔐 Data Protection Commitment</h2>
+            <p id="dataProtection-text"></p>
+            <p id="dataProtection-list"></p>
+            <span class="highlight" id="dataProtection-highlight"></span>
         </div>
 
         <!-- Anonymous Data -->
         <div class="policy-section">
-            <h2 id="anonymous-data-title">🕶️ Anonymous Data Processing</h2>
-            <p id="anonymous-data-text">We only collect:<br>
-                📊 Usage statistics<br>
-                🔍 Interaction patterns<br>
-                <span class="highlight" id="anonymous-data-highlight">All data is anonymized!</span></p>
+            <h2 id="anonymousData-title">🕶️ Anonymous Data Processing</h2>
+            <p id="anonymousData-text"></p>
+            <span class="highlight" id="anonymousData-highlight"></span>
         </div>
 
         <!-- Advertising Services -->
         <div class="policy-section">
             <h2 id="advertising-title">📺 Advertising Services</h2>
-            <p id="advertising-text">The app may include:<br>
-                🎁 Usage-based ads<br>
-                🤝 Third-party ads<br>
-                ⚠️ Redirects to external sites<br>
-                <span class="highlight" id="advertising-highlight">Check third-party policies</span></p>
+            <p id="advertising-text"></p>
+            <span class="highlight" id="advertising-highlight"></span>
         </div>
 
         <!-- Data Security -->
         <div class="policy-section">
             <h2 id="security-title">🛡️ Security Measures</h2>
-            <p id="security-text">We use:<br>
-                🔒 AES-256 encryption<br>
-                🧩 Firewall protection<br>
-                📱 Local data storage<br>
-                <span class="highlight" id="security-highlight">Your data is safe!</span></p>
+            <p id="security-text"></p>
+            <span class="highlight" id="security-highlight"></span>
         </div>
 
         <!-- Children's Privacy -->
         <div class="policy-section">
-            <h2 id="children-privacy-title">👧🏻👦🏼 Children's Privacy</h2>
-            <p id="children-privacy-text">Special measures:<br>
-                🚫 No data from kids under 13<br>
-                🧹 Automatic filtering<br>
-                🎈 Safe for all ages<br>
-                <span class="highlight" id="children-privacy-highlight">We protect kids!</span></p>
+            <h2 id="childrenPrivacy-title">👧🏻👦🏼 Children's Privacy</h2>
+            <p id="childrenPrivacy-text"></p>
+            <span class="highlight" id="childrenPrivacy-highlight"></span>
         </div>
 
         <!-- Policy Updates -->
         <div class="policy-section">
-            <h2 id="policy-updates-title">🔄 Policy Updates</h2>
-            <p id="policy-updates-text">When updating, you'll see:<br>
-                📆 Effective date<br>
-                💡 Important changes<br>
-                🔔 In-app notifications<br>
-                <span class="highlight" id="policy-updates-highlight">Stay tuned!</span></p>
+            <h2 id="policyUpdates-title">🔄 Policy Updates</h2>
+            <p id="policyUpdates-text"></p>
+            <span class="highlight" id="policyUpdates-highlight"></span>
         </div>
 
         <!-- Contact Information -->
         <div class="policy-section" style="text-align: center; background: #FFF8F8;">
             <h2 id="contact-title">🧚♀️♂️ Need Help? Summon the Fairy!</h2>
             <p style="margin: 20px 0;">
-                <a href="mailto:ans1l@icloud.com" style="
-                    display: inline-block;
-                    padding: 12px 30px;
-                    background: #FF6B6B;
-                    color: white;
-                    border-radius: 25px;
-                    text-decoration: none;
-                    font-weight: bold;
-                " id="contact-button">✉️ Send a Magic Email</a>
+                <a href="mailto:ans1l@icloud.com" class="contact-button" id="contact-button">✉️ Send a Magic Email</a>
             </p>
         </div>
     </div>
 
     <script>
-        // Language Data
         const translations = {
             en: {
                 pageTitle: "ProfitFairy Privacy Protection Handbook",
+                headerSubtitle: "Your Privacy, Our Priority",
                 effectiveDate: "Effective Date: January 14, 2025",
                 dataProtection: {
                     title: "🔐 Data Protection Commitment",
                     text: "ProfitFairy is your most reliable business calculation partner～",
                     highlight: "We promise:",
-                    list: "✨ No collection of personal information<br>✨ No registration required<br>✨ All data stored locally"
+                    list: ["✨ No collection of personal information", "✨ No registration required", "✨ All data stored locally"]
                 },
                 anonymousData: {
                     title: "🕶️ Anonymous Data Processing",
-                    text: "We only collect:<br>📊 Usage statistics<br>🔍 Interaction patterns",
+                    text: ["We only collect:", "📊 Usage statistics", "🔍 Interaction patterns"],
                     highlight: "All data is anonymized!"
                 },
                 advertising: {
                     title: "📺 Advertising Services",
-                    text: "The app may include:<br>🎁 Usage-based ads<br>🤝 Third-party ads<br>⚠️ Redirects to external sites",
+                    text: ["The app may include:", "🎁 Usage-based ads", "🤝 Third-party ads", "⚠️ Redirects to external sites"],
                     highlight: "Check third-party policies"
                 },
                 security: {
                     title: "🛡️ Security Measures",
-                    text: "We use:<br>🔒 AES-256 encryption<br>🧩 Firewall protection<br>📱 Local data storage",
+                    text: ["We use:", "🔒 AES-256 encryption", "🧩 Firewall protection", "📱 Local data storage"],
                     highlight: "Your data is safe!"
                 },
                 childrenPrivacy: {
                     title: "👧🏻👦🏼 Children's Privacy",
-                    text: "Special measures:<br>🚫 No data from kids under 13<br>🧹 Automatic filtering<br>🎈 Safe for all ages",
+                    text: ["Special measures:", "🚫 No data from kids under 13", "🧹 Automatic filtering", "🎈 Safe for all ages"],
                     highlight: "We protect kids!"
                 },
                 policyUpdates: {
                     title: "🔄 Policy Updates",
-                    text: "When updating, you'll see:<br>📆 Effective date<br>💡 Important changes<br>🔔 In-app notifications",
+                    text: ["When updating, you'll see:", "📆 Effective date", "💡 Important changes", "🔔 In-app notifications"],
                     highlight: "Stay tuned!"
                 },
                 contact: {
@@ -243,36 +224,37 @@
             },
             zh: {
                 pageTitle: "ProfitFairy 隐私保护手册",
+                headerSubtitle: "您的隐私，我们的首要任务",
                 effectiveDate: "生效日期：2025年1月14日",
                 dataProtection: {
                     title: "🔐 数据保护承诺",
                     text: "ProfitFairy 是您最可靠的商业计算伙伴～",
                     highlight: "我们承诺：",
-                    list: "✨ 不收集个人信息<br>✨ 无需注册<br>✨ 数据本地存储"
+                    list: ["✨ 不收集个人信息", "✨ 无需注册", "✨ 数据本地存储"]
                 },
                 anonymousData: {
                     title: "🕶️ 匿名数据处理",
-                    text: "我们仅收集：<br>📊 使用统计<br>🔍 交互模式",
+                    text: ["我们仅收集：", "📊 使用统计", "🔍 交互模式"],
                     highlight: "所有数据均已匿名化！"
                 },
                 advertising: {
                     title: "📺 广告服务",
-                    text: "应用可能包含：<br>🎁 基于使用的广告<br>🤝 第三方广告<br>⚠️ 跳转至外部网站",
+                    text: ["应用可能包含：", "🎁 基于使用的广告", "🤝 第三方广告", "⚠️ 跳转至外部网站"],
                     highlight: "请查看第三方政策"
                 },
                 security: {
                     title: "🛡️ 安全措施",
-                    text: "我们采用：<br>🔒 AES-256 加密<br>🧩 防火墙保护<br>📱 本地数据存储",
+                    text: ["我们采用：", "🔒 AES-256 加密", "🧩 防火墙保护", "📱 本地数据存储"],
                     highlight: "您的数据很安全！"
                 },
                 childrenPrivacy: {
                     title: "👧🏻👦🏼 儿童隐私",
-                    text: "特别措施：<br>🚫 不收集13岁以下儿童数据<br>🧹 自动过滤<br>🎈 适合所有年龄段",
+                    text: ["特别措施：", "🚫 不收集13岁以下儿童数据", "🧹 自动过滤", "🎈 适合所有年龄段"],
                     highlight: "我们保护儿童！"
                 },
                 policyUpdates: {
                     title: "🔄 政策更新",
-                    text: "更新时您将看到：<br>📆 生效日期<br>💡 重要变更<br>🔔 应用内通知",
+                    text: ["更新时您将看到：", "📆 生效日期", "💡 重要变更", "🔔 应用内通知"],
                     highlight: "敬请关注！"
                 },
                 contact: {
@@ -282,36 +264,37 @@
             },
             zh_tw: {
                 pageTitle: "ProfitFairy 隱私保護手冊",
+                headerSubtitle: "您的隱私，我們的首要任務",
                 effectiveDate: "生效日期：2025年1月14日",
                 dataProtection: {
                     title: "🔐 數據保護承諾",
                     text: "ProfitFairy 是您最可靠的商業計算夥伴～",
                     highlight: "我們承諾：",
-                    list: "✨ 不收集個人信息<br>✨ 無需註冊<br>✨ 數據本地存儲"
+                    list: ["✨ 不收集個人信息", "✨ 無需註冊", "✨ 數據本地存儲"]
                 },
                 anonymousData: {
                     title: "🕶️ 匿名數據處理",
-                    text: "我們僅收集：<br>📊 使用統計<br>🔍 交互模式",
+                    text: ["我們僅收集：", "📊 使用統計", "🔍 交互模式"],
                     highlight: "所有數據均已匿名化！"
                 },
                 advertising: {
                     title: "📺 廣告服務",
-                    text: "應用可能包含：<br>🎁 基於使用的廣告<br>🤝 第三方廣告<br>⚠️ 跳轉至外部網站",
+                    text: ["應用可能包含：", "🎁 基於使用的廣告", "🤝 第三方廣告", "⚠️ 跳轉至外部網站"],
                     highlight: "請查看第三方政策"
                 },
                 security: {
                     title: "🛡️ 安全措施",
-                    text: "我們採用：<br>🔒 AES-256 加密<br>🧩 防火牆保護<br>📱 本地數據存儲",
+                    text: ["我們採用：", "🔒 AES-256 加密", "🧩 防火牆保護", "📱 本地數據存儲"],
                     highlight: "您的數據很安全！"
                 },
                 childrenPrivacy: {
                     title: "👧🏻👦🏼 兒童隱私",
-                    text: "特別措施：<br>🚫 不收集13歲以下兒童數據<br>🧹 自動過濾<br>🎈 適合所有年齡段",
+                    text: ["特別措施：", "🚫 不收集13歲以下兒童數據", "🧹 自動過濾", "🎈 適合所有年齡段"],
                     highlight: "我們保護兒童！"
                 },
                 policyUpdates: {
                     title: "🔄 政策更新",
-                    text: "更新時您將看到：<br>📆 生效日期<br>💡 重要變更<br>🔔 應用內通知",
+                    text: ["更新時您將看到：", "📆 生效日期", "💡 重要變更", "🔔 應用內通知"],
                     highlight: "敬請關注！"
                 },
                 contact: {
@@ -321,36 +304,37 @@
             },
             ja: {
                 pageTitle: "ProfitFairy プライバシー保護ハンドブック",
+                headerSubtitle: "あなたのプライバシーを最優先に",
                 effectiveDate: "発効日：2025年1月14日",
                 dataProtection: {
                     title: "🔐 データ保護の約束",
                     text: "ProfitFairyは、あなたの最も信頼できるビジネス計算パートナーです～",
                     highlight: "私たちは約束します：",
-                    list: "✨ 個人情報を収集しません<br>✨ 登録不要<br>✨ データはローカルに保存されます"
+                    list: ["✨ 個人情報を収集しません", "✨ 登録不要", "✨ データはローカルに保存されます"]
                 },
                 anonymousData: {
                     title: "🕶️ 匿名データ処理",
-                    text: "私たちは以下を収集します：<br>📊 使用統計<br>🔍 インタラクションパターン",
+                    text: ["私たちは以下を収集します：", "📊 使用統計", "🔍 インタラクションパターン"],
                     highlight: "すべてのデータは匿名化されています！"
                 },
                 advertising: {
                     title: "📺 広告サービス",
-                    text: "アプリには以下が含まれる場合があります：<br>🎁 使用に基づく広告<br>🤝 第三者広告<br>⚠️ 外部サイトにリダイレクト",
+                    text: ["アプリには以下が含まれる場合があります：", "🎁 使用に基づく広告", "🤝 第三者広告", "⚠️ 外部サイトにリダイレクト"],
                     highlight: "第三者のポリシーを確認してください"
                 },
                 security: {
                     title: "🛡️ セキュリティ対策",
-                    text: "私たちは以下を使用します：<br>🔒 AES-256暗号化<br>🧩 ファイアウォール保護<br>📱 ローカルデータ保存",
+                    text: ["私たちは以下を使用します：", "🔒 AES-256暗号化", "🧩 ファイアウォール保護", "📱 ローカルデータ保存"],
                     highlight: "あなたのデータは安全です！"
                 },
                 childrenPrivacy: {
                     title: "👧🏻👦🏼 子供のプライバシー",
-                    text: "特別な対策：<br>🚫 13歳未満の子供のデータを収集しません<br>🧹 自動フィルタリング<br>🎈 すべての年齢層に安全",
+                    text: ["特別な対策：", "🚫 13歳未満の子供のデータを収集しません", "🧹 自動フィルタリング", "🎈 すべての年齢層に安全"],
                     highlight: "私たちは子供を守ります！"
                 },
                 policyUpdates: {
                     title: "🔄 ポリシー更新",
-                    text: "更新時に以下が表示されます：<br>📆 発効日<br>💡 重要な変更<br>🔔 アプリ内通知",
+                    text: ["更新時に以下が表示されます：", "📆 発効日", "💡 重要な変更", "🔔 アプリ内通知"],
                     highlight: "お楽しみに！"
                 },
                 contact: {
@@ -360,36 +344,37 @@
             },
             ko: {
                 pageTitle: "ProfitFairy 개인정보 보호 핸드북",
+                headerSubtitle: "귀하의 프라이버시, 우리의 최우선 순위",
                 effectiveDate: "시행일: 2025년 1월 14일",
                 dataProtection: {
                     title: "🔐 데이터 보호 약속",
                     text: "ProfitFairy는 가장 신뢰할 수 있는 비즈니스 계산 파트너입니다～",
                     highlight: "우리는 약속합니다：",
-                    list: "✨ 개인 정보를 수집하지 않음<br>✨ 등록 불필요<br>✨ 데이터는 로컬에 저장됩니다"
+                    list: ["✨ 개인 정보를 수집하지 않음", "✨ 등록 불필요", "✨ 데이터는 로컬에 저장됩니다"]
                 },
                 anonymousData: {
                     title: "🕶️ 익명 데이터 처리",
-                    text: "우리는 다음을 수집합니다：<br>📊 사용 통계<br>🔍 상호 작용 패턴",
+                    text: ["우리는 다음을 수집합니다：", "📊 사용 통계", "🔍 상호 작용 패턴"],
                     highlight: "모든 데이터는 익명화되었습니다!"
                 },
                 advertising: {
                     title: "📺 광고 서비스",
-                    text: "앱에는 다음이 포함될 수 있습니다：<br>🎁 사용 기반 광고<br>🤝 제3자 광고<br>⚠️ 외부 사이트로 리디렉션",
+                    text: ["앱에는 다음이 포함될 수 있습니다：", "🎁 사용 기반 광고", "🤝 제3자 광고", "⚠️ 외부 사이트로 리디렉션"],
                     highlight: "제3자 정책을 확인하세요"
                 },
                 security: {
                     title: "🛡️ 보안 조치",
-                    text: "우리는 다음을 사용합니다：<br>🔒 AES-256 암호화<br>🧩 방화벽 보호<br>📱 로컬 데이터 저장",
+                    text: ["우리는 다음을 사용합니다：", "🔒 AES-256 암호화", "🧩 방화벽 보호", "📱 로컬 데이터 저장"],
                     highlight: "귀하의 데이터는 안전합니다!"
                 },
                 childrenPrivacy: {
                     title: "👧🏻👦🏼 어린이 개인정보 보호",
-                    text: "특별 조치：<br>🚫 13세 미만 어린이 데이터 수집 금지<br>🧹 자동 필터링<br>🎈 모든 연령대에 안전",
+                    text: ["특별 조치：", "🚫 13세 미만 어린이 데이터 수집 금지", "🧹 자동 필터링", "🎈 모든 연령대에 안전"],
                     highlight: "우리는 어린이를 보호합니다!"
                 },
                 policyUpdates: {
                     title: "🔄 정책 업데이트",
-                    text: "업데이트 시 다음이 표시됩니다：<br>📆 시행일<br>💡 중요한 변경 사항<br>🔔 앱 내 알림",
+                    text: ["업데이트 시 다음이 표시됩니다：", "📆 시행일", "💡 중요한 변경 사항", "🔔 앱 내 알림"],
                     highlight: "기대해 주세요!"
                 },
                 contact: {
@@ -399,42 +384,56 @@
             }
         };
 
-        // Language Switcher
         function switchLanguage(lang) {
             const data = translations[lang];
+            
+            // 更新通用元素
             document.title = data.pageTitle;
+            document.getElementById("header-subtitle").textContent = data.headerSubtitle;
             document.getElementById("effective-date").textContent = data.effectiveDate;
 
-            document.getElementById("data-protection-title").textContent = data.dataProtection.title;
-            document.getElementById("data-protection-text").innerHTML = data.dataProtection.text;
-            document.getElementById("data-protection-highlight").textContent = data.dataProtection.highlight;
-            document.getElementById("data-protection-list").innerHTML = data.dataProtection.list;
+            // 定義所有需要更新的區塊
+            const sections = [
+                'dataProtection',
+                'anonymousData',
+                'advertising',
+                'security',
+                'childrenPrivacy',
+                'policyUpdates',
+                'contact'
+            ];
 
-            document.getElementById("anonymous-data-title").textContent = data.anonymousData.title;
-            document.getElementById("anonymous-data-text").innerHTML = data.anonymousData.text;
-            document.getElementById("anonymous-data-highlight").textContent = data.anonymousData.highlight;
+            sections.forEach(section => {
+                // 更新標題
+                const titleElement = document.getElementById(`${section}-title`);
+                if (titleElement) titleElement.textContent = data[section].title;
 
-            document.getElementById("advertising-title").textContent = data.advertising.title;
-            document.getElementById("advertising-text").innerHTML = data.advertising.text;
-            document.getElementById("advertising-highlight").textContent = data.advertising.highlight;
+                // 更新主要文字
+                const textElement = document.getElementById(`${section}-text`);
+                if (textElement) {
+                    textElement.innerHTML = Array.isArray(data[section].text) 
+                        ? data[section].text.join('<br>') 
+                        : data[section].text;
+                }
 
-            document.getElementById("security-title").textContent = data.security.title;
-            document.getElementById("security-text").innerHTML = data.security.text;
-            document.getElementById("security-highlight").textContent = data.security.highlight;
+                // 更新列表內容
+                const listElement = document.getElementById(`${section}-list`);
+                if (listElement && data[section].list) {
+                    listElement.innerHTML = data[section].list.join('<br>');
+                }
 
-            document.getElementById("children-privacy-title").textContent = data.childrenPrivacy.title;
-            document.getElementById("children-privacy-text").innerHTML = data.childrenPrivacy.text;
-            document.getElementById("children-privacy-highlight").textContent = data.childrenPrivacy.highlight;
+                // 更新高亮文字
+                const highlightElement = document.getElementById(`${section}-highlight`);
+                if (highlightElement) {
+                    highlightElement.textContent = data[section].highlight;
+                }
+            });
 
-            document.getElementById("policy-updates-title").textContent = data.policyUpdates.title;
-            document.getElementById("policy-updates-text").innerHTML = data.policyUpdates.text;
-            document.getElementById("policy-updates-highlight").textContent = data.policyUpdates.highlight;
-
-            document.getElementById("contact-title").textContent = data.contact.title;
+            // 特別處理聯絡按鈕
             document.getElementById("contact-button").textContent = data.contact.button;
         }
 
-        // Default to English
+        // 初始化為英文
         switchLanguage('en');
     </script>
 </body>
