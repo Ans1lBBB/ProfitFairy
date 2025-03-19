@@ -307,158 +307,42 @@
 <script>
     // Language Data
     const translations = {
-        en: {
-            description: {
-                title: "Welcome to ProfitFairy!",
-                text: "Whether you're an entrepreneur, e-commerce seller, or financial wizard, ProfitFairy helps you calculate profit margins, prices, and more with magical ease! ✨"
-            },
-            features: {
-                title: "Magical Features",
-                items: [
-                    {
-                        icon: "fas fa-magic",
-                        title: "Instant Profit Calculations",
-                        text: "Input cost, price, or profit margin, and watch the magic happen! ✨"
-                    },
-                    {
-                        icon: "fas fa-cogs",
-                        title: "Flexible Options",
-                        text: "Supports platform fees, tax rates, and more for all your business needs."
-                    },
-                    {
-                        icon: "fas fa-ban",
-                        title: "Ad-Free Experience",
-                        text: "Subscribe to remove ads and enjoy a distraction-free journey."
-                    }
-                ]
-            },
-            advancedFeatures: {
-                title: "Advanced Magic ✨",
-                items: [
-                    {
-                        icon: "fas fa-star",
-                        title: "Smart Discounts",
-                        text: "Dual-direction discount/counter-discount design for flexible pricing."
-                    },
-                    {
-                        icon: "fas fa-chart-line",
-                        title: "Margin Analysis",
-                        text: "Track real-time gross margins for every transaction."
-                    },
-                    {
-                        icon: "fas fa-percent",
-                        title: "Custom Fees & Tax Rates",
-                        text: "Flexible fee settings for buyers and sellers, with support for tax-inclusive/exclusive calculations."
-                    },
-                    {
-                        icon: "fas fa-lock",
-                        title: "Data Privacy",
-                        text: "Local computation ensures your data stays safe and secure."
-                    }
-                ]
-            },
-            whyChooseUs: {
-                title: "Why Choose ProfitFairy?",
-                items: [
-                    {
-                        icon: "fas fa-heart",
-                        title: "Simple & Fun",
-                        text: "Designed to make business calculations a magical experience!"
-                    },
-                    {
-                        icon: "fas fa-crown",
-                        title: "Powerful Tools",
-                        text: "All the features you need to succeed, wrapped in a cute package."
-                    },
-                    {
-                        icon: "fas fa-shield-alt",
-                        title: "Secure & Reliable",
-                        text: "Your data is always safe with us."
-                    }
-                ]
-            },
-            privacy: {
-                title: "Privacy Policy",
-                text: "We value your privacy. Check out our <a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>Privacy Policy</a> for more details."
-            }
+    en: {
+        description: {
+            title: "Welcome to ProfitFairy!",
+            text: "Whether you're an entrepreneur, e-commerce seller, or financial wizard, ProfitFairy helps you calculate profit margins, prices, and more with magical ease! ✨"
         },
-        zh: {
-            description: {
-                title: "欢迎来到 ProfitFairy！",
-                text: "无论您是企业家、电商卖家还是财务专家，ProfitFairy 都能帮助您轻松计算利润率、价格等，让您的业务决策更轻松！✨"
-            },
-            features: {
-                title: "神奇功能",
-                items: [
-                    {
-                        icon: "fas fa-magic",
-                        title: "即时利润计算",
-                        text: "输入成本、价格或利润率，立即查看利润金额和利润率！✨"
-                    },
-                    {
-                        icon: "fas fa-cogs",
-                        title: "灵活选项",
-                        text: "支持平台费用、税率等多种设置，满足您的业务需求。"
-                    },
-                    {
-                        icon: "fas fa-ban",
-                        title: "无广告体验",
-                        text: "订阅以移除广告，享受无干扰的计算体验。"
-                    }
-                ]
-            },
-            advancedFeatures: {
-                title: "高级魔法 ✨",
-                items: [
-                    {
-                        icon: "fas fa-star",
-                        title: "智能折扣",
-                        text: "双向折扣/反折扣设计，灵活定价策略。"
-                    },
-                    {
-                        icon: "fas fa-chart-line",
-                        title: "毛利分析",
-                        text: "实时跟踪每笔交易的毛利率。"
-                    },
-                    {
-                        icon: "fas fa-percent",
-                        title: "自定义手续费与税率",
-                        text: "买家和卖家的灵活手续费设置，支持含税/未税双向计算。"
-                    },
-                    {
-                        icon: "fas fa-lock",
-                        title: "数据隐私",
-                        text: "本地计算确保数据安全。"
-                    }
-                ]
-            },
-            whyChooseUs: {
-                title: "为什么选择 ProfitFairy？",
-                items: [
-                    {
-                        icon: "fas fa-heart",
-                        title: "简单有趣",
-                        text: "让业务计算变得像魔法一样简单有趣！"
-                    },
-                    {
-                        icon: "fas fa-crown",
-                        title: "强大工具",
-                        text: "所有功能一应俱全，包装在可爱的界面中。"
-                    },
-                    {
-                        icon: "fas fa-shield-alt",
-                        title: "安全可靠",
-                        text: "您的数据始终安全无忧。"
-                    }
-                ]
-            },
-            privacy: {
-                title: "隐私政策",
-                text: "我们重视您的隐私。请查看我们的<a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>隐私政策</a>了解更多详情。"
-            }
+        features: {
+            title: "Magical Features",
+            items: [
+                { icon: "fas fa-magic", title: "Instant Profit Calculations", text: "Input cost, price, or profit margin, and watch the magic happen! ✨" },
+                { icon: "fas fa-cogs", title: "Flexible Options", text: "Supports platform fees, tax rates, and more for all your business needs." },
+                { icon: "fas fa-ban", title: "Ad-Free Experience", text: "Subscribe to remove ads and enjoy a distraction-free journey." }
+            ]
+        },
+        advancedFeatures: {
+            title: "Advanced Magic ✨",
+            items: [
+                { icon: "fas fa-star", title: "Smart Discounts", text: "Dual-direction discount/counter-discount design for flexible pricing." },
+                { icon: "fas fa-chart-line", title: "Margin Analysis", text: "Track real-time gross margins for every transaction." },
+                { icon: "fas fa-percent", title: "Custom Fees & Tax Rates", text: "Flexible fee settings for buyers and sellers, with support for tax-inclusive/exclusive calculations." },
+                { icon: "fas fa-lock", title: "Data Privacy", text: "Local computation ensures your data stays safe and secure." }
+            ]
+        },
+        whyChooseUs: {
+            title: "Why Choose ProfitFairy?",
+            items: [
+                { icon: "fas fa-heart", title: "Simple & Fun", text: "Designed to make business calculations a magical experience!" },
+                { icon: "fas fa-crown", title: "Powerful Tools", text: "All the features you need to succeed, wrapped in a cute package." },
+                { icon: "fas fa-shield-alt", title: "Secure & Reliable", text: "Your data is always safe with us." }
+            ]
+        },
+        privacy: {
+            title: "Privacy Policy",
+            text: "We value your privacy. Check out our <a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>Privacy Policy</a> for more details."
         }
-    
-        zh: { /* 繁體中文翻譯 */ },
+    },
+    zh: { /* 繁體中文翻譯 */ },
     zh_tw: {
         description: {
             title: "歡迎來到 ProfitFairy！",
@@ -564,8 +448,7 @@
             text: "우리는 귀하의 개인정보를 소중히 여깁니다. 자세한 내용은 <a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>개인정보 보호정책</a>을 참조하십시오."
         }
     }
-        
-    };
+};
 
     // Language Switcher
     function switchLanguage(lang) {
