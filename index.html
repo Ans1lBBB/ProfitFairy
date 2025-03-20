@@ -25,7 +25,6 @@
             text-align: center;
             border-bottom: 6px solid #ff3385; /* Darker pink */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            position: relative;
         }
 
         .logo {
@@ -42,25 +41,21 @@
             font-size: 1.2em;
             color: #fff;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
         }
 
         /* Language Switcher - New Design */
         .language-switcher {
-            position: absolute;
-            top: 20px;
-            right: 20px;
             display: flex;
+            justify-content: center;
             gap: 10px;
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
-            padding: 10px;
-            border-radius: 25px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
         }
 
         .language-switcher button {
             background-color: transparent;
-            color: #ff66b2;
-            border: 2px solid #ff66b2;
+            color: white;
+            border: 2px solid white;
             padding: 5px 15px;
             border-radius: 20px;
             cursor: pointer;
@@ -69,8 +64,8 @@
         }
 
         .language-switcher button:hover {
-            background-color: #ff66b2;
-            color: white;
+            background-color: white;
+            color: #ff66b2;
         }
 
         .container {
@@ -165,7 +160,7 @@
             background-color: white;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            text-align: left;
+            text-align: center;
         }
 
         .policy-info h2 {
@@ -183,6 +178,7 @@
 
         .policy-links {
             display: flex;
+            justify-content: center;
             gap: 15px;
             margin-top: 15px;
         }
@@ -329,8 +325,8 @@
     </div>
 
     <!-- Privacy & Terms Section - New Design -->
-    <div class="policy-info" id="privacy">
-        <h2>Privacy Policy & Terms of Use</h2>
+    <div class="content" id="privacy">
+        <h2><i class="fas fa-shield-alt magic-icon"></i> Privacy Policy & Terms of Use</h2>
         <p>We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of ProfitFairy.</p>
         <div class="policy-links">
             <a href="https://ans1lbbb.github.io/ProfitFairy/privacy.html" target="_blank">Privacy Policy</a>
