@@ -232,7 +232,7 @@
 
 <header>
     <div class="logo">ProfitFairy</div>
-    <p class="subtitle">Your Magical Business Assistant ✨</p>
+    <p class="subtitle" id="subtitle">Your Magical Business Assistant ✨</p>
     <div class="language-switcher">
         <button onclick="switchLanguage('en')">EN</button>
         <button onclick="switchLanguage('zh')">简体中文</button>
@@ -251,7 +251,7 @@
 
     <!-- Key Features -->
     <div class="content" id="features">
-        <h2>Magical Features</h2>
+        <h2 id="magical-features-title">Magical Features</h2>
         <div class="feature-list">
             <div class="feature-item">
                 <i class="fas fa-magic magic-icon"></i>
@@ -267,14 +267,14 @@
                 <i class="fas fa-ban"></i>
                 <h3>Ad-Free Experience</h3>
                 <p>Subscribe to remove ads and enjoy a distraction-free journey.</p>
-                <div class="subscription-badge">Subscription Required</div>
+                <div class="subscription-badge" id="subscription-badge">Subscription Required</div>
             </div>
         </div>
     </div>
 
     <!-- Advanced Features -->
     <div class="content" id="advanced-features">
-        <h2>Advanced Magic ✨</h2>
+        <h2 id="advanced-magic-title">Advanced Magic ✨</h2>
         <div class="additional-features-list">
             <div class="additional-feature-item">
                 <i class="fas fa-star magic-icon"></i>
@@ -343,6 +343,10 @@
     // Language Data
     const translations = {
     en: {
+        subtitle: "Your Magical Business Assistant ✨",
+        magicalFeaturesTitle: "Magical Features",
+        advancedMagicTitle: "Advanced Magic ✨",
+        subscriptionBadge: "Subscription Required",
         description: {
             title: "Welcome to ProfitFairy!",
             text: "Whether you're an entrepreneur, e-commerce seller, or financial wizard, ProfitFairy helps you calculate profit margins, prices, and more with magical ease! ✨"
@@ -382,6 +386,10 @@
         }
     },
     zh: {
+        subtitle: "您的魔法商业助手 ✨",
+        magicalFeaturesTitle: "神奇功能",
+        advancedMagicTitle: "高级魔法 ✨",
+        subscriptionBadge: "需要订阅",
         description: {
             title: "欢迎来到 ProfitFairy！",
             text: "无论您是企业家、电商卖家还是财务专家，ProfitFairy 都能帮助您轻松计算利润率、价格等，让您的业务决策更轻松！✨"
@@ -421,6 +429,10 @@
         }
     },
     zh_tw: {
+        subtitle: "您的魔法商業助手 ✨",
+        magicalFeaturesTitle: "神奇功能",
+        advancedMagicTitle: "高級魔法 ✨",
+        subscriptionBadge: "需要訂閱",
         description: {
             title: "歡迎來到 ProfitFairy！",
             text: "無論您是企業家、電商賣家還是財務專家，ProfitFairy 都能幫助您輕鬆計算利潤率、價格等，讓您的業務決策更輕鬆！✨"
@@ -460,6 +472,10 @@
         }
     },
     ja: {
+        subtitle: "あなたの魔法のビジネスアシスタント ✨",
+        magicalFeaturesTitle: "魔法の機能",
+        advancedMagicTitle: "高度な魔法 ✨",
+        subscriptionBadge: "購読が必要",
         description: {
             title: "ProfitFairyへようこそ！",
             text: "起業家、eコマース販売者、または財務の専門家であっても、ProfitFairyは利益率、価格などを簡単に計算し、ビジネス意思決定を支援します！✨"
@@ -499,6 +515,10 @@
         }
     },
     ko: {
+        subtitle: "당신의 마법 같은 비즈니스 어시스턴트 ✨",
+        magicalFeaturesTitle: "마법 같은 기능",
+        advancedMagicTitle: "고급 마법 ✨",
+        subscriptionBadge: "구독 필요",
         description: {
             title: "ProfitFairy에 오신 것을 환영합니다!",
             text: "기업가, 전자상거래 판매자 또는 재무 전문가라면, ProfitFairy가 마법처럼 쉽게 이익률, 가격 등을 계산하여 비즈니스 결정을 도와드립니다! ✨"
@@ -542,6 +562,13 @@
     // Language Switcher
     function switchLanguage(lang) {
         const data = translations[lang];
+        document.getElementById("subtitle").textContent = data.subtitle;
+        document.getElementById("magical-features-title").textContent = data.magicalFeaturesTitle;
+        document.getElementById("advanced-magic-title").textContent = data.advancedMagicTitle;
+        document.querySelectorAll(".subscription-badge").forEach(badge => {
+            badge.textContent = data.subscriptionBadge;
+        });
+
         document.getElementById("description").querySelector("h2").textContent = data.description.title;
         document.getElementById("description").querySelector("p").textContent = data.description.text;
 
