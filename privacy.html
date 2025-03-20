@@ -3,438 +3,579 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProfitFairy Privacy Protection Handbook</title>
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="description" content="ProfitFairy – A Simple and Powerful Business Tool">
+    <title>ProfitFairy | Your Business Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Comic+Neue:wght@700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
     <style>
-        :root {
-            --primary: #FF9F9F;
-            --secondary: #A8D8EA;
-            --accent: #FFD6A5;
-        }
-
+        /* General Styles */
         body {
-            font-family: 'Comic Neue', cursive;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f9; /* Soft pink background */
+            color: #4a4a4a; /* Dark gray for text */
             margin: 0;
-            padding: 20px;
-            background: #FFF5F5;
-            color: #4a4a4a;
+            padding: 0;
+            line-height: 1.6;
         }
 
-        .header {
+        header {
+            background-color: #ff66b2; /* Bright pink */
+            color: white;
+            padding: 40px 20px;
             text-align: center;
-            padding: 20px 0;
+            border-bottom: 6px solid #ff3385; /* Darker pink */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
-        .logo-text {
-            font-size: 2.5rem;
+        .logo {
+            font-family: 'Comic Neue', cursive;
+            font-size: 3em;
             font-weight: bold;
-            color: #FF6B6B;
-            text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             margin-bottom: 10px;
+            color: white;
         }
 
-        .header-subtitle {
-            font-size: 1.2rem;
-            color: #6C5B7B;
-            margin-top: -5px;
+        .subtitle {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.2em;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
-        .effective-date {
-            color: #888;
-            font-size: 0.9rem;
-            margin-top: 5px;
+        /* Language Switcher - New Design */
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 10px;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .policy-container {
-            max-width: 100%;
+        .language-switcher button {
+            background-color: transparent;
+            color: #ff66b2;
+            border: 2px solid #ff66b2;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .language-switcher button:hover {
+            background-color: #ff66b2;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+            text-align: center;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .policy-section {
-            background: white;
-            border-radius: 15px;
+        .content {
+            margin: 20px 0;
             padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        h2 {
-            color: #6C5B7B;
-            font-size: 1.4rem;
-            text-align: center;
-            margin: 10px 0;
+        .content h2 {
+            color: #ff66b2;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
-        p {
-            font-size: 1rem;
+        .content p {
+            font-size: 1em;
             color: #555;
+        }
+
+        .feature-list, .additional-features-list, .why-choose-us-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-item, .additional-feature-item, .why-choose-item {
+            background-color: white;
+            padding: 20px;
             text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .highlight {
-            color: #FF6B6B;
-            font-weight: bold;
-            display: block;
-            margin: 10px 0;
+        .feature-item:hover, .additional-feature-item:hover, .why-choose-item:hover {
+            transform: translateY(-5px);
         }
 
-        .language-toggle {
-            text-align: center;
-            margin: 20px 0;
+        .feature-item i, .additional-feature-item i, .why-choose-item i {
+            font-size: 2.5em;
+            color: #ff66b2;
+            margin-bottom: 10px;
         }
 
-        .language-toggle button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 20px;
-            background: var(--primary);
+        .subscription-badge {
+            background-color: #ff66b2;
             color: white;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 5px;
-            transition: background 0.3s;
-        }
-
-        .language-toggle button:hover {
-            background: #FF6B6B;
-        }
-
-        .contact-button {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            margin-top: 10px;
             display: inline-block;
-            padding: 12px 30px;
-            background: #FF6B6B;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        a {
+            color: #ff66b2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Privacy & Terms Section - New Design */
+        .policy-info {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .policy-info h2 {
+            color: #ff66b2;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .policy-info p {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .policy-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .policy-links a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff66b2;
             color: white;
             border-radius: 25px;
             text-decoration: none;
-            font-weight: bold;
+            transition: background-color 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .policy-links a:hover {
+            background-color: #ff3385;
+        }
+
+        /* Magic-themed decorations */
+        .magic-icon {
+            font-size: 4em;
+            color: #ff66b2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .magic-text {
+            font-family: 'Comic Neue', cursive;
+            color: #ff66b2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .magic-button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .magic-button:hover {
+            background-color: #ff3385;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo-text">ProfitFairy</div>
-        <div class="header-subtitle" id="header-subtitle">Your Privacy, Our Priority</div>
-        <p class="effective-date" id="effective-date">Effective Date: January 14, 2025</p>
-    </div>
 
-    <div class="language-toggle">
-        <button onclick="switchLanguage('en')">English</button>
-        <button onclick="switchLanguage('zh_tw')">繁體中文</button>
+<header>
+    <div class="logo">ProfitFairy</div>
+    <p class="subtitle">Your Magical Business Assistant ✨</p>
+    <div class="language-switcher">
+        <button onclick="switchLanguage('en')">EN</button>
         <button onclick="switchLanguage('zh')">简体中文</button>
+        <button onclick="switchLanguage('zh_tw')">繁體中文</button>
         <button onclick="switchLanguage('ja')">日本語</button>
         <button onclick="switchLanguage('ko')">한국어</button>
     </div>
+</header>
 
-    <div class="policy-container">
-        <!-- Data Protection -->
-        <div class="policy-section">
-            <h2 id="dataProtection-title">🔐 Data Protection Commitment</h2>
-            <p id="dataProtection-text"></p>
-            <p id="dataProtection-list"></p>
-            <span class="highlight" id="dataProtection-highlight"></span>
-        </div>
+<div class="container">
+    <!-- App Description -->
+    <div class="content" id="description">
+        <h2>Welcome to ProfitFairy!</h2>
+        <p>Whether you're an entrepreneur, e-commerce seller, or financial wizard, ProfitFairy helps you calculate profit margins, prices, and more with magical ease! ✨</p>
+    </div>
 
-        <!-- Anonymous Data -->
-        <div class="policy-section">
-            <h2 id="anonymousData-title">🕶️ Anonymous Data Processing</h2>
-            <p id="anonymousData-text"></p>
-            <span class="highlight" id="anonymousData-highlight"></span>
-        </div>
-
-        <!-- Advertising Services -->
-        <div class="policy-section">
-            <h2 id="advertising-title">📺 Advertising Services</h2>
-            <p id="advertising-text"></p>
-            <span class="highlight" id="advertising-highlight"></span>
-        </div>
-
-        <!-- Data Security -->
-        <div class="policy-section">
-            <h2 id="security-title">🛡️ Security Measures</h2>
-            <p id="security-text"></p>
-            <span class="highlight" id="security-highlight"></span>
-        </div>
-
-        <!-- Children's Privacy -->
-        <div class="policy-section">
-            <h2 id="childrenPrivacy-title">👧🏻👦🏼 Children's Privacy</h2>
-            <p id="childrenPrivacy-text"></p>
-            <span class="highlight" id="childrenPrivacy-highlight"></span>
-        </div>
-
-        <!-- Policy Updates -->
-        <div class="policy-section">
-            <h2 id="policyUpdates-title">🔄 Policy Updates</h2>
-            <p id="policyUpdates-text"></p>
-            <span class="highlight" id="policyUpdates-highlight"></span>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="policy-section" style="text-align: center; background: #FFF8F8;">
-            <h2 id="contact-title">🧚♀️♂️ Need Help? Summon the Fairy!</h2>
-            <p style="margin: 20px 0;">
-                <a href="mailto:ans1l@icloud.com" class="contact-button" id="contact-button">✉️ Send a Magic Email</a>
-            </p>
+    <!-- Key Features -->
+    <div class="content" id="features">
+        <h2>Magical Features</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <i class="fas fa-magic magic-icon"></i>
+                <h3>Instant Profit Calculations</h3>
+                <p>Input cost, price, or profit margin, and watch the magic happen! ✨</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-cogs"></i>
+                <h3>Flexible Options</h3>
+                <p>Supports platform fees, tax rates, and more for all your business needs.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-ban"></i>
+                <h3>Ad-Free Experience</h3>
+                <p>Subscribe to remove ads and enjoy a distraction-free journey.</p>
+                <div class="subscription-badge">Subscription Required</div>
+            </div>
         </div>
     </div>
 
-    <script>
-        const translations = {
-            en: {
-                pageTitle: "ProfitFairy Privacy Protection Handbook",
-                headerSubtitle: "Your Privacy, Our Priority",
-                effectiveDate: "Effective Date: January 14, 2025",
-                dataProtection: {
-                    title: "🔐 Data Protection Commitment",
-                    text: "ProfitFairy is your most reliable business calculation partner～",
-                    highlight: "We promise:",
-                    list: ["✨ No collection of personal information", "✨ No registration required", "✨ All data stored locally"]
-                },
-                anonymousData: {
-                    title: "🕶️ Anonymous Data Processing",
-                    text: ["We only collect:", "📊 Usage statistics", "🔍 Interaction patterns"],
-                    highlight: "All data is anonymized!"
-                },
-                advertising: {
-                    title: "📺 Advertising Services",
-                    text: ["The app may include:", "🎁 Usage-based ads", "🤝 Third-party ads", "⚠️ Redirects to external sites"],
-                    highlight: "Check third-party policies"
-                },
-                security: {
-                    title: "🛡️ Security Measures",
-                    text: ["We use:", "🔒 AES-256 encryption", "🧩 Firewall protection", "📱 Local data storage"],
-                    highlight: "Your data is safe!"
-                },
-                childrenPrivacy: {
-                    title: "👧🏻👦🏼 Children's Privacy",
-                    text: ["Special measures:", "🚫 No data from kids under 13", "🧹 Automatic filtering", "🎈 Safe for all ages"],
-                    highlight: "We protect kids!"
-                },
-                policyUpdates: {
-                    title: "🔄 Policy Updates",
-                    text: ["When updating, you'll see:", "📆 Effective date", "💡 Important changes", "🔔 In-app notifications"],
-                    highlight: "Stay tuned!"
-                },
-                contact: {
-                    title: "🧚♀️♂️ Need Help? Summon the Fairy!",
-                    button: "✉️ Send a Magic Email"
-                }
-            },
-            zh: {
-                pageTitle: "ProfitFairy 隐私保护手册",
-                headerSubtitle: "您的隐私，我们的首要任务",
-                effectiveDate: "生效日期：2025年1月14日",
-                dataProtection: {
-                    title: "🔐 数据保护承诺",
-                    text: "ProfitFairy 是您最可靠的商业计算伙伴～",
-                    highlight: "我们承诺：",
-                    list: ["✨ 不收集个人信息", "✨ 无需注册", "✨ 数据本地存储"]
-                },
-                anonymousData: {
-                    title: "🕶️ 匿名数据处理",
-                    text: ["我们仅收集：", "📊 使用统计", "🔍 交互模式"],
-                    highlight: "所有数据均已匿名化！"
-                },
-                advertising: {
-                    title: "📺 广告服务",
-                    text: ["应用可能包含：", "🎁 基于使用的广告", "🤝 第三方广告", "⚠️ 跳转至外部网站"],
-                    highlight: "请查看第三方政策"
-                },
-                security: {
-                    title: "🛡️ 安全措施",
-                    text: ["我们采用：", "🔒 AES-256 加密", "🧩 防火墙保护", "📱 本地数据存储"],
-                    highlight: "您的数据很安全！"
-                },
-                childrenPrivacy: {
-                    title: "👧🏻👦🏼 儿童隐私",
-                    text: ["特别措施：", "🚫 不收集13岁以下儿童数据", "🧹 自动过滤", "🎈 适合所有年龄段"],
-                    highlight: "我们保护儿童！"
-                },
-                policyUpdates: {
-                    title: "🔄 政策更新",
-                    text: ["更新时您将看到：", "📆 生效日期", "💡 重要变更", "🔔 应用内通知"],
-                    highlight: "敬请关注！"
-                },
-                contact: {
-                    title: "🧚♀️♂️ 需要帮助？召唤仙女！",
-                    button: "✉️ 发送魔法邮件"
-                }
-            },
-            zh_tw: {
-                pageTitle: "ProfitFairy 隱私保護手冊",
-                headerSubtitle: "您的隱私，我們的首要任務",
-                effectiveDate: "生效日期：2025年1月14日",
-                dataProtection: {
-                    title: "🔐 數據保護承諾",
-                    text: "ProfitFairy 是您最可靠的商業計算夥伴～",
-                    highlight: "我們承諾：",
-                    list: ["✨ 不收集個人信息", "✨ 無需註冊", "✨ 數據本地存儲"]
-                },
-                anonymousData: {
-                    title: "🕶️ 匿名數據處理",
-                    text: ["我們僅收集：", "📊 使用統計", "🔍 交互模式"],
-                    highlight: "所有數據均已匿名化！"
-                },
-                advertising: {
-                    title: "📺 廣告服務",
-                    text: ["應用可能包含：", "🎁 基於使用的廣告", "🤝 第三方廣告", "⚠️ 跳轉至外部網站"],
-                    highlight: "請查看第三方政策"
-                },
-                security: {
-                    title: "🛡️ 安全措施",
-                    text: ["我們採用：", "🔒 AES-256 加密", "🧩 防火牆保護", "📱 本地數據存儲"],
-                    highlight: "您的數據很安全！"
-                },
-                childrenPrivacy: {
-                    title: "👧🏻👦🏼 兒童隱私",
-                    text: ["特別措施：", "🚫 不收集13歲以下兒童數據", "🧹 自動過濾", "🎈 適合所有年齡段"],
-                    highlight: "我們保護兒童！"
-                },
-                policyUpdates: {
-                    title: "🔄 政策更新",
-                    text: ["更新時您將看到：", "📆 生效日期", "💡 重要變更", "🔔 應用內通知"],
-                    highlight: "敬請關注！"
-                },
-                contact: {
-                    title: "🧚♀️♂️ 需要幫助？召喚仙女！",
-                    button: "✉️ 發送魔法郵件"
-                }
-            },
-            ja: {
-                pageTitle: "ProfitFairy プライバシー保護ハンドブック",
-                headerSubtitle: "あなたのプライバシーを最優先に",
-                effectiveDate: "発効日：2025年1月14日",
-                dataProtection: {
-                    title: "🔐 データ保護の約束",
-                    text: "ProfitFairyは、あなたの最も信頼できるビジネス計算パートナーです～",
-                    highlight: "私たちは約束します：",
-                    list: ["✨ 個人情報を収集しません", "✨ 登録不要", "✨ データはローカルに保存されます"]
-                },
-                anonymousData: {
-                    title: "🕶️ 匿名データ処理",
-                    text: ["私たちは以下を収集します：", "📊 使用統計", "🔍 インタラクションパターン"],
-                    highlight: "すべてのデータは匿名化されています！"
-                },
-                advertising: {
-                    title: "📺 広告サービス",
-                    text: ["アプリには以下が含まれる場合があります：", "🎁 使用に基づく広告", "🤝 第三者広告", "⚠️ 外部サイトにリダイレクト"],
-                    highlight: "第三者のポリシーを確認してください"
-                },
-                security: {
-                    title: "🛡️ セキュリティ対策",
-                    text: ["私たちは以下を使用します：", "🔒 AES-256暗号化", "🧩 ファイアウォール保護", "📱 ローカルデータ保存"],
-                    highlight: "あなたのデータは安全です！"
-                },
-                childrenPrivacy: {
-                    title: "👧🏻👦🏼 子供のプライバシー",
-                    text: ["特別な対策：", "🚫 13歳未満の子供のデータを収集しません", "🧹 自動フィルタリング", "🎈 すべての年齢層に安全"],
-                    highlight: "私たちは子供を守ります！"
-                },
-                policyUpdates: {
-                    title: "🔄 ポリシー更新",
-                    text: ["更新時に以下が表示されます：", "📆 発効日", "💡 重要な変更", "🔔 アプリ内通知"],
-                    highlight: "お楽しみに！"
-                },
-                contact: {
-                    title: "🧚♀️♂️ 助けが必要ですか？妖精を召喚！",
-                    button: "✉️ 魔法のメールを送る"
-                }
-            },
-            ko: {
-                pageTitle: "ProfitFairy 개인정보 보호 핸드북",
-                headerSubtitle: "귀하의 프라이버시, 우리의 최우선 순위",
-                effectiveDate: "시행일: 2025년 1월 14일",
-                dataProtection: {
-                    title: "🔐 데이터 보호 약속",
-                    text: "ProfitFairy는 가장 신뢰할 수 있는 비즈니스 계산 파트너입니다～",
-                    highlight: "우리는 약속합니다：",
-                    list: ["✨ 개인 정보를 수집하지 않음", "✨ 등록 불필요", "✨ 데이터는 로컬에 저장됩니다"]
-                },
-                anonymousData: {
-                    title: "🕶️ 익명 데이터 처리",
-                    text: ["우리는 다음을 수집합니다：", "📊 사용 통계", "🔍 상호 작용 패턴"],
-                    highlight: "모든 데이터는 익명화되었습니다!"
-                },
-                advertising: {
-                    title: "📺 광고 서비스",
-                    text: ["앱에는 다음이 포함될 수 있습니다：", "🎁 사용 기반 광고", "🤝 제3자 광고", "⚠️ 외부 사이트로 리디렉션"],
-                    highlight: "제3자 정책을 확인하세요"
-                },
-                security: {
-                    title: "🛡️ 보안 조치",
-                    text: ["우리는 다음을 사용합니다：", "🔒 AES-256 암호화", "🧩 방화벽 보호", "📱 로컬 데이터 저장"],
-                    highlight: "귀하의 데이터는 안전합니다!"
-                },
-                childrenPrivacy: {
-                    title: "👧🏻👦🏼 어린이 개인정보 보호",
-                    text: ["특별 조치：", "🚫 13세 미만 어린이 데이터 수집 금지", "🧹 자동 필터링", "🎈 모든 연령대에 안전"],
-                    highlight: "우리는 어린이를 보호합니다!"
-                },
-                policyUpdates: {
-                    title: "🔄 정책 업데이트",
-                    text: ["업데이트 시 다음이 표시됩니다：", "📆 시행일", "💡 중요한 변경 사항", "🔔 앱 내 알림"],
-                    highlight: "기대해 주세요!"
-                },
-                contact: {
-                    title: "🧚♀️♂️ 도움이 필요하세요? 요정을 소환하세요!",
-                    button: "✉️ 마법의 이메일 보내기"
-                }
-            }
-        };
+    <!-- Advanced Features -->
+    <div class="content" id="advanced-features">
+        <h2>Advanced Magic ✨</h2>
+        <div class="additional-features-list">
+            <div class="additional-feature-item">
+                <i class="fas fa-star magic-icon"></i>
+                <h3>Smart Discounts</h3>
+                <p>Dual-direction discount/counter-discount design for flexible pricing.</p>
+                <div class="subscription-badge">Subscription Required</div>
+            </div>
+            <div class="additional-feature-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Margin Analysis</h3>
+                <p>Track real-time gross margins for every transaction.</p>
+                <div class="subscription-badge">Subscription Required</div>
+            </div>
+            <div class="additional-feature-item">
+                <i class="fas fa-percent"></i>
+                <h3>Custom Fees & Tax Rates</h3>
+                <p>Flexible fee settings for buyers and sellers, with support for tax-inclusive/exclusive calculations.</p>
+                <div class="subscription-badge">Subscription Required</div>
+            </div>
+            <div class="additional-feature-item">
+                <i class="fas fa-lock"></i>
+                <h3>Data Privacy</h3>
+                <p>Local computation ensures your data stays safe and secure.</p>
+            </div>
+        </div>
+    </div>
 
-        function switchLanguage(lang) {
-            const data = translations[lang];
-            
-            // 更新通用元素
-            document.title = data.pageTitle;
-            document.getElementById("header-subtitle").textContent = data.headerSubtitle;
-            document.getElementById("effective-date").textContent = data.effectiveDate;
+    <!-- Why Choose Us -->
+    <div class="content" id="why-choose-us">
+        <h2>Why Choose ProfitFairy?</h2>
+        <div class="why-choose-us-list">
+            <div class="why-choose-item">
+                <i class="fas fa-heart magic-icon"></i>
+                <h3>Simple & Fun</h3>
+                <p>Designed to make business calculations a magical experience!</p>
+            </div>
+            <div class="why-choose-item">
+                <i class="fas fa-crown"></i>
+                <h3>Powerful Tools</h3>
+                <p>All the features you need to succeed, wrapped in a cute package.</p>
+            </div>
+            <div class="why-choose-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure & Reliable</h3>
+                <p>Your data is always safe with us.</p>
+            </div>
+        </div>
+    </div>
 
-            // 定義所有需要更新的區塊
-            const sections = [
-                'dataProtection',
-                'anonymousData',
-                'advertising',
-                'security',
-                'childrenPrivacy',
-                'policyUpdates',
-                'contact'
-            ];
+    <!-- Privacy & Terms Section - New Design -->
+    <div class="policy-info" id="privacy">
+        <h2>Privacy Policy & Terms of Use</h2>
+        <p>We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of ProfitFairy.</p>
+        <div class="policy-links">
+            <a href="https://ans1lbbb.github.io/ProfitFairy/privacy.html" target="_blank">Privacy Policy</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Terms of Use</a>
+        </div>
+    </div>
+</div>
 
-            sections.forEach(section => {
-                // 更新標題
-                const titleElement = document.getElementById(`${section}-title`);
-                if (titleElement) titleElement.textContent = data[section].title;
+<footer>
+    <p>© 2025 ProfitFairy | All Rights Reserved</p>
+</footer>
 
-                // 更新主要文字
-                const textElement = document.getElementById(`${section}-text`);
-                if (textElement) {
-                    textElement.innerHTML = Array.isArray(data[section].text) 
-                        ? data[section].text.join('<br>') 
-                        : data[section].text;
-                }
-
-                // 更新列表內容
-                const listElement = document.getElementById(`${section}-list`);
-                if (listElement && data[section].list) {
-                    listElement.innerHTML = data[section].list.join('<br>');
-                }
-
-                // 更新高亮文字
-                const highlightElement = document.getElementById(`${section}-highlight`);
-                if (highlightElement) {
-                    highlightElement.textContent = data[section].highlight;
-                }
-            });
-
-            // 特別處理聯絡按鈕
-            document.getElementById("contact-button").textContent = data.contact.button;
+<script>
+    // Language Data
+    const translations = {
+    en: {
+        description: {
+            title: "Welcome to ProfitFairy!",
+            text: "Whether you're an entrepreneur, e-commerce seller, or financial wizard, ProfitFairy helps you calculate profit margins, prices, and more with magical ease! ✨"
+        },
+        features: {
+            title: "Magical Features",
+            items: [
+                { icon: "fas fa-magic", title: "Instant Profit Calculations", text: "Input cost, price, or profit margin, and watch the magic happen! ✨" },
+                { icon: "fas fa-cogs", title: "Flexible Options", text: "Supports platform fees, tax rates, and more for all your business needs." },
+                { icon: "fas fa-ban", title: "Ad-Free Experience", text: "Subscribe to remove ads and enjoy a distraction-free journey." }
+            ]
+        },
+        advancedFeatures: {
+            title: "Advanced Magic ✨",
+            items: [
+                { icon: "fas fa-star", title: "Smart Discounts", text: "Dual-direction discount/counter-discount design for flexible pricing." },
+                { icon: "fas fa-chart-line", title: "Margin Analysis", text: "Track real-time gross margins for every transaction." },
+                { icon: "fas fa-percent", title: "Custom Fees & Tax Rates", text: "Flexible fee settings for buyers and sellers, with support for tax-inclusive/exclusive calculations." },
+                { icon: "fas fa-lock", title: "Data Privacy", text: "Local computation ensures your data stays safe and secure." }
+            ]
+        },
+        whyChooseUs: {
+            title: "Why Choose ProfitFairy?",
+            items: [
+                { icon: "fas fa-heart", title: "Simple & Fun", text: "Designed to make business calculations a magical experience!" },
+                { icon: "fas fa-crown", title: "Powerful Tools", text: "All the features you need to succeed, wrapped in a cute package." },
+                { icon: "fas fa-shield-alt", title: "Secure & Reliable", text: "Your data is always safe with us." }
+            ]
+        },
+        privacy: {
+            title: "Privacy Policy & Terms of Use",
+            text: "We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of ProfitFairy.",
+            links: [
+                { text: "Privacy Policy", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "Terms of Use", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
         }
+    },
+    zh: {
+        description: {
+            title: "欢迎来到 ProfitFairy！",
+            text: "无论您是企业家、电商卖家还是财务专家，ProfitFairy 都能帮助您轻松计算利润率、价格等，让您的业务决策更轻松！✨"
+        },
+        features: {
+            title: "神奇功能",
+            items: [
+                { icon: "fas fa-magic", title: "即时利润计算", text: "输入成本、价格或利润率，立即查看利润金额和利润率！✨" },
+                { icon: "fas fa-cogs", title: "灵活选项", text: "支持平台费用、税率等多种设置，满足您的业务需求。" },
+                { icon: "fas fa-ban", title: "无广告体验", text: "订阅以移除广告，享受无干扰的计算体验。" }
+            ]
+        },
+        advancedFeatures: {
+            title: "高级魔法 ✨",
+            items: [
+                { icon: "fas fa-star", title: "智能折扣", text: "双向折扣/反折扣设计，灵活定价策略。" },
+                { icon: "fas fa-chart-line", title: "毛利分析", text: "实时跟踪每笔交易的毛利率。" },
+                { icon: "fas fa-percent", title: "自定义手续费与税率", text: "买家和卖家的灵活手续费设置，支持含税/未税双向计算。" },
+                { icon: "fas fa-lock", title: "数据隐私", text: "本地计算确保数据安全。" }
+            ]
+        },
+        whyChooseUs: {
+            title: "为什么选择 ProfitFairy？",
+            items: [
+                { icon: "fas fa-heart", title: "简单有趣", text: "让业务计算变得像魔法一样简单有趣！" },
+                { icon: "fas fa-crown", title: "强大工具", text: "所有功能一应俱全，包装在可爱的界面中。" },
+                { icon: "fas fa-shield-alt", title: "安全可靠", text: "您的数据始终安全无忧。" }
+            ]
+        },
+        privacy: {
+            title: "隐私政策与使用条款",
+            text: "我们重视您的隐私和透明度。请查看我们的政策以了解我们如何处理您的数据以及使用 ProfitFairy 的条款。",
+            links: [
+                { text: "隐私政策", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "使用条款", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
+        }
+    },
+    zh_tw: {
+        description: {
+            title: "歡迎來到 ProfitFairy！",
+            text: "無論您是企業家、電商賣家還是財務專家，ProfitFairy 都能幫助您輕鬆計算利潤率、價格等，讓您的業務決策更輕鬆！✨"
+        },
+        features: {
+            title: "神奇功能",
+            items: [
+                { icon: "fas fa-magic", title: "即時利潤計算", text: "輸入成本、價格或利潤率，立即查看利潤金額和利潤率！✨" },
+                { icon: "fas fa-cogs", title: "靈活選項", text: "支持平台費用、稅率等多種設置，滿足您的業務需求。" },
+                { icon: "fas fa-ban", title: "無廣告體驗", text: "訂閱以移除廣告，享受無干擾的計算體驗。" }
+            ]
+        },
+        advancedFeatures: {
+            title: "高級魔法 ✨",
+            items: [
+                { icon: "fas fa-star", title: "智能折扣", text: "雙向折扣/反折扣設計，靈活定價策略。" },
+                { icon: "fas fa-chart-line", title: "毛利分析", text: "實時跟踪每筆交易的毛利率。" },
+                { icon: "fas fa-percent", title: "自定義手續費與稅率", text: "買家和賣家的靈活手續費設置，支持含稅/未稅雙向計算。" },
+                { icon: "fas fa-lock", title: "數據隱私", text: "本地計算確保數據安全。" }
+            ]
+        },
+        whyChooseUs: {
+            title: "為什麼選擇 ProfitFairy？",
+            items: [
+                { icon: "fas fa-heart", title: "簡單有趣", text: "讓業務計算變得像魔法一樣簡單有趣！" },
+                { icon: "fas fa-crown", title: "強大工具", text: "所有功能一應俱全，包裝在可愛的界面中。" },
+                { icon: "fas fa-shield-alt", title: "安全可靠", text: "您的數據始終安全無憂。" }
+            ]
+        },
+        privacy: {
+            title: "隱私政策與使用條款",
+            text: "我們重視您的隱私和透明度。請查看我們的政策以了解我們如何處理您的數據以及使用 ProfitFairy 的條款。",
+            links: [
+                { text: "隱私政策", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "使用條款", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
+        }
+    },
+    ja: {
+        description: {
+            title: "ProfitFairyへようこそ！",
+            text: "起業家、eコマース販売者、または財務の専門家であっても、ProfitFairyは利益率、価格などを簡単に計算し、ビジネス意思決定を支援します！✨"
+        },
+        features: {
+            title: "魔法の機能",
+            items: [
+                { icon: "fas fa-magic", title: "即座の利益計算", text: "コスト、価格、または利益率を入力すると、魔法のように結果が表示されます！✨" },
+                { icon: "fas fa-cogs", title: "柔軟なオプション", text: "プラットフォーム手数料、税率などをサポートし、あらゆるビジネスニーズに対応します。" },
+                { icon: "fas fa-ban", title: "広告なしの体験", text: "購読して広告を削除し、集中できる環境を楽しんでください。" }
+            ]
+        },
+        advancedFeatures: {
+            title: "高度な魔法 ✨",
+            items: [
+                { icon: "fas fa-star", title: "スマート割引", text: "双方向割引/逆割引設計で柔軟な価格設定が可能です。" },
+                { icon: "fas fa-chart-line", title: "利益率分析", text: "すべての取引の実時間粗利益率を追跡します。" },
+                { icon: "fas fa-percent", title: "カスタム手数料と税率", text: "買い手と売り手のための柔軟な手数料設定、税込/税抜計算をサポートします。" },
+                { icon: "fas fa-lock", title: "データプライバシー", text: "ローカル計算によりデータの安全性を確保します。" }
+            ]
+        },
+        whyChooseUs: {
+            title: "なぜProfitFairyを選ぶのか？",
+            items: [
+                { icon: "fas fa-heart", title: "シンプルで楽しい", text: "ビジネス計算を魔法のように簡単で楽しくします！" },
+                { icon: "fas fa-crown", title: "強力なツール", text: "成功に必要なすべての機能が可愛いパッケージに詰まっています。" },
+                { icon: "fas fa-shield-alt", title: "安全で信頼性が高い", text: "あなたのデータは常に安全です。" }
+            ]
+        },
+        privacy: {
+            title: "プライバシーポリシーと利用規約",
+            text: "私たちはあなたのプライバシーと透明性を大切にしています。詳細については私たちのポリシーをご確認ください。",
+            links: [
+                { text: "プライバシーポリシー", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "利用規約", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
+        }
+    },
+    ko: {
+        description: {
+            title: "ProfitFairy에 오신 것을 환영합니다!",
+            text: "기업가, 전자상거래 판매자 또는 재무 전문가라면, ProfitFairy가 마법처럼 쉽게 이익률, 가격 등을 계산하여 비즈니스 결정을 도와드립니다! ✨"
+        },
+        features: {
+            title: "마법 같은 기능",
+            items: [
+                { icon: "fas fa-magic", title: "즉각적인 이익 계산", text: "비용, 가격 또는 이익률을 입력하면 마법처럼 결과가 나타납니다! ✨" },
+                { icon: "fas fa-cogs", title: "유연한 옵션", text: "플랫폼 수수료, 세율 등을 지원하여 모든 비즈니스 요구를 충족합니다." },
+                { icon: "fas fa-ban", title: "광고 없는 경험", text: "구독하여 광고를 제거하고 방해 없는 환경을 즐기세요." }
+            ]
+        },
+        advancedFeatures: {
+            title: "고급 마법 ✨",
+            items: [
+                { icon: "fas fa-star", title: "스마트 할인", text: "양방향 할인/역할인 설계로 유연한 가격 설정이 가능합니다." },
+                { icon: "fas fa-chart-line", title: "이익률 분석", text: "모든 거래의 실시간 이익률을 추적합니다." },
+                { icon: "fas fa-percent", title: "사용자 정의 수수료 및 세율", text: "구매자와 판매자를 위한 유연한 수수료 설정, 세금 포함/미포함 계산을 지원합니다." },
+                { icon: "fas fa-lock", title: "데이터 프라이버시", text: "로컬 계산으로 데이터 보안을 보장합니다." }
+            ]
+        },
+        whyChooseUs: {
+            title: "왜 ProfitFairy를 선택해야 할까요?",
+            items: [
+                { icon: "fas fa-heart", title: "간단하고 재미있음", text: "비즈니스 계산을 마법처럼 쉽고 재미있게 만듭니다!" },
+                { icon: "fas fa-crown", title: "강력한 도구", text: "성공에 필요한 모든 기능이 귀여운 패키지에 담겨 있습니다." },
+                { icon: "fas fa-shield-alt", title: "안전하고 신뢰할 수 있음", text: "귀하의 데이터는 항상 안전합니다." }
+            ]
+        },
+        privacy: {
+            title: "개인정보 보호정책 및 이용 약관",
+            text: "우리는 귀하의 개인정보와 투명성을 소중히 여깁니다. 자세한 내용은 우리의 정책을 확인하십시오.",
+            links: [
+                { text: "개인정보 보호정책", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "이용 약관", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
+        }
+    }
+};
 
-        // 初始化為英文
-        switchLanguage('en');
-    </script>
+    // Language Switcher
+    function switchLanguage(lang) {
+        const data = translations[lang];
+        document.getElementById("description").querySelector("h2").textContent = data.description.title;
+        document.getElementById("description").querySelector("p").textContent = data.description.text;
+
+        const features = document.querySelectorAll("#features .feature-item");
+        features.forEach((item, index) => {
+            item.querySelector("h3").textContent = data.features.items[index].title;
+            item.querySelector("p").textContent = data.features.items[index].text;
+        });
+
+        const advancedFeatures = document.querySelectorAll("#advanced-features .additional-feature-item");
+        advancedFeatures.forEach((item, index) => {
+            item.querySelector("h3").textContent = data.advancedFeatures.items[index].title;
+            item.querySelector("p").textContent = data.advancedFeatures.items[index].text;
+        });
+
+        const whyChooseUs = document.querySelectorAll("#why-choose-us .why-choose-item");
+        whyChooseUs.forEach((item, index) => {
+            item.querySelector("h3").textContent = data.whyChooseUs.items[index].title;
+            item.querySelector("p").textContent = data.whyChooseUs.items[index].text;
+        });
+
+        document.getElementById("privacy").querySelector("h2").textContent = data.privacy.title;
+        document.getElementById("privacy").querySelector("p").textContent = data.privacy.text;
+        const policyLinks = document.querySelector(".policy-links");
+        policyLinks.innerHTML = data.privacy.links.map(link => `<a href="${link.url}" target="_blank">${link.text}</a>`).join("");
+    }
+
+    // Default to English
+    switchLanguage('en');
+</script>
+
 </body>
 </html>
