@@ -44,27 +44,32 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
 
+        /* Language Switcher - New Design */
         .language-switcher {
             position: absolute;
             top: 20px;
             right: 20px;
-        }
-
-        .language-switcher button {
-            background-color: white;
-            color: #ff66b2;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 0.9em;
-            margin-left: 5px;
-            transition: background-color 0.3s ease;
+            display: flex;
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            padding: 10px;
+            border-radius: 25px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
+        .language-switcher button {
+            background-color: transparent;
+            color: #ff66b2;
+            border: 2px solid #ff66b2;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
         .language-switcher button:hover {
-            background-color: #ff3385;
+            background-color: #ff66b2;
             color: white;
         }
 
@@ -153,17 +158,48 @@
             text-decoration: underline;
         }
 
+        /* Privacy & Terms Section - New Design */
         .policy-info {
-            margin-top: 15px;
-            font-size: 1em;
-        }
-
-        .policy-info {
-            background-color: white;
+            margin-top: 20px;
             padding: 20px;
+            background-color: white;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
+            text-align: left;
+        }
+
+        .policy-info h2 {
+            color: #ff66b2;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .policy-info p {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .policy-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .policy-links a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff66b2;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .policy-links a:hover {
+            background-color: #ff3385;
         }
 
         /* Magic-themed decorations */
@@ -292,12 +328,15 @@
         </div>
     </div>
 
-    <!-- Privacy Policy & Terms of Use -->
+    <!-- Privacy & Terms Section - New Design -->
     <div class="policy-info" id="privacy">
         <h2>Privacy Policy & Terms of Use</h2>
-        <p>We value your privacy and transparency. Please review our <a href="https://ans1lbbb.github.io/ProfitFairy/privacy.html" target="_blank">Privacy Policy</a> and <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Terms of Use</a> for more details.</p>
+        <p>We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of ProfitFairy.</p>
+        <div class="policy-links">
+            <a href="https://ans1lbbb.github.io/ProfitFairy/privacy.html" target="_blank">Privacy Policy</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Terms of Use</a>
+        </div>
     </div>
-
 </div>
 
 <footer>
@@ -339,7 +378,11 @@
         },
         privacy: {
             title: "Privacy Policy & Terms of Use",
-            text: "We value your privacy and transparency. Please review our <a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>Privacy Policy</a> and <a href='https://www.apple.com/legal/internet-services/itunes/dev/stdeula/' target='_blank'>Terms of Use</a> for more details."
+            text: "We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of ProfitFairy.",
+            links: [
+                { text: "Privacy Policy", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "Terms of Use", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
         }
     },
     zh: {
@@ -374,7 +417,11 @@
         },
         privacy: {
             title: "隐私政策与使用条款",
-            text: "我们重视您的隐私和透明度。请查看我们的<a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>隐私政策</a>和<a href='https://www.apple.com/legal/internet-services/itunes/dev/stdeula/' target='_blank'>使用条款</a>了解更多详情。"
+            text: "我们重视您的隐私和透明度。请查看我们的政策以了解我们如何处理您的数据以及使用 ProfitFairy 的条款。",
+            links: [
+                { text: "隐私政策", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "使用条款", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
         }
     },
     zh_tw: {
@@ -409,7 +456,11 @@
         },
         privacy: {
             title: "隱私政策與使用條款",
-            text: "我們重視您的隱私和透明度。請查看我們的<a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>隱私政策</a>和<a href='https://www.apple.com/legal/internet-services/itunes/dev/stdeula/' target='_blank'>使用條款</a>了解更多詳情。"
+            text: "我們重視您的隱私和透明度。請查看我們的政策以了解我們如何處理您的數據以及使用 ProfitFairy 的條款。",
+            links: [
+                { text: "隱私政策", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "使用條款", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
         }
     },
     ja: {
@@ -444,7 +495,11 @@
         },
         privacy: {
             title: "プライバシーポリシーと利用規約",
-            text: "私たちはあなたのプライバシーと透明性を大切にしています。詳細については<a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>プライバシーポリシー</a>と<a href='https://www.apple.com/legal/internet-services/itunes/dev/stdeula/' target='_blank'>利用規約</a>をご覧ください。"
+            text: "私たちはあなたのプライバシーと透明性を大切にしています。詳細については私たちのポリシーをご確認ください。",
+            links: [
+                { text: "プライバシーポリシー", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "利用規約", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
         }
     },
     ko: {
@@ -479,7 +534,11 @@
         },
         privacy: {
             title: "개인정보 보호정책 및 이용 약관",
-            text: "우리는 귀하의 개인정보와 투명성을 소중히 여깁니다. 자세한 내용은 <a href='https://ans1lbbb.github.io/ProfitFairy/privacy.html' target='_blank'>개인정보 보호정책</a>과 <a href='https://www.apple.com/legal/internet-services/itunes/dev/stdeula/' target='_blank'>이용 약관</a>을 참조하십시오."
+            text: "우리는 귀하의 개인정보와 투명성을 소중히 여깁니다. 자세한 내용은 우리의 정책을 확인하십시오.",
+            links: [
+                { text: "개인정보 보호정책", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "이용 약관", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
         }
     }
 };
@@ -509,7 +568,9 @@
         });
 
         document.getElementById("privacy").querySelector("h2").textContent = data.privacy.title;
-        document.getElementById("privacy").querySelector("p").innerHTML = data.privacy.text;
+        document.getElementById("privacy").querySelector("p").textContent = data.privacy.text;
+        const policyLinks = document.querySelector(".policy-links");
+        policyLinks.innerHTML = data.privacy.links.map(link => `<a href="${link.url}" target="_blank">${link.text}</a>`).join("");
     }
 
     // Default to English
