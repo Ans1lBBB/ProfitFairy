@@ -245,8 +245,8 @@
 <div class="container">
     <!-- App Description -->
     <div class="content" id="description">
-        <h2>Welcome to ProfitFairy!</h2>
-        <p>Whether you're an entrepreneur, e-commerce seller, or financial wizard, ProfitFairy helps you calculate profit margins, prices, and more with magical ease! ✨</p>
+        <h2 id="welcome-title">Let’s Make Business Magic! ✨</h2>
+        <p>Whether you're an entrepreneur, e-commerce seller, or financial wizard, we help you calculate profit margins, prices, and more with magical ease! ✨</p>
     </div>
 
     <!-- Key Features -->
@@ -262,12 +262,18 @@
                 <i class="fas fa-cogs"></i>
                 <h3>Flexible Options</h3>
                 <p>Supports platform fees, tax rates, and more for all your business needs.</p>
+                <div class="subscription-badge" id="subscription-badge">Subscription Required</div>
             </div>
             <div class="feature-item">
                 <i class="fas fa-ban"></i>
                 <h3>Ad-Free Experience</h3>
                 <p>Subscribe to remove ads and enjoy a distraction-free journey.</p>
-                <div class="subscription-badge" id="subscription-badge">Subscription Required</div>
+                <div class="subscription-badge">Subscription Required</div>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-rocket"></i>
+                <h3>Easy to Use</h3>
+                <p>Simple and intuitive design, zero learning curve!</p>
             </div>
         </div>
     </div>
@@ -299,12 +305,18 @@
                 <h3>Data Privacy</h3>
                 <p>Local computation ensures your data stays safe and secure.</p>
             </div>
+            <div class="additional-feature-item">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Markup & Premium Rates</h3>
+                <p>Calculate markup and premium rates effortlessly for better pricing strategies.</p>
+                <div class="subscription-badge">Subscription Required</div>
+            </div>
         </div>
     </div>
 
     <!-- Why Choose Us -->
     <div class="content" id="why-choose-us">
-        <h2>Why Choose ProfitFairy?</h2>
+        <h2 id="why-choose-title">Why Choose Us?</h2>
         <div class="why-choose-us-list">
             <div class="why-choose-item">
                 <i class="fas fa-heart magic-icon"></i>
@@ -327,7 +339,7 @@
     <!-- Privacy & Terms Section - New Design -->
     <div class="content" id="privacy">
         <h2><i class="fas fa-shield-alt magic-icon"></i> Privacy Policy & Terms of Use</h2>
-        <p>We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of ProfitFairy.</p>
+        <p>We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of our services.</p>
         <div class="policy-links">
             <a href="https://ans1lbbb.github.io/ProfitFairy/privacy.html" target="_blank">Privacy Policy</a>
             <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Terms of Use</a>
@@ -344,19 +356,22 @@
     const translations = {
     en: {
         subtitle: "Your Magical Business Assistant ✨",
+        welcomeTitle: "Let’s Make Business Magic! ✨",
         magicalFeaturesTitle: "Magical Features",
         advancedMagicTitle: "Advanced Magic ✨",
+        whyChooseTitle: "Why Choose Us?",
         subscriptionBadge: "Subscription Required",
         description: {
-            title: "Welcome to ProfitFairy!",
-            text: "Whether you're an entrepreneur, e-commerce seller, or financial wizard, ProfitFairy helps you calculate profit margins, prices, and more with magical ease! ✨"
+            title: "Let’s Make Business Magic! ✨",
+            text: "Whether you're an entrepreneur, e-commerce seller, or financial wizard, we help you calculate profit margins, prices, and more with magical ease! ✨"
         },
         features: {
             title: "Magical Features",
             items: [
                 { icon: "fas fa-magic", title: "Instant Profit Calculations", text: "Input cost, price, or profit margin, and watch the magic happen! ✨" },
                 { icon: "fas fa-cogs", title: "Flexible Options", text: "Supports platform fees, tax rates, and more for all your business needs." },
-                { icon: "fas fa-ban", title: "Ad-Free Experience", text: "Subscribe to remove ads and enjoy a distraction-free journey." }
+                { icon: "fas fa-ban", title: "Ad-Free Experience", text: "Subscribe to remove ads and enjoy a distraction-free journey." },
+                { icon: "fas fa-rocket", title: "Easy to Use", text: "Simple and intuitive design, zero learning curve!" }
             ]
         },
         advancedFeatures: {
@@ -365,11 +380,12 @@
                 { icon: "fas fa-star", title: "Smart Discounts", text: "Dual-direction discount/counter-discount design for flexible pricing." },
                 { icon: "fas fa-chart-line", title: "Margin Analysis", text: "Track real-time gross margins for every transaction." },
                 { icon: "fas fa-percent", title: "Custom Fees & Tax Rates", text: "Flexible fee settings for buyers and sellers, with support for tax-inclusive/exclusive calculations." },
-                { icon: "fas fa-lock", title: "Data Privacy", text: "Local computation ensures your data stays safe and secure." }
+                { icon: "fas fa-lock", title: "Data Privacy", text: "Local computation ensures your data stays safe and secure." },
+                { icon: "fas fa-chart-bar", title: "Markup & Premium Rates", text: "Calculate markup and premium rates effortlessly for better pricing strategies." }
             ]
         },
         whyChooseUs: {
-            title: "Why Choose ProfitFairy?",
+            title: "Why Choose Us?",
             items: [
                 { icon: "fas fa-heart", title: "Simple & Fun", text: "Designed to make business calculations a magical experience!" },
                 { icon: "fas fa-crown", title: "Powerful Tools", text: "All the features you need to succeed, wrapped in a cute package." },
@@ -378,7 +394,7 @@
         },
         privacy: {
             title: "Privacy Policy & Terms of Use",
-            text: "We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of ProfitFairy.",
+            text: "We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of our services.",
             links: [
                 { text: "Privacy Policy", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
                 { text: "Terms of Use", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
@@ -387,19 +403,22 @@
     },
     zh: {
         subtitle: "您的魔法商业助手 ✨",
+        welcomeTitle: "让商业魔法开始吧！✨",
         magicalFeaturesTitle: "神奇功能",
         advancedMagicTitle: "高级魔法 ✨",
+        whyChooseTitle: "为什么选择我们？",
         subscriptionBadge: "需要订阅",
         description: {
-            title: "欢迎来到 ProfitFairy！",
-            text: "无论您是企业家、电商卖家还是财务专家，ProfitFairy 都能帮助您轻松计算利润率、价格等，让您的业务决策更轻松！✨"
+            title: "让商业魔法开始吧！✨",
+            text: "无论您是企业家、电商卖家还是财务专家，我们都能帮助您轻松计算利润率、价格等，让您的业务决策更轻松！✨"
         },
         features: {
             title: "神奇功能",
             items: [
                 { icon: "fas fa-magic", title: "即时利润计算", text: "输入成本、价格或利润率，立即查看利润金额和利润率！✨" },
                 { icon: "fas fa-cogs", title: "灵活选项", text: "支持平台费用、税率等多种设置，满足您的业务需求。" },
-                { icon: "fas fa-ban", title: "无广告体验", text: "订阅以移除广告，享受无干扰的计算体验。" }
+                { icon: "fas fa-ban", title: "无广告体验", text: "订阅以移除广告，享受无干扰的计算体验。" },
+                { icon: "fas fa-rocket", title: "简单易用", text: "简单直观的设计，零学习成本！" }
             ]
         },
         advancedFeatures: {
@@ -408,11 +427,12 @@
                 { icon: "fas fa-star", title: "智能折扣", text: "双向折扣/反折扣设计，灵活定价策略。" },
                 { icon: "fas fa-chart-line", title: "毛利分析", text: "实时跟踪每笔交易的毛利率。" },
                 { icon: "fas fa-percent", title: "自定义手续费与税率", text: "买家和卖家的灵活手续费设置，支持含税/未税双向计算。" },
-                { icon: "fas fa-lock", title: "数据隐私", text: "本地计算确保数据安全。" }
+                { icon: "fas fa-lock", title: "数据隐私", text: "本地计算确保数据安全。" },
+                { icon: "fas fa-chart-bar", title: "加价率与溢价率", text: "轻松计算加价率和溢价率，优化定价策略。" }
             ]
         },
         whyChooseUs: {
-            title: "为什么选择 ProfitFairy？",
+            title: "为什么选择我们？",
             items: [
                 { icon: "fas fa-heart", title: "简单有趣", text: "让业务计算变得像魔法一样简单有趣！" },
                 { icon: "fas fa-crown", title: "强大工具", text: "所有功能一应俱全，包装在可爱的界面中。" },
@@ -421,7 +441,7 @@
         },
         privacy: {
             title: "隐私政策与使用条款",
-            text: "我们重视您的隐私和透明度。请查看我们的政策以了解我们如何处理您的数据以及使用 ProfitFairy 的条款。",
+            text: "我们重视您的隐私和透明度。请查看我们的政策以了解我们如何处理您的数据以及使用我们服务的条款。",
             links: [
                 { text: "隐私政策", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
                 { text: "使用条款", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
@@ -430,19 +450,22 @@
     },
     zh_tw: {
         subtitle: "您的魔法商業助手 ✨",
+        welcomeTitle: "讓商業魔法開始吧！✨",
         magicalFeaturesTitle: "神奇功能",
         advancedMagicTitle: "高級魔法 ✨",
+        whyChooseTitle: "為什麼選擇我們？",
         subscriptionBadge: "需要訂閱",
         description: {
-            title: "歡迎來到 ProfitFairy！",
-            text: "無論您是企業家、電商賣家還是財務專家，ProfitFairy 都能幫助您輕鬆計算利潤率、價格等，讓您的業務決策更輕鬆！✨"
+            title: "讓商業魔法開始吧！✨",
+            text: "無論您是企業家、電商賣家還是財務專家，我們都能幫助您輕鬆計算利潤率、價格等，讓您的業務決策更輕鬆！✨"
         },
         features: {
             title: "神奇功能",
             items: [
                 { icon: "fas fa-magic", title: "即時利潤計算", text: "輸入成本、價格或利潤率，立即查看利潤金額和利潤率！✨" },
                 { icon: "fas fa-cogs", title: "靈活選項", text: "支持平台費用、稅率等多種設置，滿足您的業務需求。" },
-                { icon: "fas fa-ban", title: "無廣告體驗", text: "訂閱以移除廣告，享受無干擾的計算體驗。" }
+                { icon: "fas fa-ban", title: "無廣告體驗", text: "訂閱以移除廣告，享受無干擾的計算體驗。" },
+                { icon: "fas fa-rocket", title: "簡單易用", text: "簡單直觀的設計，零學習成本！" }
             ]
         },
         advancedFeatures: {
@@ -451,11 +474,12 @@
                 { icon: "fas fa-star", title: "智能折扣", text: "雙向折扣/反折扣設計，靈活定價策略。" },
                 { icon: "fas fa-chart-line", title: "毛利分析", text: "實時跟踪每筆交易的毛利率。" },
                 { icon: "fas fa-percent", title: "自定義手續費與稅率", text: "買家和賣家的靈活手續費設置，支持含稅/未稅雙向計算。" },
-                { icon: "fas fa-lock", title: "數據隱私", text: "本地計算確保數據安全。" }
+                { icon: "fas fa-lock", title: "數據隱私", text: "本地計算確保數據安全。" },
+                { icon: "fas fa-chart-bar", title: "加價率與溢價率", text: "輕鬆計算加價率和溢價率，優化定價策略。" }
             ]
         },
         whyChooseUs: {
-            title: "為什麼選擇 ProfitFairy？",
+            title: "為什麼選擇我們？",
             items: [
                 { icon: "fas fa-heart", title: "簡單有趣", text: "讓業務計算變得像魔法一樣簡單有趣！" },
                 { icon: "fas fa-crown", title: "強大工具", text: "所有功能一應俱全，包裝在可愛的界面中。" },
@@ -464,7 +488,7 @@
         },
         privacy: {
             title: "隱私政策與使用條款",
-            text: "我們重視您的隱私和透明度。請查看我們的政策以了解我們如何處理您的數據以及使用 ProfitFairy 的條款。",
+            text: "我們重視您的隱私和透明度。請查看我們的政策以了解我們如何處理您的數據以及使用我們服務的條款。",
             links: [
                 { text: "隱私政策", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
                 { text: "使用條款", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
@@ -473,19 +497,22 @@
     },
     ja: {
         subtitle: "あなたの魔法のビジネスアシスタント ✨",
+        welcomeTitle: "ビジネス魔法を始めましょう！✨",
         magicalFeaturesTitle: "魔法の機能",
         advancedMagicTitle: "高度な魔法 ✨",
+        whyChooseTitle: "なぜ私たちを選ぶのか？",
         subscriptionBadge: "購読が必要",
         description: {
-            title: "ProfitFairyへようこそ！",
-            text: "起業家、eコマース販売者、または財務の専門家であっても、ProfitFairyは利益率、価格などを簡単に計算し、ビジネス意思決定を支援します！✨"
+            title: "ビジネス魔法を始めましょう！✨",
+            text: "起業家、eコマース販売者、または財務の専門家であっても、私たちは利益率、価格などを簡単に計算し、ビジネス意思決定を支援します！✨"
         },
         features: {
             title: "魔法の機能",
             items: [
                 { icon: "fas fa-magic", title: "即座の利益計算", text: "コスト、価格、または利益率を入力すると、魔法のように結果が表示されます！✨" },
                 { icon: "fas fa-cogs", title: "柔軟なオプション", text: "プラットフォーム手数料、税率などをサポートし、あらゆるビジネスニーズに対応します。" },
-                { icon: "fas fa-ban", title: "広告なしの体験", text: "購読して広告を削除し、集中できる環境を楽しんでください。" }
+                { icon: "fas fa-ban", title: "広告なしの体験", text: "購読して広告を削除し、集中できる環境を楽しんでください。" },
+                { icon: "fas fa-rocket", title: "簡単に使える", text: "シンプルで直感的な設計、学習コストゼロ！" }
             ]
         },
         advancedFeatures: {
@@ -494,11 +521,12 @@
                 { icon: "fas fa-star", title: "スマート割引", text: "双方向割引/逆割引設計で柔軟な価格設定が可能です。" },
                 { icon: "fas fa-chart-line", title: "利益率分析", text: "すべての取引の実時間粗利益率を追跡します。" },
                 { icon: "fas fa-percent", title: "カスタム手数料と税率", text: "買い手と売り手のための柔軟な手数料設定、税込/税抜計算をサポートします。" },
-                { icon: "fas fa-lock", title: "データプライバシー", text: "ローカル計算によりデータの安全性を確保します。" }
+                { icon: "fas fa-lock", title: "データプライバシー", text: "ローカル計算によりデータの安全性を確保します。" },
+                { icon: "fas fa-chart-bar", title: "マークアップ率とプレミアム率", text: "マークアップ率とプレミアム率を簡単に計算し、価格戦略を最適化します。" }
             ]
         },
         whyChooseUs: {
-            title: "なぜProfitFairyを選ぶのか？",
+            title: "なぜ私たちを選ぶのか？",
             items: [
                 { icon: "fas fa-heart", title: "シンプルで楽しい", text: "ビジネス計算を魔法のように簡単で楽しくします！" },
                 { icon: "fas fa-crown", title: "強力なツール", text: "成功に必要なすべての機能が可愛いパッケージに詰まっています。" },
@@ -516,19 +544,22 @@
     },
     ko: {
         subtitle: "당신의 마법 같은 비즈니스 어시스턴트 ✨",
+        welcomeTitle: "비즈니스 마법을 시작해보세요! ✨",
         magicalFeaturesTitle: "마법 같은 기능",
         advancedMagicTitle: "고급 마법 ✨",
+        whyChooseTitle: "왜 우리를 선택해야 할까요?",
         subscriptionBadge: "구독 필요",
         description: {
-            title: "ProfitFairy에 오신 것을 환영합니다!",
-            text: "기업가, 전자상거래 판매자 또는 재무 전문가라면, ProfitFairy가 마법처럼 쉽게 이익률, 가격 등을 계산하여 비즈니스 결정을 도와드립니다! ✨"
+            title: "비즈니스 마법을 시작해보세요! ✨",
+            text: "기업가, 전자상거래 판매자 또는 재무 전문가라면, 우리가 마법처럼 쉽게 이익률, 가격 등을 계산하여 비즈니스 결정을 도와드립니다! ✨"
         },
         features: {
             title: "마법 같은 기능",
             items: [
                 { icon: "fas fa-magic", title: "즉각적인 이익 계산", text: "비용, 가격 또는 이익률을 입력하면 마법처럼 결과가 나타납니다! ✨" },
                 { icon: "fas fa-cogs", title: "유연한 옵션", text: "플랫폼 수수료, 세율 등을 지원하여 모든 비즈니스 요구를 충족합니다." },
-                { icon: "fas fa-ban", title: "광고 없는 경험", text: "구독하여 광고를 제거하고 방해 없는 환경을 즐기세요." }
+                { icon: "fas fa-ban", title: "광고 없는 경험", text: "구독하여 광고를 제거하고 방해 없는 환경을 즐기세요." },
+                { icon: "fas fa-rocket", title: "쉽게 사용 가능", text: "간단하고 직관적인 디자인, 학습 곡선 없음!" }
             ]
         },
         advancedFeatures: {
@@ -537,11 +568,12 @@
                 { icon: "fas fa-star", title: "스마트 할인", text: "양방향 할인/역할인 설계로 유연한 가격 설정이 가능합니다." },
                 { icon: "fas fa-chart-line", title: "이익률 분석", text: "모든 거래의 실시간 이익률을 추적합니다." },
                 { icon: "fas fa-percent", title: "사용자 정의 수수료 및 세율", text: "구매자와 판매자를 위한 유연한 수수료 설정, 세금 포함/미포함 계산을 지원합니다." },
-                { icon: "fas fa-lock", title: "데이터 프라이버시", text: "로컬 계산으로 데이터 보안을 보장합니다." }
+                { icon: "fas fa-lock", title: "데이터 프라이버시", text: "로컬 계산으로 데이터 보안을 보장합니다." },
+                { icon: "fas fa-chart-bar", title: "마크업 및 프리미엄 요율", text: "마크업 및 프리미엄 요율을 쉽게 계산하여 가격 전략을 최적화합니다." }
             ]
         },
         whyChooseUs: {
-            title: "왜 ProfitFairy를 선택해야 할까요?",
+            title: "왜 우리를 선택해야 할까요?",
             items: [
                 { icon: "fas fa-heart", title: "간단하고 재미있음", text: "비즈니스 계산을 마법처럼 쉽고 재미있게 만듭니다!" },
                 { icon: "fas fa-crown", title: "강력한 도구", text: "성공에 필요한 모든 기능이 귀여운 패키지에 담겨 있습니다." },
@@ -563,8 +595,10 @@
     function switchLanguage(lang) {
         const data = translations[lang];
         document.getElementById("subtitle").textContent = data.subtitle;
+        document.getElementById("welcome-title").textContent = data.welcomeTitle;
         document.getElementById("magical-features-title").textContent = data.magicalFeaturesTitle;
         document.getElementById("advanced-magic-title").textContent = data.advancedMagicTitle;
+        document.getElementById("why-choose-title").textContent = data.whyChooseTitle;
         document.querySelectorAll(".subscription-badge").forEach(badge => {
             badge.textContent = data.subscriptionBadge;
         });
