@@ -234,12 +234,12 @@
     <i class="fas fa-wand-sparkles"></i>
   </div>
   <div class="bookmark-content">
-    <h3><i class="fas fa-hat-wizard"></i> Magic Ready!</h3>
-    <p>Carry ProfitFairy in your pocket</p>
+    <h3><i class="fas fa-hat-wizard"></i> <span id="bookmark-title">Magic Ready!</span></h3>
+    <p id="bookmark-subtitle">Carry ProfitFairy in your pocket</p>
     <a href="https://apps.apple.com/tw/app/profitfairy/id6740332215" class="app-download-link">
-      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
-           alt="Download on the App Store"
-           style="height: 40px;">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+             alt="Download on the App Store"
+             style="height: 40px;">
     </a>
   </div>
 </div>
@@ -400,15 +400,6 @@ function toggleBookmark() {
   const bookmark = document.querySelector('.magic-bookmark');
   bookmark.style.right = bookmark.style.right === '0px' ? '-165px' : '0px';
 }
-
-    // 書籤切換功能
-    function toggleBookmark() {
-      const bookmark = document.querySelector('.magic-bookmark');
-      bookmark.style.right = bookmark.style.right === '0px' ? '-165px' : '0px';
-    }
-
-    // 初始化默認語言
-    switchLanguage('en');
     
 </script>
     
@@ -589,7 +580,7 @@ function toggleBookmark() {
             title: "Magic Ready!",
             subtitle: "Carry ProfitFairy in your pocket"
         }
-    },
+    }
     zh: {
         subtitle: "您的魔法商业助手 ✨",
         welcomeTitle: "让商业魔法开始吧！✨",
@@ -640,7 +631,7 @@ function toggleBookmark() {
             title: "魔法已就绪!",
             subtitle: "将ProfitFairy魔法装入口袋"
         }
-    },
+    }
     zh_tw: {
         subtitle: "您的魔法商業助手 ✨",
         welcomeTitle: "讓商業魔法開始吧！✨",
@@ -691,7 +682,7 @@ function toggleBookmark() {
             title: "魔法已就緒!",
             subtitle: "將ProfitFairy魔法裝入口袋"
         }
-    },
+    }
     ja: {
         subtitle: "あなたの魔法のビジネスアシスタント ✨",
         welcomeTitle: "ビジネス魔法を始めましょう！✨",
@@ -742,7 +733,7 @@ function toggleBookmark() {
             title: "魔法の準備完了!",
             subtitle: "ProfitFairyをポケットに"
         }
-    },
+    }
     ko: {
         subtitle: "당신의 마법 같은 비즈니스 어시스턴트 ✨",
         welcomeTitle: "비즈니스 마법을 시작해보세요! ✨",
@@ -798,46 +789,56 @@ function toggleBookmark() {
 
     // Language Switcher
     function switchLanguage(lang) {
-        const data = translations[lang];
-        document.getElementById("subtitle").textContent = data.subtitle;
-        document.getElementById("welcome-title").textContent = data.welcomeTitle;
-        document.getElementById("magical-features-title").textContent = data.magicalFeaturesTitle;
-        document.getElementById("advanced-magic-title").textContent = data.advancedMagicTitle;
-        document.getElementById("why-choose-title").textContent = data.whyChooseTitle;
-        document.querySelectorAll(".subscription-badge").forEach(badge => {
-            badge.textContent = data.subscriptionBadge;
-        });
+    const data = translations[lang];
+    // 更新現有元素
+    document.getElementById("subtitle").textContent = data.subtitle;
+    document.getElementById("welcome-title").textContent = data.welcomeTitle;
+    document.getElementById("magical-features-title").textContent = data.magicalFeaturesTitle;
+    document.getElementById("advanced-magic-title").textContent = data.advancedMagicTitle;
+    document.getElementById("why-choose-title").textContent = data.whyChooseTitle;
+    
+    // 更新訂閱標籤
+    document.querySelectorAll(".subscription-badge").forEach(badge => {
+        badge.textContent = data.subscriptionBadge;
+    });
 
-        document.getElementById("description").querySelector("h2").textContent = data.description.title;
-        document.getElementById("description").querySelector("p").textContent = data.description.text;
+    // 更新描述區塊
+    document.getElementById("description").querySelector("h2").textContent = data.description.title;
+    document.getElementById("description").querySelector("p").textContent = data.description.text;
 
-        const features = document.querySelectorAll("#features .feature-item");
-        features.forEach((item, index) => {
-            item.querySelector("h3").textContent = data.features.items[index].title;
-            item.querySelector("p").textContent = data.features.items[index].text;
-        });
+    // 更新功能列表
+    const features = document.querySelectorAll("#features .feature-item");
+    features.forEach((item, index) => {
+        item.querySelector("h3").textContent = data.features.items[index].title;
+        item.querySelector("p").textContent = data.features.items[index].text;
+    });
 
-        const advancedFeatures = document.querySelectorAll("#advanced-features .additional-feature-item");
-        advancedFeatures.forEach((item, index) => {
-            item.querySelector("h3").textContent = data.advancedFeatures.items[index].title;
-            item.querySelector("p").textContent = data.advancedFeatures.items[index].text;
-        });
+    // 更新進階功能
+    const advancedFeatures = document.querySelectorAll("#advanced-features .additional-feature-item");
+    advancedFeatures.forEach((item, index) => {
+        item.querySelector("h3").textContent = data.advancedFeatures.items[index].title;
+        item.querySelector("p").textContent = data.advancedFeatures.items[index].text;
+    });
 
-        const whyChooseUs = document.querySelectorAll("#why-choose-us .why-choose-item");
-        whyChooseUs.forEach((item, index) => {
-            item.querySelector("h3").textContent = data.whyChooseUs.items[index].title;
-            item.querySelector("p").textContent = data.whyChooseUs.items[index].text;
-        });
+    // 更新為什麼選擇我們
+    const whyChooseUs = document.querySelectorAll("#why-choose-us .why-choose-item");
+    whyChooseUs.forEach((item, index) => {
+        item.querySelector("h3").textContent = data.whyChooseUs.items[index].title;
+        item.querySelector("p").textContent = data.whyChooseUs.items[index].text;
+    });
 
-        document.getElementById("privacy").querySelector("h2").textContent = data.privacy.title;
-        document.getElementById("privacy").querySelector("p").textContent = data.privacy.text;
-        const policyLinks = document.querySelector(".policy-links");
-        policyLinks.innerHTML = data.privacy.links.map(link => `<a href="${link.url}" target="_blank">${link.text}</a>`).join("");
+    // 更新隱私政策
+    document.getElementById("privacy").querySelector("h2").textContent = data.privacy.title;
+    document.getElementById("privacy").querySelector("p").textContent = data.privacy.text;
+    const policyLinks = document.querySelector(".policy-links");
+    policyLinks.innerHTML = data.privacy.links.map(link => `<a href="${link.url}" target="_blank">${link.text}</a>`).join("");
 
-        // 新增書籤文案切換
+    // 更新書籤內容
+    if (data.bookmark) { // 安全檢查
         document.getElementById("bookmark-title").textContent = data.bookmark.title;
         document.getElementById("bookmark-subtitle").textContent = data.bookmark.subtitle;
     }
+}
 
     // Default to English
     switchLanguage('en');
