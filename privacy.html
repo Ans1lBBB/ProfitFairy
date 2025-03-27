@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProfitFairy Privacy Protection Handbook</title>
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #FF9F9F;
@@ -19,6 +20,7 @@
             padding: 20px;
             background: #FFF5F5;
             color: #4a4a4a;
+            padding-bottom: 100px;
         }
 
         .header {
@@ -54,30 +56,39 @@
         .policy-section {
             background: white;
             border-radius: 15px;
-            padding: 20px;
+            padding: 25px;
             margin: 20px 0;
             box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
         h2 {
             color: #6C5B7B;
             font-size: 1.4rem;
             text-align: center;
-            margin: 10px 0;
+            margin: 10px 0 20px;
         }
 
         p {
             font-size: 1rem;
             color: #555;
             text-align: center;
+            margin: 15px 0;
         }
 
         .highlight {
             color: #FF6B6B;
             font-weight: bold;
-            display: block;
-            margin: 10px 0;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #FFF0F0;
+            border-radius: 20px;
+            display: inline-block;
+            text-align: center;
+            width: fit-content;
+            max-width: 80%;
         }
 
         .language-toggle {
@@ -109,6 +120,114 @@
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+
+        /* 魔法書籤導航 */
+        .magic-nav {
+            position: fixed;
+            bottom: 30px;
+            right: -180px;
+            z-index: 1000;
+            transition: right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .magic-nav:hover {
+            right: 0;
+        }
+
+        .magic-tab {
+            position: absolute;
+            left: -50px;
+            width: 50px;
+            height: 60px;
+            background: linear-gradient(135deg, #FF9F9F, #FF6B6B);
+            border-radius: 15px 0 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: -5px 0 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .magic-tab:hover {
+            transform: scale(1.1);
+        }
+
+        .magic-buttons {
+            background: white;
+            border-radius: 15px 0 0 15px;
+            padding: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 180px;
+        }
+
+        .magic-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #6C5B7B;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .magic-link:hover {
+            background: #FFF0F0;
+            transform: translateX(-5px);
+        }
+
+        .magic-link i {
+            color: #FF9F9F;
+            font-size: 1.2rem;
+        }
+
+        /* 頁腳 */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #888;
+            font-size: 0.9rem;
+            padding: 20px;
+        }
+
+        /* 響應式調整 */
+        @media (max-width: 768px) {
+            .magic-nav {
+                bottom: 20px;
+                right: -160px;
+            }
+            .magic-buttons {
+                width: 160px;
+            }
+            
+            .highlight {
+                max-width: 90%;
+                padding: 10px 15px;
+            }
+        }
+
+        /* 動畫效果 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .magic-tab i {
+            animation: float 2s ease-in-out infinite;
         }
     </style>
 </head>
@@ -130,44 +249,44 @@
         <!-- Data Protection -->
         <div class="policy-section">
             <h2 id="dataProtection-title">🔐 Data Protection Commitment</h2>
-            <p id="dataProtection-text"></p>
+            <p id="dataProtection-text">ProfitFairy is your most reliable business calculation partner～</p>
             <p id="dataProtection-list"></p>
-            <span class="highlight" id="dataProtection-highlight"></span>
+            <span class="highlight" id="dataProtection-highlight">We promise:</span>
         </div>
 
         <!-- Anonymous Data -->
         <div class="policy-section">
             <h2 id="anonymousData-title">🕶️ Anonymous Data Processing</h2>
             <p id="anonymousData-text"></p>
-            <span class="highlight" id="anonymousData-highlight"></span>
+            <span class="highlight" id="anonymousData-highlight">All data is anonymized!</span>
         </div>
 
         <!-- Advertising Services -->
         <div class="policy-section">
             <h2 id="advertising-title">📺 Advertising Services</h2>
             <p id="advertising-text"></p>
-            <span class="highlight" id="advertising-highlight"></span>
+            <span class="highlight" id="advertising-highlight">Check third-party policies</span>
         </div>
 
         <!-- Data Security -->
         <div class="policy-section">
             <h2 id="security-title">🛡️ Security Measures</h2>
             <p id="security-text"></p>
-            <span class="highlight" id="security-highlight"></span>
+            <span class="highlight" id="security-highlight">Your data is safe!</span>
         </div>
 
         <!-- Children's Privacy -->
         <div class="policy-section">
             <h2 id="childrenPrivacy-title">👧🏻👦🏼 Children's Privacy</h2>
             <p id="childrenPrivacy-text"></p>
-            <span class="highlight" id="childrenPrivacy-highlight"></span>
+            <span class="highlight" id="childrenPrivacy-highlight">We protect kids!</span>
         </div>
 
         <!-- Policy Updates -->
         <div class="policy-section">
             <h2 id="policyUpdates-title">🔄 Policy Updates</h2>
             <p id="policyUpdates-text"></p>
-            <span class="highlight" id="policyUpdates-highlight"></span>
+            <span class="highlight" id="policyUpdates-highlight">Stay tuned!</span>
         </div>
 
         <!-- Contact Information -->
@@ -176,6 +295,25 @@
             <p style="margin: 20px 0;">
                 <a href="mailto:ans1l@icloud.com" class="contact-button" id="contact-button">✉️ Send a Magic Email</a>
             </p>
+        </div>
+    </div>
+
+    <div class="footer" id="footer">
+        © 2025 ProfitFairy. All rights reserved.
+    </div>
+
+    <!-- 魔法書籤導航 -->
+    <div class="magic-nav">
+        <div class="magic-tab" onclick="toggleMagicNav()">
+            <i class="fas fa-wand-sparkles"></i>
+        </div>
+        <div class="magic-buttons">
+            <a href="https://ans1lbbb.github.io/ProfitFairy/" class="magic-link">
+                <i class="fas fa-home"></i> <span id="magic-home-text">返回官網</span>
+            </a>
+            <a href="https://apps.apple.com/tw/app/profitfairy/id6740332215" class="magic-link">
+                <i class="fas fa-download"></i> <span id="magic-download-text">下載App</span>
+            </a>
         </div>
     </div>
 
@@ -219,7 +357,12 @@
                 contact: {
                     title: "🧚♀️♂️ Need Help? Summon the Fairy!",
                     button: "✉️ Send a Magic Email"
-                }
+                },
+                magicNav: {
+                    homeText: "Back to Home",
+                    downloadText: "Download App"
+                },
+                footer: "© 2025 ProfitFairy. All rights reserved."
             },
             zh: {
                 pageTitle: "ProfitFairy 隐私保护手册",
@@ -259,7 +402,12 @@
                 contact: {
                     title: "🧚♀️♂️ 需要帮助？召唤仙女！",
                     button: "✉️ 发送魔法邮件"
-                }
+                },
+                magicNav: {
+                    homeText: "返回官网",
+                    downloadText: "下载App"
+                },
+                footer: "© 2025 ProfitFairy. 版权所有"
             },
             zh_tw: {
                 pageTitle: "ProfitFairy 隱私保護手冊",
@@ -299,7 +447,12 @@
                 contact: {
                     title: "🧚♀️♂️ 需要幫助？召喚仙女！",
                     button: "✉️ 發送魔法郵件"
-                }
+                },
+                magicNav: {
+                    homeText: "返回官網",
+                    downloadText: "下載App"
+                },
+                footer: "© 2025 ProfitFairy. 版權所有"
             },
             ja: {
                 pageTitle: "ProfitFairy プライバシー保護ハンドブック",
@@ -339,7 +492,12 @@
                 contact: {
                     title: "🧚♀️♂️ 助けが必要ですか？妖精を召喚！",
                     button: "✉️ 魔法のメールを送る"
-                }
+                },
+                magicNav: {
+                    homeText: "ホームに戻る",
+                    downloadText: "アプリをダウンロード"
+                },
+                footer: "© 2025 ProfitFairy. All rights reserved."
             },
             ko: {
                 pageTitle: "ProfitFairy 개인정보 보호 핸드북",
@@ -379,7 +537,12 @@
                 contact: {
                     title: "🧚♀️♂️ 도움이 필요하세요? 요정을 소환하세요!",
                     button: "✉️ 마법의 이메일 보내기"
-                }
+                },
+                magicNav: {
+                    homeText: "홈페이지로",
+                    downloadText: "앱 다운로드"
+                },
+                footer: "© 2025 ProfitFairy. All rights reserved."
             }
         };
 
@@ -390,6 +553,11 @@
             document.title = data.pageTitle;
             document.getElementById("header-subtitle").textContent = data.headerSubtitle;
             document.getElementById("effective-date").textContent = data.effectiveDate;
+            document.getElementById("footer").textContent = data.footer;
+
+            // 更新導航按鈕
+            document.getElementById("magic-home-text").textContent = data.magicNav.homeText;
+            document.getElementById("magic-download-text").textContent = data.magicNav.downloadText;
 
             // 定義所有需要更新的區塊
             const sections = [
@@ -432,8 +600,16 @@
             document.getElementById("contact-button").textContent = data.contact.button;
         }
 
+        // 切換魔法導航可見性
+        function toggleMagicNav() {
+            const nav = document.querySelector('.magic-nav');
+            nav.style.right = nav.style.right === '0px' ? '-180px' : '0px';
+        }
+
         // 初始化為英文
-        switchLanguage('en');
+        document.addEventListener('DOMContentLoaded', () => {
+            switchLanguage('en');
+        });
     </script>
 </body>
 </html>
