@@ -227,6 +227,191 @@
             background-color: #ff3385;
         }
     </style>
+
+<!-- 在現有語言切換器下方添加 -->
+<div class="magic-bookmark">
+  <div class="bookmark-tab" onclick="toggleBookmark()">
+    <i class="fas fa-wand-sparkles"></i>
+  </div>
+  <div class="bookmark-content">
+    <h3><i class="fas fa-hat-wizard"></i> 魔法已就緒!</h3>
+    <p>將ProfitFairy魔法裝入口袋</p>
+    <a href="https://apps.apple.com/tw/app/profitfairy/id6740332215" class="app-download-link">
+      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+           alt="Download on the App Store"
+           style="height: 40px;">
+    </a>
+  </div>
+</div>
+
+<style>
+/* 新增樣式 */
+.magic-bookmark {
+  position: fixed;
+  top: 50%;
+  right: -165px;
+  transform: translateY(-50%);
+  z-index: 999;
+  transition: right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.magic-bookmark:hover {
+  right: 0;
+}
+
+.bookmark-tab {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff66b2 0%, #ff3385 100%);
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+}
+
+.bookmark-content {
+  width: 180px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px 0 0 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-right: 4px solid #ff66b2;
+  text-align: center;
+}
+
+.bookmark-content h3 {
+  color: #ff66b2;
+  font-size: 1rem;
+  margin: 0 0 8px 0;
+}
+
+.bookmark-content p {
+  color: #666;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .magic-bookmark {
+    right: -150px;
+    top: auto;
+    bottom: 100px;
+    transform: none;
+  }
+}
+
+/* 點擊動畫 */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.bookmark-tab:hover i {
+  animation: wiggle 0.6s ease infinite;
+}
+
+/* 魔法書籤系統樣式 */
+.magic-bookmark {
+  position: fixed;
+  top: 50%;
+  right: -165px;
+  transform: translateY(-50%);
+  z-index: 999;
+  transition: right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.magic-bookmark:hover {
+  right: 0;
+}
+
+.bookmark-tab {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff66b2 0%, #ff3385 100%);
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+}
+
+.bookmark-content {
+  width: 180px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px 0 0 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-right: 4px solid #ff66b2;
+  text-align: center;
+}
+
+.bookmark-content h3 {
+  color: #ff66b2;
+  font-size: 1rem;
+  margin: 0 0 8px 0;
+}
+
+.bookmark-content p {
+  color: #666;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .magic-bookmark {
+    right: -150px;
+    top: auto;
+    bottom: 100px;
+    transform: none;
+  }
+}
+
+/* 點擊動畫 */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.bookmark-tab:hover i {
+  animation: wiggle 0.6s ease infinite;
+}
+    
+</style>
+
+<script>
+function toggleBookmark() {
+  const bookmark = document.querySelector('.magic-bookmark');
+  bookmark.style.right = bookmark.style.right === '0px' ? '-165px' : '0px';
+}
+
+    // 書籤切換功能
+    function toggleBookmark() {
+      const bookmark = document.querySelector('.magic-bookmark');
+      bookmark.style.right = bookmark.style.right === '0px' ? '-165px' : '0px';
+    }
+
+    // 初始化默認語言
+    switchLanguage('en');
+    
+</script>
+    
 </head>
 <body>
 
@@ -400,6 +585,10 @@
                 { text: "Terms of Use", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
             ]
         }
+        bookmark: {
+            title: "Magic Ready!",
+            subtitle: "Carry ProfitFairy in your pocket"
+        }
     },
     zh: {
         subtitle: "您的魔法商业助手 ✨",
@@ -446,6 +635,10 @@
                 { text: "隐私政策", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
                 { text: "使用条款", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
             ]
+        }
+        bookmark: {
+            title: "魔法已就绪!",
+            subtitle: "将ProfitFairy魔法装入口袋"
         }
     },
     zh_tw: {
@@ -494,6 +687,10 @@
                 { text: "使用條款", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
             ]
         }
+        bookmark: {
+            title: "魔法已就緒!",
+            subtitle: "將ProfitFairy魔法裝入口袋"
+        }
     },
     ja: {
         subtitle: "あなたの魔法のビジネスアシスタント ✨",
@@ -540,6 +737,10 @@
                 { text: "プライバシーポリシー", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
                 { text: "利用規約", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
             ]
+        }
+        bookmark: {
+            title: "魔法の準備完了!",
+            subtitle: "ProfitFairyをポケットに"
         }
     },
     ko: {
@@ -588,6 +789,10 @@
                 { text: "이용 약관", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
             ]
         }
+        bookmark: {
+            title: "마법 준비 완료!",
+            subtitle: "ProfitFairy를 주머니에"
+        }
     }
 };
 
@@ -628,6 +833,10 @@
         document.getElementById("privacy").querySelector("p").textContent = data.privacy.text;
         const policyLinks = document.querySelector(".policy-links");
         policyLinks.innerHTML = data.privacy.links.map(link => `<a href="${link.url}" target="_blank">${link.text}</a>`).join("");
+
+        // 新增書籤文案切換
+        document.getElementById("bookmark-title").textContent = data.bookmark.title;
+        document.getElementById("bookmark-subtitle").textContent = data.bookmark.subtitle;
     }
 
     // Default to English
