@@ -1,4 +1,4 @@
-<!DOCTYPE html>More actions
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -121,17 +121,6 @@
             margin-bottom: 10px;
         }
 
-        .subscription-badge {
-            background-color: #ff66b2;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            margin-top: 10px;
-            display: inline-block;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
         footer {
             background-color: #333;
             color: white;
@@ -225,6 +214,32 @@
 
         .magic-button:hover {
             background-color: #ff3385;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .contact-button:hover {
+            background-color: #ff3385;
+            transform: translateY(-2px);
         }
     </style>
 
@@ -445,7 +460,7 @@ function toggleBookmark() {
 <div class="container">
     <!-- App Description -->
     <div class="content" id="description">
-        <h2 id="welcome-title">Let’s Make Business Magic! ✨</h2>
+        <h2 id="welcome-title">Let's Make Business Magic! ✨</h2>
         <p>Whether you're an entrepreneur, e-commerce seller, or financial wizard, we help you calculate profit margins, prices, and more with magical ease! ✨</p>
     </div>
 
@@ -462,12 +477,6 @@ function toggleBookmark() {
                 <i class="fas fa-cogs"></i>
                 <h3>Flexible Options</h3>
                 <p>Supports platform fees, tax rates, and more for all your business needs.</p>
-            </div>
-            <div class="feature-item">
-                <i class="fas fa-ban"></i>
-                <h3>Ad-Free Experience</h3>
-                <p>Subscribe to remove ads and enjoy a distraction-free journey.</p>
-                <div class="subscription-badge">Subscription Required</div>
             </div>
             <div class="feature-item">
                 <i class="fas fa-rocket"></i>
@@ -531,7 +540,7 @@ function toggleBookmark() {
         </div>
     </div>
 
-    <!-- Privacy & Terms Section - New Design -->
+    <!-- Privacy & Terms Section -->
     <div class="content" id="privacy">
         <h2><i class="fas fa-shield-alt magic-icon"></i> Privacy Policy & Terms of Use</h2>
         <p>We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of our services.</p>
@@ -539,6 +548,13 @@ function toggleBookmark() {
             <a href="https://ans1lbbb.github.io/ProfitFairy/privacy.html" target="_blank">Privacy Policy</a>
             <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Terms of Use</a>
         </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="content contact-section">
+        <h2><i class="fas fa-envelope magic-icon"></i> Need Help?</h2>
+        <p>If you have any questions or feedback, we'd love to hear from you!</p>
+        <button class="contact-button" onclick="showContactEmail()">Contact Us</button>
     </div>
 </div>
 
@@ -551,13 +567,12 @@ function toggleBookmark() {
     const translations = {
     en: {
         subtitle: "Your Magical Business Assistant ✨",
-        welcomeTitle: "Let’s Make Business Magic! ✨",
+        welcomeTitle: "Let's Make Business Magic! ✨",
         magicalFeaturesTitle: "Magical Features",
         advancedMagicTitle: "Advanced Magic ✨",
         whyChooseTitle: "Why Choose Us?",
-        subscriptionBadge: "Subscription Required",
         description: {
-            title: "Let’s Make Business Magic! ✨",
+            title: "Let's Make Business Magic! ✨",
             text: "Whether you're an entrepreneur, e-commerce seller, or financial wizard, we help you calculate profit margins, prices, and more with magical ease! ✨"
         },
         features: {
@@ -565,7 +580,6 @@ function toggleBookmark() {
             items: [
                 { icon: "fas fa-magic", title: "Instant Profit Calculations", text: "Input cost, price, or profit margin, and watch the magic happen! ✨" },
                 { icon: "fas fa-cogs", title: "Flexible Options", text: "Supports platform fees, tax rates, and more for all your business needs." },
-                { icon: "fas fa-ban", title: "Ad-Free Experience", text: "Subscribe to remove ads and enjoy a distraction-free journey." },
                 { icon: "fas fa-rocket", title: "Easy to Use", text: "Simple and intuitive design, zero learning curve!" }
             ]
         },
@@ -598,15 +612,18 @@ function toggleBookmark() {
         bookmark: {
             title: "Magic Ready!",
             subtitle: "Carry ProfitFairy in your pocket"
+        },
+        contact: {
+            title: "Need Help?",
+            text: "If you have any questions or feedback, we'd love to hear from you!"
         }
-    }, // 注意这里的逗号
+    },
     zh: {
         subtitle: "您的魔法商业助手 ✨",
         welcomeTitle: "让商业魔法开始吧！✨",
         magicalFeaturesTitle: "神奇功能",
         advancedMagicTitle: "高级魔法 ✨",
         whyChooseTitle: "为什么选择我们？",
-        subscriptionBadge: "需要订阅",
         description: {
             title: "让商业魔法开始吧！✨",
             text: "无论您是企业家、电商卖家还是财务专家，我们都能帮助您轻松计算利润率、价格等，让您的业务决策更轻松！✨"
@@ -616,7 +633,6 @@ function toggleBookmark() {
             items: [
                 { icon: "fas fa-magic", title: "即时利润计算", text: "输入成本、价格或利润率，立即查看利润金额和利润率！✨" },
                 { icon: "fas fa-cogs", title: "灵活选项", text: "支持平台费用、税率等多种设置，满足您的业务需求。" },
-                { icon: "fas fa-ban", title: "无广告体验", text: "订阅以移除广告，享受无干扰的计算体验。" },
                 { icon: "fas fa-rocket", title: "简单易用", text: "简单直观的设计，零学习成本！" }
             ]
         },
@@ -649,15 +665,18 @@ function toggleBookmark() {
         bookmark: {
             title: "魔法已就绪!",
             subtitle: "将ProfitFairy魔法装入口袋"
+        },
+        contact: {
+            title: "需要帮助?",
+            text: "如果您有任何问题或反馈，我们很乐意听取您的意见！"
         }
-    }, // 注意这里的逗号
+    },
     zh_tw: {
         subtitle: "您的魔法商業助手 ✨",
         welcomeTitle: "讓商業魔法開始吧！✨",
         magicalFeaturesTitle: "神奇功能",
         advancedMagicTitle: "高級魔法 ✨",
         whyChooseTitle: "為什麼選擇我們？",
-        subscriptionBadge: "需要訂閱",
         description: {
             title: "讓商業魔法開始吧！✨",
             text: "無論您是企業家、電商賣家還是財務專家，我們都能幫助您輕鬆計算利潤率、價格等，讓您的業務決策更輕鬆！✨"
@@ -667,7 +686,6 @@ function toggleBookmark() {
             items: [
                 { icon: "fas fa-magic", title: "即時利潤計算", text: "輸入成本、價格或利潤率，立即查看利潤金額和利潤率！✨" },
                 { icon: "fas fa-cogs", title: "靈活選項", text: "支持平台費用、稅率等多種設置，滿足您的業務需求。" },
-                { icon: "fas fa-ban", title: "無廣告體驗", text: "訂閱以移除廣告，享受無干擾的計算體驗。" },
                 { icon: "fas fa-rocket", title: "簡單易用", text: "簡單直觀的設計，零學習成本！" }
             ]
         },
@@ -700,15 +718,18 @@ function toggleBookmark() {
         bookmark: {
             title: "魔法已就緒!",
             subtitle: "將ProfitFairy魔法裝入口袋"
+        },
+        contact: {
+            title: "需要幫助?",
+            text: "如果您有任何問題或反饋，我們很樂意聽取您的意見！"
         }
-    }, // 注意这里的逗号
+    },
     ja: {
         subtitle: "あなたの魔法のビジネスアシスタント ✨",
         welcomeTitle: "ビジネス魔法を始めましょう！✨",
         magicalFeaturesTitle: "魔法の機能",
         advancedMagicTitle: "高度な魔法 ✨",
         whyChooseTitle: "なぜ私たちを選ぶのか？",
-        subscriptionBadge: "購読が必要",
         description: {
             title: "ビジネス魔法を始めましょう！✨",
             text: "起業家、eコマース販売者、または財務の専門家であっても、私たちは利益率、価格などを簡単に計算し、ビジネス意思決定を支援します！✨"
@@ -718,7 +739,6 @@ function toggleBookmark() {
             items: [
                 { icon: "fas fa-magic", title: "即座の利益計算", text: "コスト、価格、または利益率を入力すると、魔法のように結果が表示されます！✨" },
                 { icon: "fas fa-cogs", title: "柔軟なオプション", text: "プラットフォーム手数料、税率などをサポートし、あらゆるビジネスニーズに対応します。" },
-                { icon: "fas fa-ban", title: "広告なしの体験", text: "購読して広告を削除し、集中できる環境を楽しんでください。" },
                 { icon: "fas fa-rocket", title: "簡単に使える", text: "シンプルで直感的な設計、学習コストゼロ！" }
             ]
         },
@@ -751,15 +771,18 @@ function toggleBookmark() {
         bookmark: {
             title: "魔法の準備完了!",
             subtitle: "ProfitFairyをポケットに"
+        },
+        contact: {
+            title: "ヘルプが必要ですか?",
+            text: "ご質問やフィードバックがありましたら、ぜひお知らせください！"
         }
-    }, // 注意这里的逗号
+    },
     ko: {
         subtitle: "당신의 마법 같은 비즈니스 어시스턴트 ✨",
         welcomeTitle: "비즈니스 마법을 시작해보세요! ✨",
         magicalFeaturesTitle: "마법 같은 기능",
         advancedMagicTitle: "고급 마법 ✨",
         whyChooseTitle: "왜 우리를 선택해야 할까요?",
-        subscriptionBadge: "구독 필요",
         description: {
             title: "비즈니스 마법을 시작해보세요! ✨",
             text: "기업가, 전자상거래 판매자 또는 재무 전문가라면, 우리가 마법처럼 쉽게 이익률, 가격 등을 계산하여 비즈니스 결정을 도와드립니다! ✨"
@@ -769,7 +792,6 @@ function toggleBookmark() {
             items: [
                 { icon: "fas fa-magic", title: "즉각적인 이익 계산", text: "비용, 가격 또는 이익률을 입력하면 마법처럼 결과가 나타납니다! ✨" },
                 { icon: "fas fa-cogs", title: "유연한 옵션", text: "플랫폼 수수료, 세율 등을 지원하여 모든 비즈니스 요구를 충족합니다." },
-                { icon: "fas fa-ban", title: "광고 없는 경험", text: "구독하여 광고를 제거하고 방해 없는 환경을 즐기세요." },
                 { icon: "fas fa-rocket", title: "쉽게 사용 가능", text: "간단하고 직관적인 디자인, 학습 곡선 없음!" }
             ]
         },
@@ -802,9 +824,12 @@ function toggleBookmark() {
         bookmark: {
             title: "마법 준비 완료!",
             subtitle: "ProfitFairy를 주머니에"
+        },
+        contact: {
+            title: "도움이 필요하세요?",
+            text: "질문이나 피드백이 있으시면 언제든지 연락주세요!"
         }
     }
-    // 注意这里没有逗号
 };
 
     // 修正后的 switchLanguage 函数
@@ -828,11 +853,6 @@ function toggleBookmark() {
                 const element = document.getElementById(id);
                 if (element) element.textContent = text;
             }
-
-            // 更新订阅标签
-            document.querySelectorAll(".subscription-badge").forEach(badge => {
-                badge.textContent = data.subscriptionBadge;
-            });
 
             // 更新描述区块
             const desc = document.getElementById("description");
@@ -858,6 +878,13 @@ function toggleBookmark() {
                     ).join("");
                 }
             }
+
+            // 更新联系部分
+            const contact = document.querySelector(".contact-section");
+            if (contact) {
+                contact.querySelector("h2").textContent = data.contact.title;
+                contact.querySelector("p").textContent = data.contact.text;
+            }
         } catch (error) {
             console.error("Language switch error:", error);
         }
@@ -872,6 +899,16 @@ function toggleBookmark() {
                 item.querySelector("p").textContent = items[index].text;
             }
         });
+    }
+
+    // 安全显示联系邮箱
+    function showContactEmail() {
+        const email = atob('YW5zMWxAaWNsb3VkLmNvbQ==');
+        const contactButton = document.querySelector('.contact-button');
+        contactButton.innerHTML = `<i class="fas fa-envelope"></i> ${email}`;
+        contactButton.onclick = function() {
+            window.location.href = `mailto:${email}`;
+        };
     }
 
     // 初始化默认语言
