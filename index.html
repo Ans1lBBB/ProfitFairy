@@ -1,1507 +1,921 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProfitFairy - 利潤精算師 | 電商賣家的專業獲利工具</title>
-    <meta name="description" content="ProfitFairy - 專業利潤計算工具，一鍵拆分成本，秒得真實利潤，鎖定你要的獲利。超過50國電商賣家信賴的獲利後盾APP。">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="ProfitFairy – A Simple and Powerful Business Tool">
+    <title>ProfitFairy | Your Business Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Comic+Neue:wght@700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
     <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --primary-light: #3b82f6;
-            --secondary: #059669;
-            --accent: #7c3aed;
-            --text: #1f2937;
-            --text-light: #6b7280;
-            --light-bg: #f8fafc;
-            --card-bg: #ffffff;
-            --border: #e5e7eb;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        * {
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f9; /* Soft pink background */
+            color: #4a4a4a; /* Dark gray for text */
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
             line-height: 1.6;
-            background-color: var(--light-bg);
-            color: var(--text);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-            font-family: 'Inter', sans-serif;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        header {
+            background-color: #ff66b2; /* Bright pink */
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 6px solid #ff3385; /* Darker pink */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* 頂部導航 */
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 0;
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-        }
-
-        .language-toggle {
-            display: flex;
-            gap: 4px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-            padding: 4px;
-            box-shadow: var(--shadow);
-        }
-
-        .lang-btn {
-            padding: 6px 12px;
-            border: none;
-            border-radius: 6px;
-            background: transparent;
-            color: var(--text);
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 0.8rem;
-        }
-
-        .lang-btn:hover, .lang-btn.active {
-            background: var(--primary);
+        .logo {
+            font-family: 'Comic Neue', cursive;
+            font-size: 3em;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
             color: white;
         }
 
-        /* 英雄區域 */
-        .hero {
-            padding: 80px 0 60px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .app-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 24px;
-            margin: 0 auto 30px;
-            box-shadow: var(--shadow-lg);
-            transition: transform 0.5s ease;
-            border: 3px solid white;
-        }
-
-        .app-icon:hover {
-            transform: scale(1.05);
-        }
-
-        .hero-title {
-            font-size: 2.8rem;
-            color: var(--primary-dark);
-            margin-bottom: 16px;
-            font-weight: 800;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            line-height: 1.6;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* 促銷區域 */
-        .promo-section {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            border-radius: 16px;
-            padding: 32px;
-            margin: 40px 0;
-            color: white;
-            box-shadow: var(--shadow-lg);
-            text-align: center;
-        }
-
-        .promo-title {
-            font-size: 1.5rem;
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-
-        .promo-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 24px;
-            opacity: 0.9;
-        }
-
-        .promo-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 16px;
-            margin: 24px 0;
-        }
-
-        .promo-feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-align: left;
-            padding: 12px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-        }
-
-        .promo-feature i {
-            color: var(--secondary);
-            font-size: 1.2rem;
-        }
-
-        .promo-note {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 16px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin-top: 32px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: var(--shadow);
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--light-bg);
-            transform: translateY(-2px);
-        }
-
-        .app-store-badge {
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .app-store-badge img {
-            height: 55px;
-            border-radius: 12px;
-            transition: transform 0.3s;
-        }
-
-        .app-store-badge:hover img {
-            transform: scale(1.05);
-        }
-
-        /* 功能特色 */
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            color: var(--primary-dark);
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: var(--text-light);
-            margin-bottom: 50px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .feature-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px 24px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            border: 1px solid var(--border);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary);
+        .subtitle {
+            font-family: 'Comic Neue', cursive;
+            font-size: 1.2em;
+            color: #fff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
             margin-bottom: 20px;
-            height: 70px;
+        }
+
+        /* Language Switcher - New Design */
+        .language-switcher {
             display: flex;
-            align-items: center;
             justify-content: center;
-        }
-
-        .feature-title {
-            font-size: 1.3rem;
-            color: var(--primary-dark);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .feature-description {
-            font-size: 1rem;
-            color: var(--text);
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-
-        /* 商業工具區 */
-        .business-section {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-            border-radius: 16px;
-            padding: 60px 40px;
-            margin: 50px 0;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .business-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .business-title {
-            font-size: 1.8rem;
-            color: var(--primary-dark);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .business-description {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            color: var(--text);
-        }
-
-        .highlight-box {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            margin: 30px 0;
-            text-align: left;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--secondary);
-        }
-
-        .highlight-title {
-            font-size: 1.2rem;
-            color: var(--primary-dark);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        /* 聯絡我們 */
-        .contact-section {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .contact-container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            padding: 40px 30px;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-title {
-            font-size: 1.8rem;
-            color: var(--primary-dark);
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-
-        .contact-description {
-            font-size: 1rem;
-            color: var(--text);
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
             gap: 10px;
-            padding: 14px 28px;
-            background: var(--primary);
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: var(--shadow);
             margin-top: 10px;
         }
 
-        .contact-btn:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+        .language-switcher button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
         }
 
-        /* 其他應用 */
-        .other-apps-section {
-            padding: 80px 0;
+        .language-switcher button:hover {
+            background-color: white;
+            color: #ff66b2;
         }
 
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 40px;
-        }
-
-        .app-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .app-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .app-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
-        }
-
-        .app-icon-small {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-        }
-
-        .app-title {
-            font-size: 1.3rem;
-            color: var(--primary-dark);
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .app-subtitle {
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .app-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .app-links {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-        }
-
-        .app-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            align-self: flex-start;
-            padding: 8px 16px;
-            border-radius: 6px;
-            background: rgba(37, 99, 235, 0.1);
-        }
-
-        .app-link:hover {
-            transform: translateX(3px);
-            background: rgba(37, 99, 235, 0.2);
-        }
-
-        /* 頁腳 */
-        .footer {
+        .container {
+            padding: 20px;
             text-align: center;
-            margin-top: 60px;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            padding: 30px 20px;
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 24px;
-            margin: 20px 0;
-        }
-
-        .footer-link {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-
-        .footer-link:hover {
-            color: var(--primary);
-        }
-
-        /* 底部導航 */
-        .bottom-nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 100;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-            padding: 12px 0;
-        }
-
-        .nav-links {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            max-width: 500px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .nav-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--text);
-            text-decoration: none;
-            transition: all 0.3s;
-            padding: 8px 12px;
-            border-radius: 8px;
-            min-width: 70px;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary);
-            background: rgba(37, 99, 235, 0.1);
-        }
-
-        .nav-icon {
-            font-size: 1.3rem;
-            margin-bottom: 4px;
-        }
-
-        .nav-text {
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
-        /* 魔法側邊欄 */
-        .magic-sidebar {
-            position: fixed;
-            top: 50%;
-            right: 0;
-            transform: translateY(-50%);
-            z-index: 99;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .sidebar-tab {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 8px 0 0 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.3rem;
-            cursor: pointer;
-            box-shadow: -3px 0 10px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            margin-bottom: 8px;
-        }
-
-        .sidebar-tab:hover {
-            background: var(--primary-dark);
-            transform: scale(1.05);
-        }
-
-        .sidebar-content {
-            width: 200px;
-            background: white;
+        .content {
+            margin: 20px 0;
             padding: 20px;
-            border-radius: 8px 0 0 8px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-right: 4px solid var(--primary);
-            display: none;
-            text-align: center;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .sidebar-content.show {
-            display: block;
-            animation: slideIn 0.3s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        .sidebar-content h3 {
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin: 0 0 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .sidebar-content p {
-            color: var(--text-light);
-            font-size: 0.85rem;
+        .content h2 {
+            color: #ff66b2;
+            font-size: 1.8em;
             margin-bottom: 15px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
-        .sidebar-app {
+        .content p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .feature-list, .additional-features-list, .why-choose-us-list {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            color: var(--text);
-            text-decoration: none;
-            padding: 10px 12px;
-            border-radius: 8px;
-            transition: all 0.3s;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .feature-item, .additional-feature-item, .why-choose-item {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover, .additional-feature-item:hover, .why-choose-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item i, .additional-feature-item i, .why-choose-item i {
+            font-size: 2.5em;
+            color: #ff66b2;
             margin-bottom: 10px;
         }
 
-        .sidebar-app:hover {
-            background: #f1f5f9;
-            transform: translateX(-3px);
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
         }
 
-        .sidebar-app-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
+        footer p {
+            margin: 0;
         }
 
-        .sidebar-app-info {
-            flex-grow: 1;
-            text-align: left;
+        a {
+            color: #ff66b2;
+            text-decoration: none;
         }
 
-        .sidebar-app-name {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-bottom: 2px;
+        a:hover {
+            text-decoration: underline;
         }
 
-        .sidebar-app-download {
-            font-size: 0.75rem;
-            color: var(--text-light);
+        /* Privacy & Terms Section - New Design */
+        .policy-info {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .policy-info h2 {
+            color: #ff66b2;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .policy-info p {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .policy-links {
             display: flex;
-            align-items: center;
-            gap: 4px;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
         }
 
-        /* 響應式設計 */
-        @media (max-width: 1024px) {
-            .hero-title {
-                font-size: 2.4rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
+        .policy-links a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff66b2;
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 0.9em;
         }
 
-        @media (max-width: 768px) {
-            .top-nav {
-                padding: 12px 0;
-            }
-            
-            .logo-text {
-                font-size: 1.3rem;
-            }
-            
-            .lang-btn {
-                padding: 5px 10px;
-                font-size: 0.75rem;
-            }
-            
-            .hero {
-                padding: 60px 0 40px;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
-            }
-            
-            .section {
-                padding: 60px 0;
-            }
-            
-            .features-grid, .apps-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .business-section {
-                padding: 40px 25px;
-            }
-            
-            .contact-container {
-                padding: 30px 25px;
-            }
-            
-            .footer-links {
-                flex-direction: column;
-                gap: 12px;
-            }
-            
-            .nav-text {
-                font-size: 0.7rem;
-            }
-            
-            .magic-sidebar {
-                top: auto;
-                bottom: 80px;
-                transform: none;
-            }
-            
-            .sidebar-content {
-                width: 180px;
-            }
-            
-            .app-links {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-            }
-
-            .promo-features {
-                grid-template-columns: 1fr;
-            }
+        .policy-links a:hover {
+            background-color: #ff3385;
         }
 
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .feature-card, .app-card {
-                padding: 20px 15px;
-            }
-            
-            .contact-container {
-                padding: 25px 20px;
-            }
-            
-            .app-icon {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .footer-text {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-            }
+        /* Magic-themed decorations */
+        .magic-icon {
+            font-size: 4em;
+            color: #ff66b2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-            .promo-section {
-                padding: 24px 16px;
-            }
+        .magic-text {
+            font-family: 'Comic Neue', cursive;
+            color: #ff66b2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .magic-button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .magic-button:hover {
+            background-color: #ff3385;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .contact-button:hover {
+            background-color: #ff3385;
+            transform: translateY(-2px);
         }
     </style>
+
+<!-- 在現有語言切換器下方添加 -->
+<div class="magic-bookmark">
+  <div class="bookmark-tab" onclick="toggleBookmark()">
+    <i class="fas fa-wand-sparkles"></i>
+  </div>
+  <div class="bookmark-content">
+    <h3><i class="fas fa-hat-wizard"></i> <span id="bookmark-title">Magic Ready!</span></h3>
+    <p id="bookmark-subtitle">Carry ProfitFairy in your pocket</p>
+    <a href="https://apps.apple.com/app/id6740332215" class="app-download-link">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+             alt="Download on the App Store"
+             style="height: 40px;">
+    </a>
+  </div>
+</div>
+
+<style>
+/* 新增樣式 */
+.magic-bookmark {
+  position: fixed;
+  top: 50%;
+  right: -165px;
+  transform: translateY(-50%);
+  z-index: 999;
+  transition: right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.magic-bookmark:hover {
+  right: 0;
+}
+
+.bookmark-tab {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff66b2 0%, #ff3385 100%);
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+}
+
+.bookmark-content {
+  width: 180px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px 0 0 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-right: 4px solid #ff66b2;
+  text-align: center;
+}
+
+.bookmark-content h3 {
+  color: #ff66b2;
+  font-size: 1rem;
+  margin: 0 0 8px 0;
+}
+
+.bookmark-content p {
+  color: #666;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .magic-bookmark {
+    right: -150px;
+    top: auto;
+    bottom: 100px;
+    transform: none;
+  }
+}
+
+/* 點擊動畫 */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.bookmark-tab:hover i {
+  animation: wiggle 0.6s ease infinite;
+}
+
+/* 魔法書籤系統樣式 */
+.magic-bookmark {
+  position: fixed;
+  top: 50%;
+  right: -165px;
+  transform: translateY(-50%);
+  z-index: 999;
+  transition: right 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.magic-bookmark:hover {
+  right: 0;
+}
+
+.bookmark-tab {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 80px;
+  background: linear-gradient(135deg, #ff66b2 0%, #ff3385 100%);
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+}
+
+.bookmark-content {
+  width: 180px;
+  background: white;
+  padding: 15px;
+  border-radius: 8px 0 0 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  border-right: 4px solid #ff66b2;
+  text-align: center;
+}
+
+.bookmark-content h3 {
+  color: #ff66b2;
+  font-size: 1rem;
+  margin: 0 0 8px 0;
+}
+
+.bookmark-content p {
+  color: #666;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+
+/* 響應式調整 */
+@media (max-width: 768px) {
+  .magic-bookmark {
+    right: -150px;
+    top: auto;
+    bottom: 100px;
+    transform: none;
+  }
+}
+
+/* 點擊動畫 */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-10deg); }
+  50% { transform: rotate(10deg); }
+}
+
+.bookmark-tab:hover i {
+  animation: wiggle 0.6s ease infinite;
+}
+
+    /* 仙女图片样式 - 固定在右上角并跟随滚动 */
+    .fairy-image {
+        position: fixed;  /* 关键改动：固定定位 */
+        top: 30px;
+        right: 10px;
+        width: 60px;
+        height: auto;
+        z-index: 1000;
+        animation: float 3s ease-in-out infinite;
+    }
+    /* 漂浮动画 */
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    /* 确保 header 有相对定位 */
+    header {
+        position: relative;
+    }
+
+</style>
+
+<script>
+function toggleBookmark() {
+  const bookmark = document.querySelector('.magic-bookmark');
+  bookmark.style.right = bookmark.style.right === '0px' ? '-165px' : '0px';
+}
+
+</script>
+
 </head>
 <body>
-    <div class="container">
-        <!-- 頂部導航 -->
-        <nav class="top-nav">
-            <div class="logo-container">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/ProfitFairy/08d05b77558f137eb7a9cb0d34b7b52ffe0578cb/ProfitFairy_icon.png" alt="ProfitFairy" class="logo-icon">
-                <div class="logo-text">ProfitFairy</div>
-            </div>
-            <div class="language-toggle">
-                <button class="lang-btn active" onclick="switchLanguage('zh_tw')">繁中</button>
-                <button class="lang-btn" onclick="switchLanguage('zh')">簡中</button>
-                <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
-                <button class="lang-btn" onclick="switchLanguage('ja')">JP</button>
-                <button class="lang-btn" onclick="switchLanguage('ko')">KO</button>
-            </div>
-        </nav>
 
-        <!-- 英雄區域 -->
-        <section class="hero">
-            <div class="hero-content">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/ProfitFairy/08d05b77558f137eb7a9cb0d34b7b52ffe0578cb/ProfitFairy_icon.png" alt="ProfitFairy" class="app-icon">
-                <h1 class="hero-title" id="hero-title">ProfitFairy - 利潤精算師</h1>
-                <p class="hero-subtitle" id="hero-subtitle">一鍵拆分成本，秒得真實利潤，鎖定你要的獲利<br>超過全球50國電商賣家和創業者的獲利後盾APP</p>
-                
-                <!-- 促銷區域 -->
-                <div class="promo-section">
-                    <h2 class="promo-title" id="promo-title">限時優惠：新用戶享3天全功能免費試用！</h2>
-                    <p class="promo-subtitle" id="promo-subtitle">立即下載 ProfitFairy，解鎖所有高級功能</p>
-                    
-                    <div class="promo-features">
-                        <div class="promo-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span id="promo-feature1">無限制使用折扣計算器</span>
-                        </div>
-                        <div class="promo-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span id="promo-feature2">開啟反向折扣計算</span>
-                        </div>
-                        <div class="promo-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span id="promo-feature3">完整加價率分析工具</span>
-                        </div>
-                        <div class="promo-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span id="promo-feature4">專業平台手續費計算</span>
-                        </div>
-                        <div class="promo-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span id="promo-feature5">稅務與運費整合計算</span>
-                        </div>
-                        <div class="promo-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span id="promo-feature6">多參數進階分析功能</span>
-                        </div>
-                    </div>
-                    
-                    <p class="promo-note" id="promo-note">立即體驗完整版！試用期結束後仍可繼續使用基礎功能。</p>
-                    
-                    <!-- App Store徽章 -->
-                    <div class="app-store-badge">
-                        <a href="https://apps.apple.com/app/id6740332215" target="_blank">
-                            <img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" alt="Download on the App Store">
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="hero-buttons">
-                    <a href="#features" class="btn btn-secondary">
-                        <i class="fas fa-star"></i> <span id="learn-more-btn">探索更多功能</span>
-                    </a>
-                </div>
-            </div>
-        </section>
+<header>
+    <!-- 添加仙女圖像 -->
+    <img src="Fairy.png" alt="ProfitFairy Logo" class="fairy-image">
 
-        <!-- 功能特色 -->
-        <section class="section" id="features">
-            <h2 class="section-title" id="features-title">電商老闆的決策軍火庫</h2>
-            <p class="section-subtitle" id="features-subtitle">看似陽春的設計，藏著讓會計師都跪下的計算引擎，解決你『每次算著算著就想摔計算機』的執著</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3 class="feature-title" id="feature1-title">一鍵拆分成本</h3>
-                    <p class="feature-description" id="feature1-desc">拖曳拼圖般組合運費、稅金、折扣參數，公式由你自定義，快速拆分各項成本，精準掌握每一分錢的流向</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3 class="feature-title" id="feature2-title">秒得真實利潤</h3>
-                    <p class="feature-description" id="feature2-desc">買家要求包郵？3秒告訴你利潤會掉多少%，即時計算真實利潤，排除隱藏成本，清楚了解每筆交易的實際收益</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3 class="feature-title" id="feature3-title">反折扣黑科技</h3>
-                    <p class="feature-description" id="feature3-desc">輸入目標利潤，直接吐出「最低能打幾折」，精準掌握折扣力度，確保每次交易都能達到預期收益</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
-                    <h3 class="feature-title" id="feature4-title">運費攻防戰</h3>
-                    <p class="feature-description" id="feature4-desc">自由切換買賣方支付運費，真實模擬所有交易情境，支援平台手續費計算，滿足各種商業場景需求</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3 class="feature-title" id="feature5-title">關稅透視鏡</h3>
-                    <p class="feature-description" id="feature5-desc">跨境賣家必備！含稅/未稅無縫切換，各國稅率上限全開放，提前模擬稅率變動，利潤預警早3個月啟動</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="feature-title" id="feature6-title">AI 智囊團</h3>
-                    <p class="feature-description" id="feature6-desc">自定義公式+魔法書簽：常用計算流程一鍵召回，介面從「萌趣」到「黑夜」五種模式隨心切換</p>
-                </div>
-            </div>
-        </section>
+    <div class="logo">ProfitFairy</div>
+    <p class="subtitle" id="subtitle">Your Magical Business Assistant ✨</p>
+    <div class="language-switcher">
+        <button onclick="switchLanguage('en')">EN</button>
+        <button onclick="switchLanguage('zh')">简体中文</button>
+        <button onclick="switchLanguage('zh_tw')">繁體中文</button>
+        <button onclick="switchLanguage('ja')">日本語</button>
+        <button onclick="switchLanguage('ko')">한국어</button>
+    </div>
+</header>
 
-        <!-- 商業工具區 -->
-        <section class="business-section" id="business">
-            <div class="business-content">
-                <h2 class="business-title" id="business-title">當數學遇上魔法</h2>
-                <p class="business-description" id="business-description">ProfitFairy 不是計算機，是會預測利潤的商業巫師。專注讓每個商業計算，都配得上你的專業判斷。超過5000%溢價率支援，連奢侈品訂價都能輕鬆駕馭！</p>
-                
-                <div class="highlight-box">
-                    <h3 class="highlight-title" id="highlight-title">跨境賣家必備的「關稅透視鏡」</h3>
-                    <p id="highlight-description">關稅從10%→15%？提前模擬稅率變動，利潤預警早3個月啟動！「當客戶殺價時...」「當平台又調整手續費時...」「當國際匯率波動時...」→ ProfitFairy 讓你總能快人一步看到利潤真相！</p>
-                </div>
-                
-                <div class="hero-buttons">
-                    <a href="https://apps.apple.com/app/id6740332215" class="btn btn-primary" target="_blank">
-                        <i class="fas fa-download"></i> <span id="download-now-btn">立即下載 ProfitFairy</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 其他應用 -->
-        <section class="other-apps-section" id="apps">
-            <h2 class="section-title" id="other-apps-title">其他精選應用</h2>
-            <p class="section-subtitle" id="other-apps-subtitle">探索更多實用工具，提升生活與工作效率</p>
-            
-            <div class="apps-grid">
-                <div class="app-card">
-                    <div class="app-header">
-                        <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="app-icon-small">
-                        <div>
-                            <h3 class="app-title" id="app1-title">小主日記</h3>
-                            <p class="app-subtitle" id="app1-subtitle">生理期好閨蜜</p>
-                        </div>
-                    </div>
-                    <p class="app-description" id="app1-description">首款中醫小貼士 × 穴位按摩經期指南，記錄妳的專屬生理週期，探索中醫養生智慧，陪伴每個特別的日子，成為妳最貼心的生理期好閨蜜。</p>
-                    <div class="app-links">
-                        <a href="https://apps.apple.com/app/id6752606069" class="app-link" target="_blank" id="app1-link">
-                            <i class="fas fa-download"></i> <span>下載應用</span>
-                        </a>
-                        <a href="https://ans1lbbb.github.io/RubyDays/index.html" class="app-link" target="_blank" id="app1-website">
-                            <i class="fas fa-external-link-alt"></i> <span>官網介紹</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="app-card">
-                    <div class="app-header">
-                        <img src="https://raw.githubusercontent.com/Ans1lBBB/AIOS/main/AIOS_icon.png" alt="AIOS Realm" class="app-icon-small">
-                        <div>
-                            <h3 class="app-title" id="app2-title">AIOS Realm</h3>
-                            <p class="app-subtitle" id="app2-subtitle">神格覺醒</p>
-                        </div>
-                    </div>
-                    <p class="app-description" id="app2-description">海洋女神的神格碎片散落在「艾奧斯海域」！透過創新的卡牌合成玩法，逐步喚醒沉睡的海洋之力。挑戰記憶翻牌試煉，解鎖女神被封印的夏日傳說。</p>
-                    <div class="app-links">
-                        <a href="https://apps.apple.com/app/id6745821288" class="app-link" target="_blank" id="app2-link">
-                            <i class="fas fa-download"></i> <span>下載應用</span>
-                        </a>
-                        <a href="https://ans1lbbb.github.io/AIOS/index.html" class="app-link" target="_blank" id="app2-website">
-                            <i class="fas fa-external-link-alt"></i> <span>官網介紹</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 聯絡我們 -->
-        <section class="contact-section" id="contact">
-            <h2 class="section-title" id="contact-title">聯絡我們</h2>
-            <div class="contact-container">
-                <h3 class="contact-title" id="contact-subtitle">親愛的用戶，我們在這裡傾聽您的聲音</h3>
-                <p class="contact-description" id="contact-description">無論是對 ProfitFairy 的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到您的訊息。點擊下方按鈕即可透過郵件與我們聯絡～</p>
-                
-                <a href="mailto:ans1l@icloud.com?subject=ProfitFairy用戶回饋" class="contact-btn">
-                    <i class="fas fa-envelope"></i> <span id="contact-btn-text">傳送郵件給我們</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- 頁腳 -->
-        <footer class="footer">
-            <div class="footer-text" id="footer-text">
-                <p>© 2025 ProfitFairy - 利潤精算師</p>
-                <p>一鍵拆分成本，秒得真實利潤，鎖定你要的獲利</p>
-            </div>
-        </footer>
+<div class="container">
+    <!-- App Description -->
+    <div class="content" id="description">
+        <h2 id="welcome-title">Let's Make Business Magic! ✨</h2>
+        <p>Whether you're an entrepreneur, e-commerce seller, or financial wizard, we help you calculate profit margins, prices, and more with magical ease! ✨</p>
     </div>
 
-    <!-- 底部导航 -->
-    <nav class="bottom-nav">
-        <div class="nav-links">
-            <a href="#features" class="nav-link">
-                <i class="fas fa-star nav-icon"></i>
-                <span class="nav-text" id="nav-features">功能特色</span>
-            </a>
-            <a href="#business" class="nav-link">
-                <i class="fas fa-chart-line nav-icon"></i>
-                <span class="nav-text" id="nav-business">商業工具</span>
-            </a>
-            <a href="#apps" class="nav-link">
-                <i class="fas fa-th-large nav-icon"></i>
-                <span class="nav-text" id="nav-apps">其他應用</span>
-            </a>
-            <a href="#contact" class="nav-link">
-                <i class="fas fa-envelope nav-icon"></i>
-                <span class="nav-text" id="nav-contact">聯絡我們</span>
-            </a>
-        </div>
-    </nav>
-
-    <!-- 魔法側邊欄 -->
-    <div class="magic-sidebar">
-        <div class="sidebar-tab" onclick="toggleSidebar()">
-            <i class="fas fa-magic"></i>
-        </div>
-        <div class="sidebar-content" id="sidebarContent">
-            <h3><i class="fas fa-calculator"></i> <span id="sidebar-title">應用推薦</span></h3>
-            <p id="sidebar-subtitle">更多精彩應用</p>
-            <a href="https://apps.apple.com/app/id6740332215" class="sidebar-app" target="_blank">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/ProfitFairy/08d05b77558f137eb7a9cb0d34b7b52ffe0578cb/ProfitFairy_icon.png" alt="ProfitFairy" class="sidebar-app-icon">
-                <div class="sidebar-app-info">
-                    <div class="sidebar-app-name">ProfitFairy</div>
-                    <div class="sidebar-app-download">
-                        <i class="fas fa-download"></i> 下載應用
-                    </div>
-                </div>
-            </a>
-            <a href="https://apps.apple.com/app/id6752606069" class="sidebar-app" target="_blank">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/RubyDays/main/RubyDays_icon.png" alt="小主日記" class="sidebar-app-icon">
-                <div class="sidebar-app-info">
-                    <div class="sidebar-app-name">小主日記</div>
-                    <div class="sidebar-app-download">
-                        <i class="fas fa-download"></i> 下載應用
-                    </div>
-                </div>
-            </a>
-            <a href="https://apps.apple.com/app/id6745821288" class="sidebar-app" target="_blank">
-                <img src="https://raw.githubusercontent.com/Ans1lBBB/AIOS/main/AIOS_icon.png" alt="AIOS Realm" class="sidebar-app-icon">
-                <div class="sidebar-app-info">
-                    <div class="sidebar-app-name">AIOS Realm</div>
-                    <div class="sidebar-app-download">
-                        <i class="fas fa-download"></i> 下載應用
-                    </div>
-                </div>
-            </a>
+    <!-- Key Features -->
+    <div class="content" id="features">
+        <h2 id="magical-features-title">Magical Features</h2>
+        <div class="feature-list">
+            <div class="feature-item">
+                <i class="fas fa-magic magic-icon"></i>
+                <h3>Instant Profit Calculations</h3>
+                <p>Input cost, price, or profit margin, and watch the magic happen! ✨</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-cogs"></i>
+                <h3>Flexible Options</h3>
+                <p>Supports platform fees, tax rates, and more for all your business needs.</p>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-rocket"></i>
+                <h3>Easy to Use</h3>
+                <p>Simple and intuitive design, zero learning curve!</p>
+            </div>
         </div>
     </div>
 
-    <script>
-        const translations = {
-            zh_tw: {
-                // 導航欄
-                "nav-features": "功能特色",
-                "nav-business": "商業工具",
-                "nav-apps": "其他應用",
-                "nav-contact": "聯絡我們",
-                
-                // 英雄區域
-                "hero-title": "ProfitFairy - 利潤精算師",
-                "hero-subtitle": "一鍵拆分成本，秒得真實利潤，鎖定你要的獲利<br>超過全球50國電商賣家和創業者的獲利後盾APP",
-                
-                // 促銷區域
-                "promo-title": "限時優惠：新用戶享3天全功能免費試用！",
-                "promo-subtitle": "立即下載 ProfitFairy，解鎖所有高級功能",
-                "promo-feature1": "無限制使用折扣計算器",
-                "promo-feature2": "開啟反向折扣計算",
-                "promo-feature3": "完整加價率分析工具",
-                "promo-feature4": "專業平台手續費計算",
-                "promo-feature5": "稅務與運費整合計算",
-                "promo-feature6": "多參數進階分析功能",
-                "promo-note": "立即體驗完整版！試用期結束後仍可繼續使用基礎功能。",
-                
-                "learn-more-btn": "探索更多功能",
-                
-                // 功能特色
-                "features-title": "電商老闆的決策軍火庫",
-                "features-subtitle": "看似陽春的設計，藏著讓會計師都跪下的計算引擎，解決你『每次算著算著就想摔計算機』的執著",
-                "feature1-title": "一鍵拆分成本",
-                "feature1-desc": "拖曳拼圖般組合運費、稅金、折扣參數，公式由你自定義，快速拆分各項成本，精準掌握每一分錢的流向",
-                "feature2-title": "秒得真實利潤",
-                "feature2-desc": "買家要求包郵？3秒告訴你利潤會掉多少%，即時計算真實利潤，排除隱藏成本，清楚了解每筆交易的實際收益",
-                "feature3-title": "反折扣黑科技",
-                "feature3-desc": "輸入目標利潤，直接吐出「最低能打幾折」，精準掌握折扣力度，確保每次交易都能達到預期收益",
-                "feature4-title": "運費攻防戰",
-                "feature4-desc": "自由切換買賣方支付運費，真實模擬所有交易情境，支援平台手續費計算，滿足各種商業場景需求",
-                "feature5-title": "關稅透視鏡",
-                "feature5-desc": "跨境賣家必備！含稅/未稅無縫切換，各國稅率上限全開放，提前模擬稅率變動，利潤預警早3個月啟動",
-                "feature6-title": "AI 智囊團",
-                "feature6-desc": "自定義公式+魔法書簽：常用計算流程一鍵召回，介面從「萌趣」到「黑夜」五種模式隨心切換",
-                
-                // 商業工具區
-                "business-title": "當數學遇上魔法",
-                "business-description": "ProfitFairy 不是計算機，是會預測利潤的商業巫師。專注讓每個商業計算，都配得上你的專業判斷。超過5000%溢價率支援，連奢侈品訂價都能輕鬆駕馭！",
-                "highlight-title": "跨境賣家必備的「關稅透視鏡」",
-                "highlight-description": "關稅從10%→15%？提前模擬稅率變動，利潤預警早3個月啟動！「當客戶殺價時...」「當平台又調整手續費時...」「當國際匯率波動時...」→ ProfitFairy 讓你總能快人一步看到利潤真相！",
-                "download-now-btn": "立即下載 ProfitFairy",
-                
-                // 其他應用
-                "other-apps-title": "其他精選應用",
-                "other-apps-subtitle": "探索更多實用工具，提升生活與工作效率",
-                "app1-title": "小主日記",
-                "app1-subtitle": "生理期好閨蜜",
-                "app1-description": "首款中醫小貼士 × 穴位按摩經期指南，記錄妳的專屬生理週期，探索中醫養生智慧，陪伴每個特別的日子，成為妳最貼心的生理期好閨蜜。",
-                "app1-link": "下載應用",
-                "app1-website": "官網介紹",
-                "app2-title": "AIOS Realm",
-                "app2-subtitle": "神格覺醒",
-                "app2-description": "海洋女神的神格碎片散落在「艾奧斯海域」！透過創新的卡牌合成玩法，逐步喚醒沉睡的海洋之力。挑戰記憶翻牌試煉，解鎖女神被封印的夏日傳說。",
-                "app2-link": "下載應用",
-                "app2-website": "官網介紹",
-                
-                // 聯絡我們
-                "contact-title": "聯絡我們",
-                "contact-subtitle": "親愛的用戶，我們在這裡傾聽您的聲音",
-                "contact-description": "無論是對 ProfitFairy 的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到您的訊息。點擊下方按鈕即可透過郵件與我們聯絡～",
-                "contact-btn-text": "傳送郵件給我們",
-                
-                // 側邊欄
-                "sidebar-title": "應用推薦",
-                "sidebar-subtitle": "更多精彩應用",
-                
-                // 頁腳
-                "footer-text": "© 2025 ProfitFairy - 利潤精算師<br>一鍵拆分成本，秒得真實利潤，鎖定你要的獲利"
-            },
-            zh: {
-                "nav-features": "功能特色",
-                "nav-business": "商业工具",
-                "nav-apps": "其他应用",
-                "nav-contact": "联系我们",
-                
-                "hero-title": "ProfitFairy - 利润精算师",
-                "hero-subtitle": "一键拆分成本，秒得真实利润，锁定你要的获利<br>超过全球50国电商卖家和创业者的获利后盾APP",
-                
-                "promo-title": "限时优惠：新用户享3天全功能免费试用！",
-                "promo-subtitle": "立即下载 ProfitFairy，解锁所有高级功能",
-                "promo-feature1": "无限制使用折扣计算器",
-                "promo-feature2": "开启反向折扣计算",
-                "promo-feature3": "完整加价率分析工具",
-                "promo-feature4": "专业平台手续费计算",
-                "promo-feature5": "税务与运费整合计算",
-                "promo-feature6": "多参数进阶分析功能",
-                "promo-note": "立即体验完整版！试用期结束后仍可继续使用基础功能。",
-                
-                "learn-more-btn": "探索更多功能",
-                
-                "features-title": "电商老板的决策军火库",
-                "features-subtitle": "看似阳春的设计，藏着让会计师都跪下的计算引擎，解决你『每次算着算着就想摔计算机』的执着",
-                "feature1-title": "一键拆分成本",
-                "feature1-desc": "拖曳拼图般组合运费、税金、折扣参数，公式由你自定义，快速拆分各项成本，精准掌握每一分钱的流向",
-                "feature2-title": "秒得真实利润",
-                "feature2-desc": "买家要求包邮？3秒告诉你利润会掉多少%，即时计算真实利润，排除隐藏成本，清楚了解每笔交易的实际收益",
-                "feature3-title": "反折扣黑科技",
-                "feature3-desc": "输入目标利润，直接吐出「最低能打几折」，精准掌握折扣力度，确保每次交易都能达到预期收益",
-                "feature4-title": "运费攻防战",
-                "feature4-desc": "自由切换买卖方支付运费，真实模拟所有交易情境，支援平台手续费计算，满足各种商业场景需求",
-                "feature5-title": "关税透视镜",
-                "feature5-desc": "跨境卖家必备！含税/未税无缝切换，各国税率上限全开放，提前模拟税率变动，利润预警早3个月启动",
-                "feature6-title": "AI 智囊团",
-                "feature6-desc": "自定义公式+魔法书签：常用计算流程一键召回，界面从「萌趣」到「黑夜」五种模式随心切换",
-                
-                "business-title": "当数学遇上魔法",
-                "business-description": "ProfitFairy 不是计算机，是会预测利润的商业巫师。专注让每个商业计算，都配得上你的专业判断。超过5000%溢价率支援，连奢侈品订价都能轻松驾驭！",
-                "highlight-title": "跨境卖家必备的「关税透视镜」",
-                "highlight-description": "关税从10%→15%？提前模拟税率变动，利润预警早3个月启动！「当客户杀价时...」「当平台又调整手续费时...」「当国际汇率波动时...」→ ProfitFairy 让你总能快人一步看到利润真相！",
-                "download-now-btn": "立即下载 ProfitFairy",
-                
-                "other-apps-title": "其他精选应用",
-                "other-apps-subtitle": "探索更多实用工具，提升生活与工作效率",
-                "app1-title": "小主日记",
-                "app1-subtitle": "生理期好闺蜜",
-                "app1-description": "首款中医小贴士 × 穴位按摩经期指南，记录妳的专属生理周期，探索中医养生智慧，陪伴每个特别的日子，成为您最贴心的生理期好闺蜜。",
-                "app1-link": "下载应用",
-                "app1-website": "官网介绍",
-                "app2-title": "AIOS Realm",
-                "app2-subtitle": "神格觉醒",
-                "app2-description": "海洋女神的神格碎片散落在「艾奥斯领域」！透过创新的卡牌合成玩法，逐步唤醒沉睡的海洋之力。挑战记忆翻牌试炼，解锁女神被封印的夏日传说。",
-                "app2-link": "下载应用",
-                "app2-website": "官网介绍",
-                
-                "contact-title": "联系我们",
-                "contact-subtitle": "亲爱的用户，我们在这里倾听您的声音",
-                "contact-description": "无论是对 ProfitFairy 的使用体验、功能想法，还是任何想要分享的点点滴滴，我们都非常重视并期待收到您的讯息。点击下方按钮即可透过邮件与我们联络～",
-                "contact-btn-text": "传送邮件给我们",
-                
-                "sidebar-title": "应用推荐",
-                "sidebar-subtitle": "更多精彩应用",
-                
-                "footer-text": "© 2025 ProfitFairy - 利润精算师<br>一键拆分成本，秒得真实利润，锁定你要的获利"
-            },
-            en: {
-                "nav-features": "Features",
-                "nav-business": "Business Tools",
-                "nav-apps": "Other Apps",
-                "nav-contact": "Contact Us",
-                
-                "hero-title": "ProfitFairy: Lock your profit",
-                "hero-subtitle": "Track true profit. Instantly.<br>The profit backbone app trusted by e-commerce sellers and entrepreneurs in over 50 countries",
-                
-                "promo-title": "Limited Offer: New users enjoy 3-day free trial of all features!",
-                "promo-subtitle": "Download ProfitFairy now to unlock all premium features",
-                "promo-feature1": "Unlimited use of discount calculator",
-                "promo-feature2": "Enable reverse discount calculation",
-                "promo-feature3": "Complete markup rate analysis tools",
-                "promo-feature4": "Professional platform fee calculation",
-                "promo-feature5": "Integrated tax and shipping cost calculation",
-                "promo-feature6": "Multi-parameter advanced analysis features",
-                "promo-note": "Experience the full version now! You can continue using basic features after the trial period ends.",
-                
-                "learn-more-btn": "Explore More Features",
-                
-                "features-title": "E-commerce Owner's Decision Arsenal",
-                "features-subtitle": "Deceptively simple design hides a calculation engine that even accountants admire, solving your 'I want to throw the calculator every time I calculate' frustration",
-                "feature1-title": "One-Click Cost Splitting",
-                "feature1-desc": "Drag and combine shipping, tax, and discount parameters like puzzle pieces, customize formulas, quickly split various costs, accurately track every penny",
-                "feature2-title": "Instant True Profit",
-                "feature2-desc": "Buyer requests free shipping? Know how much your profit will drop in 3 seconds, instantly calculate true profit, exclude hidden costs, clearly understand actual earnings from each transaction",
-                "feature3-title": "Reverse Discount Tech",
-                "feature3-desc": "Input target profit, directly outputs 'minimum discount you can offer', precisely control discount intensity, ensure each transaction meets expected returns",
-                "feature4-title": "Shipping Cost Battle",
-                "feature4-desc": "Freely switch between buyer/seller payment for shipping, realistically simulate all transaction scenarios, support platform fee calculation, meet various business needs",
-                "feature5-title": "Tariff Insight Lens",
-                "feature5-desc": "Essential for cross-border sellers! Seamless tax-inclusive/exclusive switching, all country tax rate limits fully open, simulate tax rate changes in advance, profit warning starts 3 months early",
-                "feature6-title": "AI Think Tank",
-                "feature6-desc": "Custom formulas + magic bookmarks: One-click recall of frequently used calculation processes, five interface modes from 'cute' to 'dark' for随心切换",
-                
-                "business-title": "When Math Meets Magic",
-                "business-description": "ProfitFairy is not a calculator, it's a business wizard that predicts profits. Focus on making every business calculation worthy of your professional judgment. Supports over 5000% premium rates, even luxury pricing is easily handled!",
-                "highlight-title": "Cross-border Seller's Essential 'Tariff Insight Lens'",
-                "highlight-description": "Tariffs from 10%→15%? Simulate tax rate changes in advance, profit warning starts 3 months early! 'When customers bargain...' 'When platforms adjust fees again...' 'When international exchange rates fluctuate...' → ProfitFairy always lets you see the profit truth one step ahead!",
-                "download-now-btn": "Download ProfitFairy Now",
-                
-                "other-apps-title": "Other Selected Apps",
-                "other-apps-subtitle": "Explore more practical tools to enhance life and work efficiency",
-                "app1-title": "RubyDays",
-                "app1-subtitle": "Your Period Bestie",
-                "app1-description": "The first TCM period care with diet therapy × acupoint massage guide. Record your unique menstrual cycle, explore TCM wellness wisdom, accompanying every special day as your most caring period bestie.",
-                "app1-link": "Download App",
-                "app1-website": "Website",
-                "app2-title": "AIOS Realm",
-                "app2-subtitle": "Divinity Reborn",
-                "app2-description": "The Ocean Goddess's divinity fragments are scattered in the 'AIOS Realm'! Through innovative card synthesis gameplay, gradually awaken the sleeping power of the ocean. Challenge memory card-flipping trials to unlock the goddess's sealed summer legend.",
-                "app2-link": "Download App",
-                "app2-website": "Website",
-                
-                "contact-title": "Contact Us",
-                "contact-subtitle": "Dear user, we are here to listen to your voice",
-                "contact-description": "Whether it's about your experience with ProfitFairy, feature ideas, or anything you'd like to share, we value and look forward to receiving your message. Click the button below to contact us via email～",
-                "contact-btn-text": "Send Email to Us",
-                
-                "sidebar-title": "App Recommendations",
-                "sidebar-subtitle": "More Wonderful Apps",
-                
-                "footer-text": "© 2025 ProfitFairy - Lock your profit<br>Track true profit. Instantly."
-            },
-            ja: {
-                "nav-features": "機能特徴",
-                "nav-business": "ビジネスツール",
-                "nav-apps": "他のアプリ",
-                "nav-contact": "お問い合わせ",
-                
-                "hero-title": "ProfitFairy - 利益をロックする",
-                "hero-subtitle": "コストを按分、純利益を即計算、あなたが望む利益を固定する<br>世界50カ国以上のEC販売者と起業家に信頼される利益の基盤アプリ",
-                
-                "promo-title": "期間限定：新規ユーザーは3日間全機能無料トライアル！",
-                "promo-subtitle": "今すぐProfitFairyをダウンロードして、すべてのプレミアム機能を解放",
-                "promo-feature1": "制限なしで割引計算機を使用",
-                "promo-feature2": "逆割引計算を有効化",
-                "promo-feature3": "完全なマークアップ率分析ツール",
-                "promo-feature4": "プロフェッショナルなプラットフォーム手数料計算",
-                "promo-feature5": "税と送料の統合計算",
-                "promo-feature6": "多パラメータ高度分析機能",
-                "promo-note": "今すぐ完全版を体験！トライアル期間終了後も基本機能は引き続きご利用いただけます。",
-                
-                "learn-more-btn": "もっと機能を探す",
-                
-                "features-title": "ECオーナーの意思決定兵器庫",
-                "features-subtitle": "一見シンプルなデザインに、会計士も感心する計算エンジンが隠れており、『計算するたびに電卓を投げたくなる』というフラストレーションを解決します",
-                "feature1-title": "ワンクリックでコスト按分",
-                "feature1-desc": "送料、税金、割引パラメータをパズルのようにドラッグして組み合わせ、数式をカスタマイズし、様々なコストを素早く按分し、すべての支出を正確に追跡",
-                "feature2-title": "純利益を即時計算",
-                "feature2-desc": "買い手が送料無料を要求？利益が何％減るか3秒でわかる、隠れたコストを排除した純利益を即時計算し、各取引の実際の収益を明確に理解",
-                "feature3-title": "逆割引テクノロジー",
-                "feature3-desc": "目標利益を入力すると、「提供できる最低割引」を直接出力し、割引強度を正確に制御し、すべての取引が期待収益を達成することを保証",
-                "feature4-title": "送料コストバトル",
-                "feature4-desc": "送料の買い手/売り手支払いを自由に切り替え、すべての取引シナリオを現実的にシミュレートし、プラットフォーム手数料計算をサポートし、様々なビジネスニーズに対応",
-                "feature5-title": "関税インサイトレンズ",
-                "feature5-desc": "越境販売者に必須！税込/税抜のシームレスな切り替え、すべての国の税率上限を完全に開放、事前に税率変動をシミュレート、利益警告を3ヶ月早く開始",
-                "feature6-title": "AIシンクタンク",
-                "feature6-desc": "カスタム数式+魔法のブックマーク：よく使う計算プロセスをワンクリックで呼び出し、「かわいい」から「ダーク」までの5つのインターフェースモードで気分に合わせて切り替え",
-                
-                "business-title": "数学が魔法に出会うとき",
-                "business-description": "ProfitFairyは電卓ではなく、利益を予測するビジネスウィザードです。すべてのビジネス計算があなたの専門的判断にふさわしいものになることに焦点を当てています。5000%以上のプレミアムレートをサポートし、高級品の価格設定も簡単に処理できます！",
-                "highlight-title": "越境販売者必須の「関税インサイトレンズ」",
-                "highlight-description": "関税が10%→15%に？事前に税率変動をシミュレート、利益警告を3ヶ月早く開始！「顧客が値引き交渉するとき...」「プラットフォームが再度手数料を調整するとき...」「国際為替レートが変動するとき...」→ ProfitFairyは常に利益の真実を一歩先に見せます！",
-                "download-now-btn": "今すぐProfitFairyをダウンロード",
-                
-                "other-apps-title": "他の精選アプリ",
-                "other-apps-subtitle": "生活と仕事の効率を高める実用的なツールをもっと探す",
-                "app1-title": "姫様ダイアリー",
-                "app1-subtitle": "生理の親友",
-                "app1-description": "初の薬膳×ツボマッサージ月経ガイド。あなただけの生理周期を記録し、中医養生の知恵を探求し、特別な日々に寄り添い、あなたの一番の生理の親友になります。",
-                "app1-link": "アプリをダウンロード",
-                "app1-website": "公式サイト",
-                "app2-title": "AIOS Realm",
-                "app2-subtitle": "神格覚醒",
-                "app2-description": "海洋女神の神格の断片が「アイオス海域」に散らばっています！革新的なカード合成ゲームプレイを通じて、眠れる海の力を徐々に目覚めさせます。記憶カードめくり試練に挑戦し、女神が封印された夏の伝説を解き放ちましょう。",
-                "app2-link": "アプリをダウンロード",
-                "app2-website": "公式サイト",
-                
-                "contact-title": "お問い合わせ",
-                "contact-subtitle": "親愛なるユーザーの皆様、私たちはあなたの声を聴くためにここにいます",
-                "contact-description": "ProfitFairyの使用体験、機能のアイデア、または共有したいことについて、私たちはあなたのメッセージを大切にし、受け取ることを楽しみにしています。以下のボタンをクリックしてメールでお問い合わせください～",
-                "contact-btn-text": "メールを送信",
-                
-                "sidebar-title": "アプリのおすすめ",
-                "sidebar-subtitle": "もっと素晴らしいアプリ",
-                
-                "footer-text": "© 2025 ProfitFairy - 利益をロックする<br>コストを按分、純利益を即計算、あなたが望む利益を固定する"
-            },
-            ko: {
-                "nav-features": "기능 특징",
-                "nav-business": "비즈니스 도구",
-                "nav-apps": "다른 앱",
-                "nav-contact": "문의하기",
-                
-                "hero-title": "ProfitFairy - 당신의 이익을 잠그세요",
-                "hero-subtitle": "원클릭으로 비용 분할, 원하는 수익 고정<br>전 세계 50개국 이상의 이커머스 판매자와 창업자가 신뢰하는 수익의 기반 앱",
-                
-                "promo-title": "기간 한정: 신규 사용자는 3일간 모든 기능 무료 체험!",
-                "promo-subtitle": "지금 바로 ProfitFairy를 다운로드하여 모든 프리미엄 기능을 해제하세요",
-                "promo-feature1": "제한 없이 할인 계산기 사용",
-                "promo-feature2": "역할인 계산 활성화",
-                "promo-feature3": "완전한 마크업율 분석 도구",
-                "promo-feature4": "전문적인 플랫폼 수수료 계산",
-                "promo-feature5": "세금과 배송비 통합 계산",
-                "promo-feature6": "다중 매개변수 고급 분석 기능",
-                "promo-note": "지금 바로 완전판을 체험하세요! 체험 기간 종료 후에도 기본 기능은 계속 사용할 수 있습니다.",
-                
-                "learn-more-btn": "더 많은 기능 탐색",
-                
-                "features-title": "이커머스 오너의 의사 결정 무기고",
-                "features-subtitle": "겉보기에는 단순한 디자인에, 회계사도 감탄하는 계산 엔진이 숨겨져 있으며, '계산할 때마다 계산기를 던지고 싶다'는 좌절감을 해결합니다",
-                "feature1-title": "원클릭 비용 분할",
-                "feature1-desc": "배송비, 세금, 할인 매개변수를 퍼즐처럼 드래그하여 결합, 수식 사용자 정의, 다양한 비용 빠르게 분할, 모든 지출 정확하게 추적",
-                "feature2-title": "실시간 순이익 계산",
-                "feature2-desc": "구매자가 무료 배송 요청? 이익이 몇 % 감소하는지 3초 안에 알 수 있음, 숨겨진 비용 제외한 순이익 실시간 계산, 각 거래의 실제 수익 명확히 이해",
-                "feature3-title": "역할인 기술",
-                "feature3-desc": "목표 이익 입력하면 '제공할 수 있는 최소 할인' 직접 출력, 할인 강도 정밀 제어, 모든 거래가 예상 수익 달성 보장",
-                "feature4-title": "배송비 전투",
-                "feature4-desc": "배송비 구매자/판매자 지불 자유롭게 전환, 모든 거래 시나리오 현실적으로 시뮬레이션, 플랫폼 수수료 계산 지원, 다양한 비즈니스 요구 충족",
-                "feature5-title": "관세 통찰 렌즈",
-                "feature5-desc": "크로스보더 판매자 필수! 세금 포함/미포함 원활한 전환, 모든 국가 세율 상한 완전 개방, 사전에 세율 변동 시뮬레이션, 이익 경고 3개월 일찍 시작",
-                "feature6-title": "AI 싱크탱크",
-                "feature6-desc": "사용자 정의 수식+마법 북마크: 자주 사용하는 계산 프로세스 원클릭 호출, '귀여운'에서 '어두운'까지 5가지 인터페이스 모드로 기분에 따라 전환",
-                
-                "business-title": "수학이 마법을 만날 때",
-                "business-description": "ProfitFairy는 계산기가 아닌, 이익을 예측하는 비즈니스 마법사입니다. 모든 비즈니스 계산이 당신의 전문적 판단에 걸맞도록 하는 데 집중합니다. 5000% 이상의 프리미엄 요율 지원, 명품 가격 설정도 쉽게 처리 가능!",
-                "highlight-title": "크로스보더 판매자 필수 '관세 통찰 렌즈'",
-                "highlight-description": "관세 10%→15%? 사전에 세율 변동 시뮬레이션, 이익 경고 3개월 일찍 시작! '고객이 흥정할 때...' '플랫폼이 다시 수수료 조정할 때...' '국제 환율 변동할 때...' → ProfitFairy는 항상 이익의 진실을 한 걸음 앞서 보여줍니다!",
-                "download-now-btn": "지금 ProfitFairy 다운로드",
-                
-                "other-apps-title": "다른 추천 앱",
-                "other-apps-subtitle": "생활과 업무 효율을 높이는 실용적인 도구 더 탐색",
-                "app1-title": "공주님 다이어리",
-                "app1-subtitle": "너의 생리기 절친",
-                "app1-description": "최초의 한약식이요법 × 경혈 마사지 생리 가이드. 나만의 생리 주기를 기록하고, 중의학 건강 지혜를 탐구하며, 특별한 날을 함께 하며 당신의 가장 친한 생리기 절친이 되어드립니다.",
-                "app1-link": "앱 다운로드",
-                "app1-website": "공식 웹사이트",
-                "app2-title": "AIOS Realm",
-                "app2-subtitle": "신격 각성",
-                "app2-description": "바다 여신의 신격 파편이 '아이오스 영역'에 흩어져 있습니다! 혁신적인 카드 합성 게임플레이를 통해 잠든 바다의 힘을 점차 깨웁니다. 기억 카드 뒤집기 시련에 도전하여 여신이 봉인된 여름 전설을 해제하세요.",
-                "app2-link": "앱 다운로드",
-                "app2-website": "공식 웹사이트",
-                
-                "contact-title": "문의하기",
-                "contact-subtitle": "사랑하는 사용자 여러분, 우리는 여러분의 목소리를 듣기 위해 여기에 있습니다",
-                "contact-description": "ProfitFairy 사용 경험, 기능 아이디어, 또는 공유하고 싶은 어떤 것에 대해서도 우리는 여러분의 메시지를 소중히 여기며 기다리고 있습니다. 아래 버튼을 클릭하여 이메일로 문의해 주세요～",
-                "contact-btn-text": "이메일 보내기",
-                
-                "sidebar-title": "앱 추천",
-                "sidebar-subtitle": "더 많은 멋진 앱",
-                
-                "footer-text": "© 2025 ProfitFairy - 당신의 이익을 잠그세요<br>원클릭으로 비용 분할, 원하는 수익 고정"
-            }
-        };
+    <!-- Advanced Features -->
+    <div class="content" id="advanced-features">
+        <h2 id="advanced-magic-title">Advanced Magic ✨</h2>
+        <div class="additional-features-list">
+            <div class="additional-feature-item">
+                <i class="fas fa-star magic-icon"></i>
+                <h3>Smart Discounts</h3>
+                <p>Dual-direction discount/counter-discount design for flexible pricing.</p>
+            </div>
+            <div class="additional-feature-item">
+                <i class="fas fa-chart-line"></i>
+                <h3>Margin Analysis</h3>
+                <p>Track real-time gross margins for every transaction.</p>
+            </div>
+            <div class="additional-feature-item">
+                <i class="fas fa-percent"></i>
+                <h3>Custom Fees & Tax Rates</h3>
+                <p>Flexible fee settings for buyers and sellers, with support for tax-inclusive/exclusive calculations.</p>
+            </div>
+            <div class="additional-feature-item">
+                <i class="fas fa-lock"></i>
+                <h3>Data Privacy</h3>
+                <p>Local computation ensures your data stays safe and secure.</p>
+            </div>
+            <div class="additional-feature-item">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Markup & Premium Rates</h3>
+                <p>Calculate markup and premium rates effortlessly for better pricing strategies.</p>
+            </div>
+        </div>
+    </div>
 
-        function switchLanguage(lang) {
+    <!-- Why Choose Us -->
+    <div class="content" id="why-choose-us">
+        <h2 id="why-choose-title">Why Choose Us?</h2>
+        <div class="why-choose-us-list">
+            <div class="why-choose-item">
+                <i class="fas fa-heart magic-icon"></i>
+                <h3>Simple & Fun</h3>
+                <p>Designed to make business calculations a magical experience!</p>
+            </div>
+            <div class="why-choose-item">
+                <i class="fas fa-crown"></i>
+                <h3>Powerful Tools</h3>
+                <p>All the features you need to succeed, wrapped in a cute package.</p>
+            </div>
+            <div class="why-choose-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Secure & Reliable</h3>
+                <p>Your data is always safe with us.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy & Terms Section -->
+    <div class="content" id="privacy">
+        <h2><i class="fas fa-shield-alt magic-icon"></i> Privacy Policy & Terms of Use</h2>
+        <p>We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of our services.</p>
+        <div class="policy-links">
+            <a href="https://ans1lbbb.github.io/ProfitFairy/privacy.html" target="_blank">Privacy Policy</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Terms of Use</a>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="content contact-section">
+        <h2><i class="fas fa-envelope magic-icon"></i> Need Help?</h2>
+        <p>If you have any questions or feedback, we'd love to hear from you!</p>
+        <button class="contact-button" onclick="showContactEmail()">Contact Us</button>
+    </div>
+</div>
+
+<footer>
+    <p>© 2025 ProfitFairy | All Rights Reserved</p>
+</footer>
+
+<script>
+    // Language Data (修正后的 translations 对象)
+    const translations = {
+    en: {
+        subtitle: "Your Magical Business Assistant ✨",
+        welcomeTitle: "Let's Make Business Magic! ✨",
+        magicalFeaturesTitle: "Magical Features",
+        advancedMagicTitle: "Advanced Magic ✨",
+        whyChooseTitle: "Why Choose Us?",
+        description: {
+            title: "Let's Make Business Magic! ✨",
+            text: "Whether you're an entrepreneur, e-commerce seller, or financial wizard, we help you calculate profit margins, prices, and more with magical ease! ✨"
+        },
+        features: {
+            title: "Magical Features",
+            items: [
+                { icon: "fas fa-magic", title: "Instant Profit Calculations", text: "Input cost, price, or profit margin, and watch the magic happen! ✨" },
+                { icon: "fas fa-cogs", title: "Flexible Options", text: "Supports platform fees, tax rates, and more for all your business needs." },
+                { icon: "fas fa-rocket", title: "Easy to Use", text: "Simple and intuitive design, zero learning curve!" }
+            ]
+        },
+        advancedFeatures: {
+            title: "Advanced Magic ✨",
+            items: [
+                { icon: "fas fa-star", title: "Smart Discounts", text: "Dual-direction discount/counter-discount design for flexible pricing." },
+                { icon: "fas fa-chart-line", title: "Margin Analysis", text: "Track real-time gross margins for every transaction." },
+                { icon: "fas fa-percent", title: "Custom Fees & Tax Rates", text: "Flexible fee settings for buyers and sellers, with support for tax-inclusive/exclusive calculations." },
+                { icon: "fas fa-lock", title: "Data Privacy", text: "Local computation ensures your data stays safe and secure." },
+                { icon: "fas fa-chart-bar", title: "Markup & Premium Rates", text: "Calculate markup and premium rates effortlessly for better pricing strategies." }
+            ]
+        },
+        whyChooseUs: {
+            title: "Why Choose Us?",
+            items: [
+                { icon: "fas fa-heart", title: "Simple & Fun", text: "Designed to make business calculations a magical experience!" },
+                { icon: "fas fa-crown", title: "Powerful Tools", text: "All the features you need to succeed, wrapped in a cute package." },
+                { icon: "fas fa-shield-alt", title: "Secure & Reliable", text: "Your data is always safe with us." }
+            ]
+        },
+        privacy: {
+            title: "Privacy Policy & Terms of Use",
+            text: "We value your privacy and transparency. Please review our policies to understand how we handle your data and the terms governing your use of our services.",
+            links: [
+                { text: "Privacy Policy", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "Terms of Use", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
+        },
+        bookmark: {
+            title: "Magic Ready!",
+            subtitle: "Carry ProfitFairy in your pocket"
+        },
+        contact: {
+            title: "Need Help?",
+            text: "If you have any questions or feedback, we'd love to hear from you!"
+        }
+    },
+    zh: {
+        subtitle: "您的魔法商业助手 ✨",
+        welcomeTitle: "让商业魔法开始吧！✨",
+        magicalFeaturesTitle: "神奇功能",
+        advancedMagicTitle: "高级魔法 ✨",
+        whyChooseTitle: "为什么选择我们？",
+        description: {
+            title: "让商业魔法开始吧！✨",
+            text: "无论您是企业家、电商卖家还是财务专家，我们都能帮助您轻松计算利润率、价格等，让您的业务决策更轻松！✨"
+        },
+        features: {
+            title: "神奇功能",
+            items: [
+                { icon: "fas fa-magic", title: "即时利润计算", text: "输入成本、价格或利润率，立即查看利润金额和利润率！✨" },
+                { icon: "fas fa-cogs", title: "灵活选项", text: "支持平台费用、税率等多种设置，满足您的业务需求。" },
+                { icon: "fas fa-rocket", title: "简单易用", text: "简单直观的设计，零学习成本！" }
+            ]
+        },
+        advancedFeatures: {
+            title: "高级魔法 ✨",
+            items: [
+                { icon: "fas fa-star", title: "智能折扣", text: "双向折扣/反折扣设计，灵活定价策略。" },
+                { icon: "fas fa-chart-line", title: "毛利分析", text: "实时跟踪每笔交易的毛利率。" },
+                { icon: "fas fa-percent", title: "自定义手续费与税率", text: "买家和卖家的灵活手续费设置，支持含税/未税双向计算。" },
+                { icon: "fas fa-lock", title: "数据隐私", text: "本地计算确保数据安全。" },
+                { icon: "fas fa-chart-bar", title: "加价率与溢价率", text: "轻松计算加价率和溢价率，优化定价策略。" }
+            ]
+        },
+        whyChooseUs: {
+            title: "为什么选择我们？",
+            items: [
+                { icon: "fas fa-heart", title: "简单有趣", text: "让业务计算变得像魔法一样简单有趣！" },
+                { icon: "fas fa-crown", title: "强大工具", text: "所有功能一应俱全，包装在可爱的界面中。" },
+                { icon: "fas fa-shield-alt", title: "安全可靠", text: "您的数据始终安全无忧。" }
+            ]
+        },
+        privacy: {
+            title: "隐私政策与使用条款",
+            text: "我们重视您的隐私和透明度。请查看我们的政策以了解我们如何处理您的数据以及使用我们服务的条款。",
+            links: [
+                { text: "隐私政策", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "使用条款", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
+        },
+        bookmark: {
+            title: "魔法已就绪!",
+            subtitle: "将ProfitFairy魔法装入口袋"
+        },
+        contact: {
+            title: "需要帮助?",
+            text: "如果您有任何问题或反馈，我们很乐意听取您的意见！"
+        }
+    },
+    zh_tw: {
+        subtitle: "您的魔法商業助手 ✨",
+        welcomeTitle: "讓商業魔法開始吧！✨",
+        magicalFeaturesTitle: "神奇功能",
+        advancedMagicTitle: "高級魔法 ✨",
+        whyChooseTitle: "為什麼選擇我們？",
+        description: {
+            title: "讓商業魔法開始吧！✨",
+            text: "無論您是企業家、電商賣家還是財務專家，我們都能幫助您輕鬆計算利潤率、價格等，讓您的業務決策更輕鬆！✨"
+        },
+        features: {
+            title: "神奇功能",
+            items: [
+                { icon: "fas fa-magic", title: "即時利潤計算", text: "輸入成本、價格或利潤率，立即查看利潤金額和利潤率！✨" },
+                { icon: "fas fa-cogs", title: "靈活選項", text: "支持平台費用、稅率等多種設置，滿足您的業務需求。" },
+                { icon: "fas fa-rocket", title: "簡單易用", text: "簡單直觀的設計，零學習成本！" }
+            ]
+        },
+        advancedFeatures: {
+            title: "高級魔法 ✨",
+            items: [
+                { icon: "fas fa-star", title: "智能折扣", text: "雙向折扣/反折扣設計，靈活定價策略。" },
+                { icon: "fas fa-chart-line", title: "毛利分析", text: "實時跟踪每筆交易的毛利率。" },
+                { icon: "fas fa-percent", title: "自定義手續費與稅率", text: "買家和賣家的靈活手續費設置，支持含稅/未稅雙向計算。" },
+                { icon: "fas fa-lock", title: "數據隱私", text: "本地計算確保數據安全。" },
+                { icon: "fas fa-chart-bar", title: "加價率與溢價率", text: "輕鬆計算加價率和溢價率，優化定價策略。" }
+            ]
+        },
+        whyChooseUs: {
+            title: "為什麼選擇我們？",
+            items: [
+                { icon: "fas fa-heart", title: "簡單有趣", text: "讓業務計算變得像魔法一樣簡單有趣！" },
+                { icon: "fas fa-crown", title: "強大工具", text: "所有功能一應俱全，包裝在可愛的界面中。" },
+                { icon: "fas fa-shield-alt", title: "安全可靠", text: "您的數據始終安全無憂。" }
+            ]
+        },
+        privacy: {
+            title: "隱私政策與使用條款",
+            text: "我們重視您的隱私和透明度。請查看我們的政策以了解我們如何處理您的數據以及使用我們服務的條款。",
+            links: [
+                { text: "隱私政策", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "使用條款", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
+        },
+        bookmark: {
+            title: "魔法已就緒!",
+            subtitle: "將ProfitFairy魔法裝入口袋"
+        },
+        contact: {
+            title: "需要幫助?",
+            text: "如果您有任何問題或反饋，我們很樂意聽取您的意見！"
+        }
+    },
+    ja: {
+        subtitle: "あなたの魔法のビジネスアシスタント ✨",
+        welcomeTitle: "ビジネス魔法を始めましょう！✨",
+        magicalFeaturesTitle: "魔法の機能",
+        advancedMagicTitle: "高度な魔法 ✨",
+        whyChooseTitle: "なぜ私たちを選ぶのか？",
+        description: {
+            title: "ビジネス魔法を始めましょう！✨",
+            text: "起業家、eコマース販売者、または財務の専門家であっても、私たちは利益率、価格などを簡単に計算し、ビジネス意思決定を支援します！✨"
+        },
+        features: {
+            title: "魔法の機能",
+            items: [
+                { icon: "fas fa-magic", title: "即座の利益計算", text: "コスト、価格、または利益率を入力すると、魔法のように結果が表示されます！✨" },
+                { icon: "fas fa-cogs", title: "柔軟なオプション", text: "プラットフォーム手数料、税率などをサポートし、あらゆるビジネスニーズに対応します。" },
+                { icon: "fas fa-rocket", title: "簡単に使える", text: "シンプルで直感的な設計、学習コストゼロ！" }
+            ]
+        },
+        advancedFeatures: {
+            title: "高度な魔法 ✨",
+            items: [
+                { icon: "fas fa-star", title: "スマート割引", text: "双方向割引/逆割引設計で柔軟な価格設定が可能です。" },
+                { icon: "fas fa-chart-line", title: "利益率分析", text: "すべての取引の実時間粗利益率を追跡します。" },
+                { icon: "fas fa-percent", title: "カスタム手数料と税率", text: "買い手と売り手のための柔軟な手数料設定、税込/税抜計算をサポートします。" },
+                { icon: "fas fa-lock", title: "データプライバシー", text: "ローカル計算によりデータの安全性を確保します。" },
+                { icon: "fas fa-chart-bar", title: "マークアップ率とプレミアム率", text: "マークアップ率とプレミアム率を簡単に計算し、価格戦略を最適化します。" }
+            ]
+        },
+        whyChooseUs: {
+            title: "なぜ私たちを選ぶのか？",
+            items: [
+                { icon: "fas fa-heart", title: "シンプルで楽しい", text: "ビジネス計算を魔法のように簡単で楽しくします！" },
+                { icon: "fas fa-crown", title: "強力なツール", text: "成功に必要なすべての機能が可愛いパッケージに詰まっています。" },
+                { icon: "fas fa-shield-alt", title: "安全で信頼性が高い", text: "あなたのデータは常に安全です。" }
+            ]
+        },
+        privacy: {
+            title: "プライバシーポリシーと利用規約",
+            text: "私たちはあなたのプライバシーと透明性を大切にしています。詳細については私たちのポリシーをご確認ください。",
+            links: [
+                { text: "プライバシーポリシー", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "利用規約", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
+        },
+        bookmark: {
+            title: "魔法の準備完了!",
+            subtitle: "ProfitFairyをポケットに"
+        },
+        contact: {
+            title: "ヘルプが必要ですか?",
+            text: "ご質問やフィードバックがありましたら、ぜひお知らせください！"
+        }
+    },
+    ko: {
+        subtitle: "당신의 마법 같은 비즈니스 어시스턴트 ✨",
+        welcomeTitle: "비즈니스 마법을 시작해보세요! ✨",
+        magicalFeaturesTitle: "마법 같은 기능",
+        advancedMagicTitle: "고급 마법 ✨",
+        whyChooseTitle: "왜 우리를 선택해야 할까요?",
+        description: {
+            title: "비즈니스 마법을 시작해보세요! ✨",
+            text: "기업가, 전자상거래 판매자 또는 재무 전문가라면, 우리가 마법처럼 쉽게 이익률, 가격 등을 계산하여 비즈니스 결정을 도와드립니다! ✨"
+        },
+        features: {
+            title: "마법 같은 기능",
+            items: [
+                { icon: "fas fa-magic", title: "즉각적인 이익 계산", text: "비용, 가격 또는 이익률을 입력하면 마법처럼 결과가 나타납니다! ✨" },
+                { icon: "fas fa-cogs", title: "유연한 옵션", text: "플랫폼 수수료, 세율 등을 지원하여 모든 비즈니스 요구를 충족합니다." },
+                { icon: "fas fa-rocket", title: "쉽게 사용 가능", text: "간단하고 직관적인 디자인, 학습 곡선 없음!" }
+            ]
+        },
+        advancedFeatures: {
+            title: "고급 마법 ✨",
+            items: [
+                { icon: "fas fa-star", title: "스마트 할인", text: "양방향 할인/역할인 설계로 유연한 가격 설정이 가능합니다." },
+                { icon: "fas fa-chart-line", title: "이익률 분석", text: "모든 거래의 실시간 이익률을 추적합니다." },
+                { icon: "fas fa-percent", title: "사용자 정의 수수료 및 세율", text: "구매자와 판매자를 위한 유연한 수수료 설정, 세금 포함/미포함 계산을 지원합니다." },
+                { icon: "fas fa-lock", title: "데이터 프라이버시", text: "로컬 계산으로 데이터 보안을 보장합니다." },
+                { icon: "fas fa-chart-bar", title: "마크업 및 프리미엄 요율", text: "마크업 및 프리미엄 요율을 쉽게 계산하여 가격 전략을 최적화합니다." }
+            ]
+        },
+        whyChooseUs: {
+            title: "왜 우리를 선택해야 할까요?",
+            items: [
+                { icon: "fas fa-heart", title: "간단하고 재미있음", text: "비즈니스 계산을 마법처럼 쉽고 재미있게 만듭니다!" },
+                { icon: "fas fa-crown", title: "강력한 도구", text: "성공에 필요한 모든 기능이 귀여운 패키지에 담겨 있습니다." },
+                { icon: "fas fa-shield-alt", title: "안전하고 신뢰할 수 있음", text: "귀하의 데이터는 항상 안전합니다." }
+            ]
+        },
+        privacy: {
+            title: "개인정보 보호정책 및 이용 약관",
+            text: "우리는 귀하의 개인정보와 투명성을 소중히 여깁니다. 자세한 내용은 우리의 정책을 확인하십시오.",
+            links: [
+                { text: "개인정보 보호정책", url: "https://ans1lbbb.github.io/ProfitFairy/privacy.html" },
+                { text: "이용 약관", url: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" }
+            ]
+        },
+        bookmark: {
+            title: "마법 준비 완료!",
+            subtitle: "ProfitFairy를 주머니에"
+        },
+        contact: {
+            title: "도움이 필요하세요?",
+            text: "질문이나 피드백이 있으시면 언제든지 연락주세요!"
+        }
+    }
+};
+
+    // 修正后的 switchLanguage 函数
+    function switchLanguage(lang) {
+        try {
             const data = translations[lang];
+            if (!data) return;
 
-            // 更新按鈕活躍狀態
-            document.querySelectorAll('.lang-btn').forEach(button => {
-                button.classList.remove('active');
-            });
-            event.target.classList.add('active');
+            // 更新所有文本元素
+            const elementsToUpdate = {
+                "subtitle": data.subtitle,
+                "welcome-title": data.welcomeTitle,
+                "magical-features-title": data.magicalFeaturesTitle,
+                "advanced-magic-title": data.advancedMagicTitle,
+                "why-choose-title": data.whyChooseTitle,
+                "bookmark-title": data.bookmark.title,
+                "bookmark-subtitle": data.bookmark.subtitle
+            };
 
-            // 更新所有文本內容
-            Object.keys(data).forEach(key => {
-                const element = document.getElementById(key);
-                if (element) {
-                    element.innerHTML = data[key];
+            for (const [id, text] of Object.entries(elementsToUpdate)) {
+                const element = document.getElementById(id);
+                if (element) element.textContent = text;
+            }
+
+            // 更新描述区块
+            const desc = document.getElementById("description");
+            if (desc) {
+                desc.querySelector("h2").textContent = data.description.title;
+                desc.querySelector("p").textContent = data.description.text;
+            }
+
+            // 更新功能列表
+            updateListItems("#features .feature-item", data.features.items);
+            updateListItems("#advanced-features .additional-feature-item", data.advancedFeatures.items);
+            updateListItems("#why-choose-us .why-choose-item", data.whyChooseUs.items);
+
+            // 更新隐私政策
+            const privacy = document.getElementById("privacy");
+            if (privacy) {
+                privacy.querySelector("h2").textContent = data.privacy.title;
+                privacy.querySelector("p").textContent = data.privacy.text;
+                const policyLinks = privacy.querySelector(".policy-links");
+                if (policyLinks) {
+                    policyLinks.innerHTML = data.privacy.links.map(link => 
+                        `<a href="${link.url}" target="_blank">${link.text}</a>`
+                    ).join("");
                 }
-            });
+            }
 
-            // 更新html lang屬性
-            document.documentElement.lang = lang;
+            // 更新联系部分
+            const contact = document.querySelector(".contact-section");
+            if (contact) {
+                contact.querySelector("h2").textContent = data.contact.title;
+                contact.querySelector("p").textContent = data.contact.text;
+            }
+        } catch (error) {
+            console.error("Language switch error:", error);
         }
+    }
 
-        // 側邊欄控制
-        function toggleSidebar() {
-            const sidebarContent = document.getElementById('sidebarContent');
-            sidebarContent.classList.toggle('show');
-        }
-
-        // 點擊側邊欄外部關閉側邊欄
-        document.addEventListener('click', function(event) {
-            const sidebarContent = document.getElementById('sidebarContent');
-            const sidebarTab = document.querySelector('.sidebar-tab');
-            
-            if (!sidebarContent.contains(event.target) && !sidebarTab.contains(event.target)) {
-                sidebarContent.classList.remove('show');
+    // 辅助函数：更新列表项
+    function updateListItems(selector, items) {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach((item, index) => {
+            if (items[index]) {
+                item.querySelector("h3").textContent = items[index].title;
+                item.querySelector("p").textContent = items[index].text;
             }
         });
+    }
 
-        // 初始化為繁體中文
-        document.addEventListener('DOMContentLoaded', () => {
-            switchLanguage('zh_tw');
-            
-            // 導航連結點擊效果
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function() {
-                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        });
-    </script>
+    // 安全显示联系邮箱
+    function showContactEmail() {
+        const email = atob('YW5zMWxAaWNsb3VkLmNvbQ==');
+        const contactButton = document.querySelector('.contact-button');
+        contactButton.innerHTML = `<i class="fas fa-envelope"></i> ${email}`;
+        contactButton.onclick = function() {
+            window.location.href = `mailto:${email}`;
+        };
+    }
+
+    // 初始化默认语言
+    document.addEventListener('DOMContentLoaded', () => {
+        switchLanguage('en');
+    });
+</script>
+
 </body>
 </html>
