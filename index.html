@@ -153,17 +153,6 @@
             box-shadow: 0 3px 10px var(--shadow);
         }
 
-        /* 限時優惠橫幅 */
-        .promo-banner {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            text-align: center;
-            padding: 12px 20px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            box-shadow: 0 2px 10px rgba(255, 107, 53, 0.3);
-        }
-
         /* 底部導航 */
         .bottom-nav {
             position: fixed;
@@ -294,8 +283,8 @@
             box-shadow: 0 8px 20px rgba(255, 107, 53, 0.4);
         }
 
-        /* 試用橫幅 */
-        .trial-section {
+        /* 下載橫幅 */
+        .download-banner {
             background: linear-gradient(135deg, var(--success), #06b68c);
             color: white;
             border-radius: 20px;
@@ -307,7 +296,7 @@
             overflow: hidden;
         }
 
-        .trial-section::before {
+        .download-banner::before {
             content: '';
             position: absolute;
             top: 0;
@@ -318,40 +307,20 @@
             background-size: 80px 80px;
         }
 
-        .trial-content {
+        .download-banner-content {
             position: relative;
             z-index: 1;
         }
 
-        .trial-title {
+        .download-banner-title {
             font-size: 1.8rem;
             margin-bottom: 15px;
             font-weight: 700;
         }
 
-        .trial-subtitle {
+        .download-banner-subtitle {
             font-size: 1.1rem;
             margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .trial-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .trial-feature {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 500;
-        }
-
-        .trial-note {
-            margin-top: 15px;
-            font-size: 0.95rem;
             opacity: 0.9;
         }
 
@@ -1031,11 +1000,6 @@
     <div class="decoration-crystal" style="bottom: 25%; left: 12%;">📈</div>
     <div class="decoration-crystal" style="bottom: 30%; right: 8%;">🔮</div>
     
-    <!-- 限時優惠橫幅 -->
-    <div class="promo-banner" id="promo-banner">
-        限時優惠：新用戶享3天全功能免費試用！
-    </div>
-    
     <div class="container">
         <!-- 頂部導航 -->
         <nav class="top-nav">
@@ -1057,24 +1021,13 @@
             <div class="hero-content">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/ProfitFairy/main/ProfitFairy_icon.png" alt="ProfitFairy" class="app-icon">
                 <h1 class="hero-title" id="hero-title">ProfitFairy - 利潤精算師</h1>
-                <p class="hero-subtitle" id="hero-subtitle">一鍵拆分成本，秒得真實利潤，鎖定你要的獲利<br>超過全球50國電商賣家和創業者的獲利後盾APP</p>
+                <p class="hero-subtitle" id="hero-subtitle">鎖定你要的獲利</p>
                 
-                <!-- 試用橫幅 -->
-                <div class="trial-section">
-                    <div class="trial-content">
-                        <h2 class="trial-title" id="trial-title">立即下載 ProfitFairy，解鎖所有高級功能！</h2>
-                        <p class="trial-subtitle" id="trial-subtitle">新用戶享3天全功能免費試用！</p>
-                        
-                        <div class="trial-features">
-                            <div class="trial-feature" id="trial-feature1">無限制使用折扣計算器</div>
-                            <div class="trial-feature" id="trial-feature2">開啓反向折扣計算</div>
-                            <div class="trial-feature" id="trial-feature3">完整加價率分析工具</div>
-                            <div class="trial-feature" id="trial-feature4">專業平台手續費計算</div>
-                            <div class="trial-feature" id="trial-feature5">稅務與運費整合計算</div>
-                            <div class="trial-feature" id="trial-feature6">多參數進階分析功能</div>
-                        </div>
-                        
-                        <p class="trial-note" id="trial-note">立即體驗完整版！試用期結束後仍可繼續使用基礎功能。</p>
+                <!-- 下載橫幅 -->
+                <div class="download-banner">
+                    <div class="download-banner-content">
+                        <h2 class="download-banner-title" id="download-banner-title">立即下載 ProfitFairy，解鎖所有高級功能！</h2>
+                        <p class="download-banner-subtitle" id="download-banner-subtitle">專業的利潤計算工具，助您精準掌握每一分利潤</p>
                         
                         <!-- App Store徽章 -->
                         <div class="app-store-badge">
@@ -1152,9 +1105,9 @@
                     <p><strong id="disclaimer-title">💎 看似簡單，威力無窮：</strong> <span id="disclaimer-text">專注讓每個商業計算，都配得上你的專業判斷。超過5000%溢價率支援，連奢侈品訂價都能輕鬆駕馭！</span></p>
                 </div>
 
-                <div class="trial-section">
-                    <h2 class="trial-title" id="cross-border-title">跨境賣家必備的「關稅透視鏡」</h2>
-                    <p class="trial-subtitle" id="cross-border-line1">關稅從10%→15%？提前模擬稅率變動，利潤預警早3個月啟動！</p>
+                <div class="download-banner">
+                    <h2 class="download-banner-title" id="cross-border-title">跨境賣家必備的「關稅透視鏡」</h2>
+                    <p class="download-banner-subtitle" id="cross-border-line1">關稅從10%→15%？提前模擬稅率變動，利潤預警早3個月啟動！</p>
                     <p id="cross-border-line2">「當客戶殺價時...」「當平台又調整手續費時...」「當國際匯率波動時...」</p>
                     <p id="cross-border-line3">→ ProfitFairy 讓你總能快人一步看到利潤真相！</p>
                 </div>
@@ -1187,7 +1140,7 @@
                             <p class="app-subtitle" id="app1-subtitle">生理期好閨蜜</p>
                         </div>
                     </div>
-                    <p class="app-description" id="app1-description">宮廷級養生智慧，專為現代小主量身訂制。首創融合《黃帝內經》四大中醫典籍精髓，依「經期、卵泡期、排卵期、黃體期」精準對應，提供每日專屬養生調理與宮廷藥膳食補湯方。新小主專享：免費體驗全功能3日，探索千年養生智慧。</p>
+                    <p class="app-description" id="app1-description">宮廷級養生智慧，專為現代小主量身訂制。首創融合《黃帝內經》四大中醫典籍精髓，依「經期、卵泡期、排卵期、黃體期」精準對應，提供每日專屬養生調理與宮廷藥膳食補湯方。</p>
                     <div class="app-links">
                         <a href="https://apps.apple.com/app/id6752606069" class="app-link" target="_blank" id="app1-link">
                             <i class="fas fa-download"></i> <span>下載應用</span>
@@ -1234,8 +1187,8 @@
         <!-- 頁腳 -->
         <footer class="footer">
             <div class="footer-text" id="footer-text">
-                <p>© 2025 ProfitFairy - 利潤精算師</p>
-                <p>一鍵拆分成本，秒得真實利潤，鎖定你要的獲利</p>
+                <p>ⓒ 2025 ProfitFairy - 利潤精算師</p>
+                <p>鎖定你要的獲利</p>
             </div>
         </footer>
     </div>
@@ -1303,21 +1256,9 @@
     <script>
         const translations = {
             zh_tw: {
-                // 限時優惠橫幅
-                "promo-banner": "限時優惠：新用戶享3天全功能免費試用！",
-                
-                // 試用橫幅
-                "trial-title": "立即下載 ProfitFairy，解鎖所有高級功能！",
-                "trial-subtitle": "新用戶享3天全功能免費試用！",
-                "trial-note": "立即體驗完整版！試用期結束後仍可繼續使用基礎功能。",
-                
-                // 試用功能點
-                "trial-feature1": "無限制使用折扣計算器",
-                "trial-feature2": "開啓反向折扣計算",
-                "trial-feature3": "完整加價率分析工具",
-                "trial-feature4": "專業平台手續費計算",
-                "trial-feature5": "稅務與運費整合計算",
-                "trial-feature6": "多參數進階分析功能",
+                // 下載橫幅
+                "download-banner-title": "立即下載 ProfitFairy，解鎖所有高級功能！",
+                "download-banner-subtitle": "專業的利潤計算工具，助您精準掌握每一分利潤",
                 
                 // 跨境賣家橫幅
                 "cross-border-title": "跨境賣家必備的「關稅透視鏡」",
@@ -1333,7 +1274,7 @@
                 
                 // 英雄區域
                 "hero-title": "ProfitFairy - 利潤精算師",
-                "hero-subtitle": "一鍵拆分成本，秒得真實利潤，鎖定你要的獲利<br>超過全球50國電商賣家和創業者的獲利後盾APP",
+                "hero-subtitle": "鎖定你要的獲利",
                 "download-btn": "立即下載",
                 "learn-more-btn": "了解更多功能",
                 
@@ -1372,7 +1313,7 @@
                 "other-apps-title": "其他精選應用",
                 "app1-title": "小主日記",
                 "app1-subtitle": "生理期好閨蜜",
-                "app1-description": "宮廷級養生智慧，專為現代小主量身訂制。首創融合《黃帝內經》四大中醫典籍精髓，依「經期、卵泡期、排卵期、黃體期」精準對應，提供每日專屬養生調理與宮廷藥膳食補湯方。新小主專享：免費體驗全功能3日，探索千年養生智慧。",
+                "app1-description": "宮廷級養生智慧，專為現代小主量身訂制。首創融合《黃帝內經》四大中醫典籍精髓，依「經期、卵泡期、排卵期、黃體期」精準對應，提供每日專屬養生調理與宮廷藥膳食補湯方。",
                 "app1-link": "下載應用",
                 "app1-website": "官網介紹",
                 "app2-title": "AIOS Realm",
@@ -1398,19 +1339,11 @@
                 "sidebar-download3": "下載應用",
                 
                 // 頁腳
-                "footer-text": "© 2025 ProfitFairy - 利潤精算師<br>一鍵拆分成本，秒得真實利潤，鎖定你要的獲利"
+                "footer-text": "ⓒ 2025 ProfitFairy - 利潤精算師<br>鎖定你要的獲利"
             },
             zh: {
-                "promo-banner": "限时优惠：新用户享3天全功能免费试用！",
-                "trial-title": "立即下载 ProfitFairy，解锁所有高级功能！",
-                "trial-subtitle": "新用户享3天全功能免费试用！",
-                "trial-note": "立即体验完整版！试用期结束后仍可继续使用基础功能。",
-                "trial-feature1": "无限制使用折扣计算器",
-                "trial-feature2": "开启反向折扣计算",
-                "trial-feature3": "完整加价率分析工具",
-                "trial-feature4": "专业平台手续费计算",
-                "trial-feature5": "税务与运费整合计算",
-                "trial-feature6": "多参数进阶分析功能",
+                "download-banner-title": "立即下载 ProfitFairy，解锁所有高级功能！",
+                "download-banner-subtitle": "专业的利润计算工具，助您精准掌握每一分利润",
                 "cross-border-title": "跨境卖家必备的「关税透视镜」",
                 "cross-border-line1": "关税从10%→15%？提前模拟税率变动，利润预警早3个月启动！",
                 "cross-border-line2": "「当客户杀价时...」「当平台又调整手续费时...」「当国际汇率波动时...」",
@@ -1420,7 +1353,7 @@
                 "nav-apps": "其他应用",
                 "nav-contact": "联系我们",
                 "hero-title": "ProfitFairy - 利润精算师",
-                "hero-subtitle": "一键拆分成本，秒得真实利润，锁定你要的获利<br>超过全球50国电商卖家和创业者的获利后盾APP",
+                "hero-subtitle": "锁定你要的盈利",
                 "download-btn": "立即下载",
                 "learn-more-btn": "了解更多功能",
                 "features-title": "电商老板的决策军火库",
@@ -1451,7 +1384,7 @@
                 "other-apps-title": "其他精选应用",
                 "app1-title": "小主日记",
                 "app1-subtitle": "生理期好闺蜜",
-                "app1-description": "宫廷级养生智慧，专为现代小主量身定制。首创融合《黄帝内经》四大中医典籍精髓，依「经期、卵泡期、排卵期、黄体期」精准对应，提供每日专属养生调理与宫廷药膳食补汤方。新小主专享：免费体验全功能3日，探索千年养生智慧。",
+                "app1-description": "宫廷级养生智慧，专为现代小主量身定制。首创融合《黄帝内经》四大中医典籍精髓，依「经期、卵泡期、排卵期、黄体期」精准对应，提供每日专属养生调理与宫廷药膳食补汤方。",
                 "app1-link": "下载应用",
                 "app1-website": "官网介绍",
                 "app2-title": "AIOS Realm",
@@ -1471,19 +1404,11 @@
                 "sidebar-download1": "下载应用",
                 "sidebar-download2": "下载应用",
                 "sidebar-download3": "下载应用",
-                "footer-text": "© 2025 ProfitFairy - 利润精算师<br>一键拆分成本，秒得真实利润，锁定你要的获利"
+                "footer-text": "ⓒ 2025 ProfitFairy - 利润精算师<br>锁定你要的盈利"
             },
             en: {
-                "promo-banner": "Limited Offer: New users enjoy 3 days of full-feature free trial!",
-                "trial-title": "Download ProfitFairy Now, Unlock All Premium Features!",
-                "trial-subtitle": "New users enjoy 3 days of full-feature free trial!",
-                "trial-note": "Experience the full version now! You can continue using basic features after the trial period ends.",
-                "trial-feature1": "Unlimited Discount Calculator",
-                "trial-feature2": "Reverse Discount Calculation",
-                "trial-feature3": "Complete Markup Analysis Tool",
-                "trial-feature4": "Professional Platform Fee Calculation",
-                "trial-feature5": "Tax & Shipping Integration",
-                "trial-feature6": "Multi-Parameter Advanced Analysis",
+                "download-banner-title": "Download ProfitFairy Now, Unlock All Premium Features!",
+                "download-banner-subtitle": "Professional profit calculation tool to help you accurately grasp every penny of profit",
                 "cross-border-title": "Cross-border Sellers' Essential \"Tariff Lens\"",
                 "cross-border-line1": "Tariffs from 10%→15%? Simulate rate changes in advance, profit alerts start 3 months early!",
                 "cross-border-line2": "\"When customers bargain...\" \"When platforms adjust fees...\" \"When exchange rates fluctuate...\"",
@@ -1492,8 +1417,8 @@
                 "nav-business": "Business Tools",
                 "nav-apps": "Other Apps",
                 "nav-contact": "Contact Us",
-                "hero-title": "ProfitFairy: Lock your profit",
-                "hero-subtitle": "Track true profit. Instantly.<br>The profit backbone app for e-commerce sellers and entrepreneurs in over 50 countries worldwide",
+                "hero-title": "ProfitFairy - The Profit Master",
+                "hero-subtitle": "Lock your profit",
                 "download-btn": "Download Now",
                 "learn-more-btn": "Learn More Features",
                 "features-title": "E-commerce Owner's Decision Arsenal",
@@ -1524,7 +1449,7 @@
                 "other-apps-title": "Other Selected Apps",
                 "app1-title": "RubyDays",
                 "app1-subtitle": "Your Period Bestie",
-                "app1-description": "Royal-grade wellness wisdom, tailored for modern ladies. Pioneering integration of the essence of four major TCM classics including 'Huangdi Neijing', accurately corresponding to the 'menstrual, follicular, ovulatory, and luteal phases'. Provides daily exclusive wellness regimens and royal medicinal dietary soup recipes. New users enjoy: 3-day full-feature free trial to explore millennia of wellness wisdom.",
+                "app1-description": "Royal-grade wellness wisdom, tailored for modern ladies. Pioneering integration of the essence of four major TCM classics including 'Huangdi Neijing', accurately corresponding to the 'menstrual, follicular, ovulatory, and luteal phases'. Provides daily exclusive wellness regimens and royal medicinal dietary soup recipes.",
                 "app1-link": "Download App",
                 "app1-website": "Website",
                 "app2-title": "AIOS Realm",
@@ -1544,19 +1469,11 @@
                 "sidebar-download1": "Download App",
                 "sidebar-download2": "Download App",
                 "sidebar-download3": "Download App",
-                "footer-text": "© 2025 ProfitFairy - Lock your profit<br>Track true profit. Instantly."
+                "footer-text": "ⓒ 2025 ProfitFairy - The Profit Master<br>Lock your profit"
             },
             ja: {
-                "promo-banner": "期間限定：新規ユーザーは3日間全機能無料トライアル！",
-                "trial-title": "今すぐProfitFairyをダウンロード、全機能をアンロック！",
-                "trial-subtitle": "新規ユーザーは3日間全機能無料トライアル！",
-                "trial-note": "今すぐ完全版を体験！トライアル期間終了後も基本機能は引き続きご利用いただけます。",
-                "trial-feature1": "無制限割引計算機",
-                "trial-feature2": "逆割引計算機能",
-                "trial-feature3": "完全マークアップ分析ツール",
-                "trial-feature4": "プロプラットフォーム手数料計算",
-                "trial-feature5": "税務・送料統合計算",
-                "trial-feature6": "多パラメータ高度分析機能",
+                "download-banner-title": "今すぐProfitFairyをダウンロード、全機能をアンロック！",
+                "download-banner-subtitle": "専門的な利益計算ツールで、あらゆる利益を正確に把握できます",
                 "cross-border-title": "越境販売者必須の「関税レンズ」",
                 "cross-border-line1": "関税10%→15%？税率変動を事前シミュレート、利益アラート3ヶ月早く開始！",
                 "cross-border-line2": "「顧客が値引きを要求する時...」「プラットフォームが手数料を調整する時...」「為替レートが変動する時...」",
@@ -1565,8 +1482,8 @@
                 "nav-business": "ビジネスツール",
                 "nav-apps": "他のアプリ",
                 "nav-contact": "お問い合わせ",
-                "hero-title": "ProfitFairy - 利益をロックする",
-                "hero-subtitle": "コストを按分、純利益を即計算、あなたが望む利益を固定する<br>世界50カ国以上のEC販売者と起業家の利益バックアップAPP",
+                "hero-title": "ProfitFairy - 利益マスター",
+                "hero-subtitle": "あなたの利益をしっかりロック",
                 "download-btn": "今すぐダウンロード",
                 "learn-more-btn": "機能詳細を見る",
                 "features-title": "ECオーナーの意思決定兵器庫",
@@ -1597,7 +1514,7 @@
                 "other-apps-title": "他の精選アプリ",
                 "app1-title": "姫様ダイアリー",
                 "app1-subtitle": "生理の親友",
-                "app1-description": "宮廷級の養生智慧、現代の姫様のために量身定制。『黄帝内経』四大中医典籍の精髓を融合した初の試み。「月経期、卵胞期、排卵期、黄体期」に精密に対応し、毎日専用の養生調理と宮廷薬膳食補スープを提供。新規姫様限定：全機能3日間無料体験で千年の養生智慧を探索。",
+                "app1-description": "宮廷級の養生智慧、現代の姫様のために量身定制。『黄帝内経』四大中医典籍の精髓を融合した初の試み。「月経期、卵胞期、排卵期、黄体期」に精密に対応し、毎日専用の養生調理と宮廷薬膳食補スープを提供。",
                 "app1-link": "アプリをダウンロード",
                 "app1-website": "公式サイト",
                 "app2-title": "AIOS Realm",
@@ -1617,19 +1534,11 @@
                 "sidebar-download1": "アプリをダウンロード",
                 "sidebar-download2": "アプリをダウンロード",
                 "sidebar-download3": "アプリをダウンロード",
-                "footer-text": "© 2025 ProfitFairy - 利益をロックする<br>コストを按分、純利益を即計算、あなたが望む利益を固定する"
+                "footer-text": "ⓒ 2025 ProfitFairy - 利益マスター<br>あなたの利益をしっかりロック"
             },
             ko: {
-                "promo-banner": "한정 기간: 신규 사용자 3일 전체 기능 무료 체험!",
-                "trial-title": "지금 바로 ProfitFairy 다운로드, 모든 고급 기능 해제!",
-                "trial-subtitle": "신규 사용자 3일 전체 기능 무료 체험!",
-                "trial-note": "지금 바로 전체 버전을 체험하세요! 체험 기간 종료 후에도 기본 기능은 계속 사용 가능합니다.",
-                "trial-feature1": "무제한 할인 계산기",
-                "trial-feature2": "역할인 계산 기능",
-                "trial-feature3": "완전 마크업 분석 도구",
-                "trial-feature4": "프로 플랫폼 수수료 계산",
-                "trial-feature5": "세무・배송비 통합 계산",
-                "trial-feature6": "다중 매개변수 고급 분석 기능",
+                "download-banner-title": "지금 바로 ProfitFairy를 다운로드하고 모든 고급 기능을 해제하세요!",
+                "download-banner-subtitle": "전문적인 이익 계산 도구로 모든 수익을 정확하게 파악할 수 있습니다",
                 "cross-border-title": "크로스보더 판매자 필수 「관세 렌즈」",
                 "cross-border-line1": "관세 10%→15%? 세율 변동 사전 시뮬레이션, 이익 알림 3개월 일찍 시작!",
                 "cross-border-line2": "\"고객이 할인을 요구할 때...\" \"플랫폼이 수수료를 조정할 때...\" \"환율이 변동할 때...\"",
@@ -1638,8 +1547,8 @@
                 "nav-business": "비즈니스 도구",
                 "nav-apps": "다른 앱",
                 "nav-contact": "문의하기",
-                "hero-title": "ProfitFairy - 당신의 이익을 잠그세요",
-                "hero-subtitle": "원클릭으로 비용 분할, 원하는 수익 고정<br>전 세계 50개국 이상의 이커머스 판매자와 창업자의 수익 백본 APP",
+                "hero-title": "ProfitFairy - 이익 마스터",
+                "hero-subtitle": "당신이 원하는 이익을 확실히 잡으세요",
                 "download-btn": "지금 다운로드",
                 "learn-more-btn": "기능 더 알아보기",
                 "features-title": "이커머스 오너의 의사 결정 무기고",
@@ -1670,7 +1579,7 @@
                 "other-apps-title": "다른 추천 앱",
                 "app1-title": "공주님 다이어리",
                 "app1-subtitle": "너의 생리기 절친",
-                "app1-description": "궁중급 양생 지혜, 현대 공주님을 위해量身定制。『황제내경』 4대 중의 경전의 정수를 융합한 최초의 시도。「월경기, 난포기, 배란기, 황체기」에 정밀하게 대응하여 매일 전용 양생 조리와 궁중 약선 식보 스프를 제공。신규 공주님 전용：전체 기능 3일 무료 체험으로 천년의 양생 지혜를 탐험。",
+                "app1-description": "궁중급 양생 지혜, 현대 공주님을 위해量身定制。『황제내경』 4대 중의 경전의 정수를 융합한 최초의 시도。「월경기, 난포기, 배란기, 황체기」에 정밀하게 대응하여 매일 전용 양생 조리와 궁중 약선 식보 스프를 제공。",
                 "app1-link": "앱 다운로드",
                 "app1-website": "공식 웹사이트",
                 "app2-title": "AIOS Realm",
@@ -1690,7 +1599,7 @@
                 "sidebar-download1": "앱 다운로드",
                 "sidebar-download2": "앱 다운로드",
                 "sidebar-download3": "앱 다운로드",
-                "footer-text": "© 2025 ProfitFairy - 당신의 이익을 잠그세요<br>원클릭으로 비용 분할, 원하는 수익 고정"
+                "footer-text": "ⓒ 2025 ProfitFairy - 이익 마스터<br>당신이 원하는 이익을 확실히 잡으세요"
             }
         };
 
