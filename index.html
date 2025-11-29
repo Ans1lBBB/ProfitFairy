@@ -734,7 +734,7 @@
         }
 
         .sidebar-content {
-            width: 200px;
+            width: 220px;
             background: white;
             padding: 20px;
             border-radius: 15px 0 0 15px;
@@ -768,6 +768,7 @@
             color: #666;
             font-size: 0.85rem;
             margin-bottom: 15px;
+            text-align: center;
         }
 
         .sidebar-app {
@@ -792,11 +793,13 @@
             height: 40px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex-shrink: 0;
         }
 
         .sidebar-app-info {
             flex-grow: 1;
             text-align: left;
+            min-width: 0;
         }
 
         .sidebar-app-name {
@@ -804,6 +807,9 @@
             font-weight: bold;
             color: var(--primary);
             margin-bottom: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .sidebar-app-download {
@@ -812,6 +818,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
+            white-space: nowrap;
         }
 
         /* 響應式設計 */
@@ -891,7 +898,7 @@
             }
             
             .sidebar-content {
-                width: 180px;
+                width: 200px;
             }
             
             .app-links {
@@ -984,6 +991,140 @@
         .disclaimer-section li::before {
             content: '💰';
             margin-right: 8px;
+        }
+        
+        /* 貼圖系列區 */
+        .stickers-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #FFF9F0 0%, #FFEEDD 100%);
+            border-radius: 25px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+
+        .stickers-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.03"><path d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z" fill="%23FF6B35"/></svg>');
+            background-size: 80px 80px;
+        }
+
+        .stickers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .sticker-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 107, 53, 0.2);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sticker-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px var(--shadow);
+        }
+
+        .sticker-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .sticker-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sticker-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .sticker-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .sticker-subtitle {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .sticker-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .sticker-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sticker-intro-title {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .sticker-intro-subtitle {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* 隱私權政策連結 */
+        .privacy-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            margin-top: 20px;
+            padding: 10px 16px;
+            border-radius: 8px;
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .privacy-link:hover {
+            background: rgba(255, 107, 53, 0.2);
+            transform: translateY(-2px);
         }
     </style>
 </head>
@@ -1114,6 +1255,70 @@
             </div>
         </section>
 
+        <!-- 貼圖系列 -->
+        <section class="stickers-section" id="stickers">
+            <div class="sticker-intro">
+                <h2 class="sticker-intro-title" id="stickers-title">Ans1lStickers: MeowCAT 辦公室系列</h2>
+                <p class="sticker-intro-subtitle" id="stickers-subtitle">精選三款辦公室主題貼圖，用可愛虎斑貓表情包點亮你的每一天</p>
+            </div>
+            <div class="stickers-grid">
+                <div class="sticker-card">
+                    <div class="sticker-header">
+                        <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-1%20app%20icon.png" alt="MeowCAT-1: Office Paws" class="sticker-icon">
+                        <div>
+                            <h3 class="sticker-title" id="sticker1-title">MeowCAT-1: 辦公室貓爪</h3>
+                            <p class="sticker-subtitle" id="sticker1-subtitle">你的每日可愛劑量</p>
+                        </div>
+                    </div>
+                    <p class="sticker-description" id="sticker1-description">跟著MeowCAT – 辦公室系列，踏入日常混亂的辦公室生活！這款貼圖包捕捉了每位現代上班族的真實掙扎：冒雨趕早班通勤、擠進擁擠的電梯、為KPI奮戰、慶祝小小的勝利。有了這些表情豐富的MeowCAT貼圖，辦公室生活的每個瞬間都變得有趣、可愛且令人感同身受。</p>
+                    <div class="app-links">
+                        <a href="https://apps.apple.com/app/id6755613138" class="app-link" target="_blank">
+                            <i class="fas fa-download"></i> <span id="sticker1-link">下載貼圖</span>
+                        </a>
+                        <a href="https://ans1lbbb.github.io/stickers/index.html" class="app-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> <span id="sticker1-website">貼圖官網</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sticker-card">
+                    <div class="sticker-header">
+                        <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-2%20app%20icon.png" alt="MeowCAT-2: Corporate Meltdown" class="sticker-icon">
+                        <div>
+                            <h3 class="sticker-title" id="sticker2-title">MeowCAT-2: 職場崩潰日記</h3>
+                            <p class="sticker-subtitle" id="sticker2-subtitle">囂張不改，崩潰常來</p>
+                        </div>
+                    </div>
+                    <p class="sticker-description" id="sticker2-description">又一個令人心力交瘁的截止日期迫在眉睫。你的收件箱就像數位版的九頭蛇——每處理完一封郵件，就會冒出兩封新的。老闆的「緊急」要求已經是今天的第五個了。歡迎來到企業叢林，在這裡，唯一比股市更難以預測的，就是你活下去的意志。但是請等等！從你即將燃盡的靈魂深處，一位英雄即將登場。不，不是IT部門的同事。而是你內心深處的辦公室貓魂——牠脾氣暴躁、壓力山大，並且自帶一種十步之外就能讓牛奶變酸的強大氣場。</p>
+                    <div class="app-links">
+                        <a href="https://apps.apple.com/app/id6755665538" class="app-link" target="_blank">
+                            <i class="fas fa-download"></i> <span id="sticker2-link">下載貼圖</span>
+                        </a>
+                        <a href="https://ans1lbbb.github.io/stickers/index.html" class="app-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> <span id="sticker2-website">貼圖官網</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="sticker-card">
+                    <div class="sticker-header">
+                        <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-3%20app%20icon.png" alt="MeowCAT-3: Cubicle Tails" class="sticker-icon">
+                        <div>
+                            <h3 class="sticker-title" id="sticker3-title">MeowCAT-3: 隔間喵趣</h3>
+                            <p class="sticker-subtitle" id="sticker3-subtitle">用一聲喵，說一切</p>
+                        </div>
+                    </div>
+                    <p class="sticker-description" id="sticker3-description">每個辦公隔間裡，都有說不完的故事。無盡的會議、迫在眉睫的截止日、專案完成的喜悅，以及對更多咖啡的無聲渴望...但，如果你的辦公桌旁，有一群毛茸茸的夥伴呢？想像一下：一隻聰明的貓咪在漫長的會議中偷偷翻個白眼；一個慵懶的下午，睏倦的小貓在你的鍵盤邊蜷縮成一團；或是用一個熱情的「擊掌」來慶祝團隊的成功。</p>
+                    <div class="app-links">
+                        <a href="https://apps.apple.com/app/id6755676294" class="app-link" target="_blank">
+                            <i class="fas fa-download"></i> <span id="sticker3-link">下載貼圖</span>
+                        </a>
+                        <a href="https://ans1lbbb.github.io/stickers/index.html" class="app-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> <span id="sticker3-website">貼圖官網</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- 免責聲明區域 -->
         <section class="disclaimer-section" id="disclaimer-section">
             <h3><i class="fas fa-exclamation-triangle"></i> <span id="disclaimer-section-title">免責聲明</span></h3>
@@ -1181,6 +1386,10 @@
                 <a href="mailto:ans1l@icloud.com?subject=ProfitFairy用戶回饋" class="contact-btn">
                     <i class="fas fa-envelope"></i> <span id="contact-btn-text">傳送郵件給我們</span>
                 </a>
+                
+                <a href="https://ans1lbbb.github.io/ProfitFairy/privacy.html" class="privacy-link" target="_blank">
+                    <i class="fas fa-shield-alt"></i> <span id="privacy-link-text">隱私權政策</span>
+                </a>
             </div>
         </section>
 
@@ -1204,6 +1413,10 @@
                 <i class="fas fa-chart-line nav-icon"></i>
                 <span class="nav-text" id="nav-business">商業工具</span>
             </a>
+            <a href="#stickers" class="nav-link">
+                <i class="fas fa-cat nav-icon"></i>
+                <span class="nav-text" id="nav-stickers">貼圖系列</span>
+            </a>
             <a href="#apps" class="nav-link">
                 <i class="fas fa-th-large nav-icon"></i>
                 <span class="nav-text" id="nav-apps">其他應用</span>
@@ -1222,7 +1435,7 @@
         </div>
         <div class="sidebar-content" id="sidebarContent">
             <h3><i class="fas fa-calculator"></i> <span id="sidebar-title">應用推薦</span></h3>
-            <p id="sidebar-subtitle">更多精彩應用</p>
+            <p id="sidebar-subtitle">更多精彩應用與貼圖</p>
             <a href="https://apps.apple.com/app/id6740332215" class="sidebar-app" target="_blank">
                 <img src="https://raw.githubusercontent.com/Ans1lBBB/ProfitFairy/main/ProfitFairy_icon.png" alt="ProfitFairy" class="sidebar-app-icon">
                 <div class="sidebar-app-info">
@@ -1250,6 +1463,33 @@
                     </div>
                 </div>
             </a>
+            <a href="https://apps.apple.com/app/id6755613138" class="sidebar-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-1%20app%20icon.png" alt="MeowCAT-1" class="sidebar-app-icon">
+                <div class="sidebar-app-info">
+                    <div class="sidebar-app-name" id="sidebar-app4-name">MeowCAT-1</div>
+                    <div class="sidebar-app-download">
+                        <i class="fas fa-download"></i> <span id="sidebar-download4">下載貼圖</span>
+                    </div>
+                </div>
+            </a>
+            <a href="https://apps.apple.com/app/id6755665538" class="sidebar-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-2%20app%20icon.png" alt="MeowCAT-2" class="sidebar-app-icon">
+                <div class="sidebar-app-info">
+                    <div class="sidebar-app-name" id="sidebar-app5-name">MeowCAT-2</div>
+                    <div class="sidebar-app-download">
+                        <i class="fas fa-download"></i> <span id="sidebar-download5">下載貼圖</span>
+                    </div>
+                </div>
+            </a>
+            <a href="https://apps.apple.com/app/id6755676294" class="sidebar-app" target="_blank">
+                <img src="https://raw.githubusercontent.com/Ans1lBBB/stickers/main/MeowCAT-3%20app%20icon.png" alt="MeowCAT-3" class="sidebar-app-icon">
+                <div class="sidebar-app-info">
+                    <div class="sidebar-app-name" id="sidebar-app6-name">MeowCAT-3</div>
+                    <div class="sidebar-app-download">
+                        <i class="fas fa-download"></i> <span id="sidebar-download6">下載貼圖</span>
+                    </div>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -1269,6 +1509,7 @@
                 // 導航欄
                 "nav-features": "功能特色",
                 "nav-business": "商業工具",
+                "nav-stickers": "貼圖系列",
                 "nav-apps": "其他應用",
                 "nav-contact": "聯絡我們",
                 
@@ -1299,6 +1540,25 @@
                 "disclaimer-title": "💎 看似簡單，威力無窮：",
                 "disclaimer-text": "專注讓每個商業計算，都配得上你的專業判斷。超過5000%溢價率支援，連奢侈品訂價都能輕鬆駕馭！",
                 
+                // 貼圖系列
+                "stickers-title": "Ans1lStickers: MeowCAT 辦公室系列",
+                "stickers-subtitle": "精選三款辦公室主題貼圖，用可愛虎斑貓表情包點亮你的每一天",
+                "sticker1-title": "MeowCAT-1: 辦公室貓爪",
+                "sticker1-subtitle": "你的每日可愛劑量",
+                "sticker1-description": "跟著MeowCAT – 辦公室系列，踏入日常混亂的辦公室生活！這款貼圖包捕捉了每位現代上班族的真實掙扎：冒雨趕早班通勤、擠進擁擠的電梯、為KPI奮戰、慶祝小小的勝利。有了這些表情豐富的MeowCAT貼圖，辦公室生活的每個瞬間都變得有趣、可愛且令人感同身受。",
+                "sticker1-link": "下載貼圖",
+                "sticker1-website": "貼圖官網",
+                "sticker2-title": "MeowCAT-2: 職場崩潰日記",
+                "sticker2-subtitle": "囂張不改，崩潰常來",
+                "sticker2-description": "又一個令人心力交瘁的截止日期迫在眉睫。你的收件箱就像數位版的九頭蛇——每處理完一封郵件，就會冒出兩封新的。老闆的「緊急」要求已經是今天的第五個了。歡迎來到企業叢林，在這裡，唯一比股市更難以預測的，就是你活下去的意志。但是請等等！從你即將燃盡的靈魂深處，一位英雄即將登場。不，不是IT部門的同事。而是你內心深處的辦公室貓魂——牠脾氣暴躁、壓力山大，並且自帶一種十步之外就能讓牛奶變酸的強大氣場。",
+                "sticker2-link": "下載貼圖",
+                "sticker2-website": "貼圖官網",
+                "sticker3-title": "MeowCAT-3: 隔間喵趣",
+                "sticker3-subtitle": "用一聲喵，說一切",
+                "sticker3-description": "每個辦公隔間裡，都有說不完的故事。無盡的會議、迫在眉睫的截止日、專案完成的喜悅，以及對更多咖啡的無聲渴望...但，如果你的辦公桌旁，有一群毛茸茸的夥伴呢？想像一下：一隻聰明的貓咪在漫長的會議中偷偷翻個白眼；一個慵懶的下午，睏倦的小貓在你的鍵盤邊蜷縮成一團；或是用一個熱情的「擊掌」來慶祝團隊的成功。",
+                "sticker3-link": "下載貼圖",
+                "sticker3-website": "貼圖官網",
+                
                 // 免責聲明區域
                 "disclaimer-section-title": "免責聲明",
                 "disclaimer-section-p1": "親愛的用戶，為了確保您能正確使用 ProfitFairy，請仔細閱讀以下免責聲明：",
@@ -1327,16 +1587,23 @@
                 "contact-subtitle": "親愛的用戶，我們在這裡傾聽您的聲音",
                 "contact-description": "無論是對 ProfitFairy 的使用體驗、功能想法，還是任何想要分享的點點滴滴，我們都非常重視並期待收到您的訊息。點擊下方按鈕即可透過郵件與我們聯絡～",
                 "contact-btn-text": "傳送郵件給我們",
+                "privacy-link-text": "隱私權政策",
                 
                 // 側邊欄
                 "sidebar-title": "應用推薦",
-                "sidebar-subtitle": "更多精彩應用",
+                "sidebar-subtitle": "更多精彩應用與貼圖",
                 "sidebar-app1-name": "ProfitFairy",
                 "sidebar-app2-name": "小主日記",
                 "sidebar-app3-name": "AIOS Realm",
+                "sidebar-app4-name": "MeowCAT-1",
+                "sidebar-app5-name": "MeowCAT-2",
+                "sidebar-app6-name": "MeowCAT-3",
                 "sidebar-download1": "下載應用",
                 "sidebar-download2": "下載應用",
                 "sidebar-download3": "下載應用",
+                "sidebar-download4": "下載貼圖",
+                "sidebar-download5": "下載貼圖",
+                "sidebar-download6": "下載貼圖",
                 
                 // 頁腳
                 "footer-text": "ⓒ 2025 ProfitFairy - 利潤精算師<br>鎖定你要的獲利"
@@ -1350,6 +1617,7 @@
                 "cross-border-line3": "→ ProfitFairy 让你总能快人一步看到利润真相！",
                 "nav-features": "功能特色",
                 "nav-business": "商业工具",
+                "nav-stickers": "贴图系列",
                 "nav-apps": "其他应用",
                 "nav-contact": "联系我们",
                 "hero-title": "ProfitFairy - 利润精算师",
@@ -1373,6 +1641,23 @@
                 "business-description": "ProfitFairy 不是计算机，是会预测利润的商业巫师。看似阳春的设计，藏着让会计师都跪下的计算引擎，解决你『每次算着算着就想摔计算机』的执着。",
                 "disclaimer-title": "💎 看似简单，威力无穷：",
                 "disclaimer-text": "专注让每个商业计算，都配得上你的专业判断。超过5000%溢价率支援，连奢侈品订价都能轻松驾驭！",
+                "stickers-title": "Ans1lStickers: MeowCAT 办公室系列",
+                "stickers-subtitle": "精选三款办公室主题贴图，用可爱虎斑猫表情包点亮你的每一天",
+                "sticker1-title": "MeowCAT-1: 办公室猫爪",
+                "sticker1-subtitle": "你的每日可爱剂量",
+                "sticker1-description": "跟着MeowCAT – 办公室系列，踏入日常混乱的办公室生活！这款贴图包捕捉了每位现代上班族的真实挣扎：冒雨赶早班通勤、挤进拥挤的电梯、为KPI奋战、庆祝小小的胜利。有了这些表情丰富的MeowCAT贴图，办公室生活的每个瞬间都变得有趣、可爱且令人感同身受。",
+                "sticker1-link": "下载贴图",
+                "sticker1-website": "贴图官网",
+                "sticker2-title": "MeowCAT-2: 职场崩溃日记",
+                "sticker2-subtitle": "嚣张不改，崩溃常来",
+                "sticker2-description": "又一个令人心力交瘁的截止日期迫在眉睫。你的收件箱就像数位版的九头蛇——每处理完一封邮件，就会冒出两封新的。老板的「紧急」要求已经是今天的第五个了。欢迎来到企业丛林，在这里，唯一比股市更难以预测的，就是你活下去的意志。但是请等等！从你即将燃尽的灵魂深处，一位英雄即将登场。不，不是IT部门的同事。而是你内心深处的办公室猫魂——牠脾气暴躁、压力山大，并且自带一种十步之外就能让牛奶变酸的强大气场。",
+                "sticker2-link": "下载贴图",
+                "sticker2-website": "贴图官网",
+                "sticker3-title": "MeowCAT-3: 隔间喵趣",
+                "sticker3-subtitle": "用一声喵，说一切",
+                "sticker3-description": "每个办公隔间里，都有说不完的故事。无尽的会议、迫在眉睫的截止日、专案完成的喜悦，以及对更多咖啡的无声渴望...但，如果你的办公桌旁，有一群毛茸茸的伙伴呢？想像一下：一只聪明的猫咪在漫长的会议中偷偷翻个白眼；一个慵懒的下午，困倦的小猫在你的键盘边蜷缩成一团；或是用一个热情的「击掌」来庆祝团队的成功。",
+                "sticker3-link": "下载贴图",
+                "sticker3-website": "贴图官网",
                 "disclaimer-section-title": "免责声明",
                 "disclaimer-section-p1": "亲爱的用户，为了确保您能正确使用 ProfitFairy，请仔细阅读以下免责声明：",
                 "disclaimer-section-li1": "ProfitFairy 仅为商业计算工具，不提供财务建议或投资指导",
@@ -1396,14 +1681,21 @@
                 "contact-subtitle": "亲爱的用户，我们在这里倾听您的声音",
                 "contact-description": "无论是对 ProfitFairy 的使用体验、功能想法，还是任何想要分享的点点滴滴，我们都非常重视并期待收到您的讯息。点击下方按钮即可透过邮件与我们联络～",
                 "contact-btn-text": "传送邮件给我们",
+                "privacy-link-text": "隐私权政策",
                 "sidebar-title": "应用推荐",
-                "sidebar-subtitle": "更多精彩应用",
+                "sidebar-subtitle": "更多精彩应用与贴图",
                 "sidebar-app1-name": "ProfitFairy",
                 "sidebar-app2-name": "小主日记",
                 "sidebar-app3-name": "AIOS Realm",
+                "sidebar-app4-name": "MeowCAT-1",
+                "sidebar-app5-name": "MeowCAT-2",
+                "sidebar-app6-name": "MeowCAT-3",
                 "sidebar-download1": "下载应用",
                 "sidebar-download2": "下载应用",
                 "sidebar-download3": "下载应用",
+                "sidebar-download4": "下载贴图",
+                "sidebar-download5": "下载贴图",
+                "sidebar-download6": "下载贴图",
                 "footer-text": "ⓒ 2025 ProfitFairy - 利润精算师<br>锁定你要的盈利"
             },
             en: {
@@ -1415,6 +1707,7 @@
                 "cross-border-line3": "→ ProfitFairy always lets you see profit truth faster!",
                 "nav-features": "Features",
                 "nav-business": "Business Tools",
+                "nav-stickers": "Stickers",
                 "nav-apps": "Other Apps",
                 "nav-contact": "Contact Us",
                 "hero-title": "ProfitFairy - The Profit Master",
@@ -1438,6 +1731,23 @@
                 "business-description": "ProfitFairy isn't a calculator, it's a business wizard that predicts profits. The seemingly simple design hides a calculation engine that makes accountants kneel, solving your frustration of 'wanting to throw the calculator every time you calculate'.",
                 "disclaimer-title": "💎 Seemingly Simple, Incredibly Powerful:",
                 "disclaimer-text": "Focus on making every business calculation worthy of your professional judgment. Supports over 5000% premium rates, even luxury pricing can be easily handled!",
+                "stickers-title": "Ans1lStickers: MeowCAT Office Series",
+                "stickers-subtitle": "Three carefully selected office-themed sticker packs to brighten your day with adorable tabby cat expressions",
+                "sticker1-title": "MeowCAT-1: Office Paws",
+                "sticker1-subtitle": "Your Daily Dose of Cuteness",
+                "sticker1-description": "Step into the everyday chaos of office life with MeowCAT – Office Series! This sticker pack captures the real struggles of every modern worker: rushing through rainy morning commutes, squeezing into crowded elevators, fighting KPI battles, and celebrating small victories. Every moment of office life becomes fun, cute, and painfully relatable with these expressive MeowCAT stickers.",
+                "sticker1-link": "Download Stickers",
+                "sticker1-website": "Sticker Website",
+                "sticker2-title": "MeowCAT-2: Corporate Meltdown",
+                "sticker2-subtitle": "Sassy & Stressed-out",
+                "sticker2-description": "Another soul-crushing deadline looms. Your inbox is a digital hydra—for every email you slay, two more appear. Your boss's 'urgent' request is the fifth today. Welcome to the corporate jungle, where the only thing more unpredictable than the stock market is your will to live. But wait! From the depths of your burning-out soul, a hero emerges. No, it's not the IT guy. It's your inner office cat—sassy, stressed-out, and armed with an attitude that could curdle milk from ten paces.",
+                "sticker2-link": "Download Stickers",
+                "sticker2-website": "Sticker Website",
+                "sticker3-title": "MeowCAT-3: Cubicle Tails",
+                "sticker3-subtitle": "Say It with a Meow",
+                "sticker3-description": "Every cubicle has its untold story. The endless meetings, the looming deadlines, the joy of a project finally done, and the silent plea for more coffee... But what if your workspace was shared with a few furry friends? Imagine a clever cat subtly rolling its eyes during a long presentation. A sleepy kitten curled up next your keyboard on a slow afternoon. An enthusiastic 'paw-bump' to celebrate a team success.",
+                "sticker3-link": "Download Stickers",
+                "sticker3-website": "Sticker Website",
                 "disclaimer-section-title": "Disclaimer",
                 "disclaimer-section-p1": "Dear user, to ensure you use ProfitFairy correctly, please read the following disclaimer carefully:",
                 "disclaimer-section-li1": "ProfitFairy is only a business calculation tool and does not provide financial advice or investment guidance",
@@ -1461,14 +1771,21 @@
                 "contact-subtitle": "Dear user, we are here to listen to your voice",
                 "contact-description": "Whether it's about your experience with ProfitFairy, feature ideas, or anything you'd like to share, we value and look forward to receiving your message. Click the button below to contact us via email～",
                 "contact-btn-text": "Send Email to Us",
+                "privacy-link-text": "Privacy Policy",
                 "sidebar-title": "App Recommendations",
-                "sidebar-subtitle": "More Wonderful Apps",
+                "sidebar-subtitle": "More Wonderful Apps & Stickers",
                 "sidebar-app1-name": "ProfitFairy",
                 "sidebar-app2-name": "RubyDays",
                 "sidebar-app3-name": "AIOS Realm",
+                "sidebar-app4-name": "MeowCAT-1",
+                "sidebar-app5-name": "MeowCAT-2",
+                "sidebar-app6-name": "MeowCAT-3",
                 "sidebar-download1": "Download App",
                 "sidebar-download2": "Download App",
                 "sidebar-download3": "Download App",
+                "sidebar-download4": "Download Stickers",
+                "sidebar-download5": "Download Stickers",
+                "sidebar-download6": "Download Stickers",
                 "footer-text": "ⓒ 2025 ProfitFairy - The Profit Master<br>Lock your profit"
             },
             ja: {
@@ -1480,6 +1797,7 @@
                 "cross-border-line3": "→ ProfitFairyは常に利益の真実を先んじて見せます！",
                 "nav-features": "機能特徴",
                 "nav-business": "ビジネスツール",
+                "nav-stickers": "ステッカー",
                 "nav-apps": "他のアプリ",
                 "nav-contact": "お問い合わせ",
                 "hero-title": "ProfitFairy - 利益マスター",
@@ -1503,6 +1821,23 @@
                 "business-description": "ProfitFairyは電卓ではなく、利益を予測するビジネスウィザードです。一見シンプルなデザインには、会計士も跪く計算エンジンが隠されており、「計算するたびに電卓を投げ捨てたくなる」という執着を解決します。",
                 "disclaimer-title": "💎 一見シンプル、驚異的な威力：",
                 "disclaimer-text": "すべてのビジネス計算があなたの専門的判断にふさわしいものになるよう注力。5000%以上のプレミアムレートをサポート、高級品の価格設定も簡単に扱えます！",
+                "stickers-title": "Ans1lStickers: MeowCAT オフィスシリーズ",
+                "stickers-subtitle": "厳選された3つのオフィステーマステッカーパックで、愛らしいトラ猫の表情で毎日を明るく",
+                "sticker1-title": "MeowCAT-1: オフィスネコ",
+                "sticker1-subtitle": "あなたの毎日の可愛さの摂取量",
+                "sticker1-description": "MeowCAT – オフィスシリーズで、日常の混沌としたオフィスライフに足を踏み入れましょう！このステッカーパックは、現代の働く人々の本当の苦闘を捉えています：雨の朝の通勤を急ぐ、混雑したエレベーターに詰め込まれる、KPIとの戦い、小さな勝利を祝う。これらの表現豊かなMeowCATステッカーで、オフィスライフのすべての瞬間が楽しく、可愛く、痛いほど共感できるものになります。",
+                "sticker1-link": "ステッカーをダウンロード",
+                "sticker1-website": "ステッカー公式サイト",
+                "sticker2-title": "MeowCAT-2: 社畜のメンタル爆破",
+                "sticker2-subtitle": "ツンデレ&脳筋破裂",
+                "sticker2-description": "また一つ、魂を押しつぶすような締め切りが迫っている。受信箱はデジタルハイドラのようだ——1通のメールを処理しても、さらに2通が現れる。上司の「至急」の依頼は今日5回目だし、コーヒーマシンもついに寿命だ。企業というジャングルへようこそ。ここでは、株式市場よりも予測不能なのは、あなたの生きる意志だけだ。しかし待て！燃え尽きそうな魂の奥底から、ヒーローが現れる。いいえ、IT担当のあの人ではない。あなたの内なるオフィス猫——生意気で、ストレスが溜まりまくり、十歩先からミルクを凝固させられるような強気な態度を備えている。",
+                "sticker2-link": "ステッカーをダウンロード",
+                "sticker2-website": "ステッカー公式サイト",
+                "sticker3-title": "MeowCAT-3: 業務にゃん",
+                "sticker3-subtitle": "鳴き声で、伝えよう",
+                "sticker3-description": "ひとつひとつのオフィスブースには、語られない物語があります。終わりのない会議、迫りくる締め切り、プロジェクト完了の喜び、そしてもっとコーヒーが欲しいという無言の願い...でも、もしあなたの職場に、数匹の毛茸な友達がいたらどうでしょう？長いプレゼンテーション中に、賢い猫がこっそり白目をむいている様子を想像してみてください。のんびりした午後、キーボードの横で眠たそうに丸くなる子猫。チームの成功を祝う、熱心な「肉球ハイタッチ」。",
+                "sticker3-link": "ステッカーをダウンロード",
+                "sticker3-website": "ステッカー公式サイト",
                 "disclaimer-section-title": "免責事項",
                 "disclaimer-section-p1": "親愛なるユーザーの皆様、ProfitFairyを正しくご利用いただくために、以下の免責事項をよくお読みください：",
                 "disclaimer-section-li1": "ProfitFairyはビジネス計算ツールであり、財務アドバイスや投資ガイダンスを提供するものではありません",
@@ -1526,14 +1861,21 @@
                 "contact-subtitle": "親愛なるユーザーの皆様、私たちはあなたの声を聴くためにここにいます",
                 "contact-description": "ProfitFairyの使用体験、機能のアイデア、または共有したいことについて、私たちはあなたのメッセージを大切にし、受け取ることを楽しみにしています。以下のボタンをクリックしてメールでお問い合わせください～",
                 "contact-btn-text": "メールを送信",
+                "privacy-link-text": "プライバシーポリシー",
                 "sidebar-title": "アプリのおすすめ",
-                "sidebar-subtitle": "もっと素晴らしいアプリ",
+                "sidebar-subtitle": "もっと素晴らしいアプリとステッカー",
                 "sidebar-app1-name": "ProfitFairy",
                 "sidebar-app2-name": "姫様ダイアリー",
                 "sidebar-app3-name": "AIOS Realm",
+                "sidebar-app4-name": "MeowCAT-1",
+                "sidebar-app5-name": "MeowCAT-2",
+                "sidebar-app6-name": "MeowCAT-3",
                 "sidebar-download1": "アプリをダウンロード",
                 "sidebar-download2": "アプリをダウンロード",
                 "sidebar-download3": "アプリをダウンロード",
+                "sidebar-download4": "ステッカーをダウンロード",
+                "sidebar-download5": "ステッカーをダウンロード",
+                "sidebar-download6": "ステッカーをダウンロード",
                 "footer-text": "ⓒ 2025 ProfitFairy - 利益マスター<br>あなたの利益をしっかりロック"
             },
             ko: {
@@ -1545,6 +1887,7 @@
                 "cross-border-line3": "→ ProfitFairy는 항상 이익의 진실을 먼저 보여줍니다!",
                 "nav-features": "기능 특징",
                 "nav-business": "비즈니스 도구",
+                "nav-stickers": "스티커",
                 "nav-apps": "다른 앱",
                 "nav-contact": "문의하기",
                 "hero-title": "ProfitFairy - 이익 마스터",
@@ -1568,6 +1911,23 @@
                 "business-description": "ProfitFairy는 계산기가 아니라, 이익을 예측하는 비즈니스 마법사입니다. 겉보기에는 단순한 디자인에 회계사도 무릎 꿇는 계산 엔진이 숨겨져 있어, '계산할 때마다 계산기를 던지고 싶은' 집착을 해결합니다.",
                 "disclaimer-title": "💎 겉보기엔 단순, 놀라운 위력:",
                 "disclaimer-text": "모든 비즈니스 계산이 당신의 전문적 판단에 걸맞도록 집중. 5000% 이상의 프리미엄 요율 지원, 명품 가격 설정도 쉽게 다룰 수 있습니다!",
+                "stickers-title": "Ans1lStickers: MeowCAT 오피스 시리즈",
+                "stickers-subtitle": "엄선된 3가지 오피스 테마 스티커 팩으로 사랑스러운 얼룩고양이 표정으로 매일을 밝게",
+                "sticker1-title": "MeowCAT-1: 사무실 고양이",
+                "sticker1-subtitle": "당신의 매일 매력 복용량",
+                "sticker1-description": "MeowCAT – 오피스 시리즈와 함께 일상적인 혼란스러운 사무실 생활로 들어가세요! 이 스티커 팩은 모든 현대 직장인의 실제 고군분투를 포착합니다: 비오는 아침 출퇴근길 서두르기, 혼잡한 엘리베이터에 쑤셔넣기, KPI 전투, 작은 승리 축하하기. 이러한 표현력이 풍부한 MeowCAT 스티커로 사무실 생활의 모든 순간이 재미있고, 귀엽고, 고통스러울 정도로 공감 가는 것이 됩니다.",
+                "sticker1-link": "스티커 다운로드",
+                "sticker1-website": "스티커 공식 웹사이트",
+                "sticker2-title": "MeowCAT-2: 회사 괴롭힘 실태",
+                "sticker2-subtitle": "삐졌음 스트레스 폭발함",
+                "sticker2-description": "또 다른 영혼을 으스러뜨리는 마감 시간이 다가옵니다. 여러분의 수신함은 디지털 히드라와 같습니다——이메일 하나를 처리할 때마다 두 개의 새로운 이메일이 나타납니다. 상사의 '긴급' 요청은 오늘만 다섯 번째고, 커피 머신은 결국 수명을 다했습니다. 기업 정글에 오신 것을 환영합니다. 여기서 주식 시장보다 예측할 수 없는 유일한 것은 여러분의 생존 의지뿐입니다. 하지만 기다려 보세요! 여러분의 번아웃 직전의 영혼 깊은 곳에서 영웅이 등장합니다. 아닙니다, IT 담당자가 아닙니다. 그것은 여러분 내면의 오피스 고양이——건방지고, 스트레스 가득하며, 열 걸음 밖에서도 우를 응고시킬 수 있는 태도를 가진 영웅입니다.",
+                "sticker2-link": "스티커 다운로드",
+                "sticker2-website": "스티커 공식 웹사이트",
+                "sticker3-title": "MeowCAT-3: 사무실 야옹이",
+                "sticker3-subtitle": "야옹으로 전해요",
+                "sticker3-description": "모든 사무실 칸막이에는 전하지 못한 이야기가 있습니다. 끝없는 회의, 코앞으로 다가온 마감일, 프로젝트가 마침내 끝난 기쁨, 그리고 더 많은 커피에 대한 침묵의 간청... 하지만 여러분의 작업 공간에 털복숭이 친구들이 함께 한다면 어떨까요? 긴 프레젠테이션 도중 영리한 고양이가 슬쩍 눈을 굴리는 모습을 상상해 보세요. 느릿한 오후, 키보드 옆에 졸린 고양이가 웅크리고 있는 모습. 팀의 성공을 축하하는 열정적인 '포옹 하이파이브'.",
+                "sticker3-link": "스티커 다운로드",
+                "sticker3-website": "스티커 공식 웹사이트",
                 "disclaimer-section-title": "면책 조항",
                 "disclaimer-section-p1": "사랑하는 사용자 여러분, ProfitFairy를 올바르게 사용할 수 있도록 다음 면책 조항을 주의 깊게 읽어주세요:",
                 "disclaimer-section-li1": "ProfitFairy는 비즈니스 계산 도구일 뿐이며 재무 조언이나 투자 지침을 제공하지 않습니다",
@@ -1591,14 +1951,21 @@
                 "contact-subtitle": "사랑하는 사용자 여러분, 우리는 여러분의 목소리를 듣기 위해 여기에 있습니다",
                 "contact-description": "ProfitFairy 사용 경험, 기능 아이디어, 또는 공유하고 싶은 어떤 것에 대해서도 우리는 여러분의 메시지를 소중히 여기며 기다리고 있습니다. 아래 버튼을 클릭하여 이메일로 문의해 주세요～",
                 "contact-btn-text": "이메일 보내기",
+                "privacy-link-text": "개인정보 보호정책",
                 "sidebar-title": "앱 추천",
-                "sidebar-subtitle": "더 많은 멋진 앱",
+                "sidebar-subtitle": "더 많은 멋진 앱과 스티커",
                 "sidebar-app1-name": "ProfitFairy",
                 "sidebar-app2-name": "공주님 다이어리",
                 "sidebar-app3-name": "AIOS Realm",
+                "sidebar-app4-name": "MeowCAT-1",
+                "sidebar-app5-name": "MeowCAT-2",
+                "sidebar-app6-name": "MeowCAT-3",
                 "sidebar-download1": "앱 다운로드",
                 "sidebar-download2": "앱 다운로드",
                 "sidebar-download3": "앱 다운로드",
+                "sidebar-download4": "스티커 다운로드",
+                "sidebar-download5": "스티커 다운로드",
+                "sidebar-download6": "스티커 다운로드",
                 "footer-text": "ⓒ 2025 ProfitFairy - 이익 마스터<br>당신이 원하는 이익을 확실히 잡으세요"
             }
         };
